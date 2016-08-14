@@ -1,0 +1,9 @@
+*.pdf
+phd.aux
+phd.bbl
+phd.blg
+phd.lof
+phd.log
+phd.lot
+phd.toc
+phd.out
