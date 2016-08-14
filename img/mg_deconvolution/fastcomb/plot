@@ -1,0 +1,190 @@
+set size square
+set pm3d map
+set dgrid3d 21, 21, 10 gauss 70, 70
+set pm3d interpolate 3,3
+#set contour
+set cntrparam levels auto 10
+#set key outside
+#set term jpeg
+set term postscript enhanced color
+#set terminal pdf
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "Y / {/Symbol m}m"
+#set palette gray
+set palette rgbformulae -30, -31, -32 # quickgrid
+#set palette rgbformulae 22, 13, -31 # quickgrid
+#set palette rgbformulae 33, 13, 10 # rainbow
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -3,0
+set xlabel offset 0,-2
+set xtics -1000, 500, 1000
+set ytics -1000, 500, 1000
+set yrange [-1000:1000]
+set xrange [-1000:1000]
+
+### SCANS
+#set colorbox vertical user origin .7, 0 size 0.02, 0.5 
+#set colorbox horizontal
+set cblabel "pMg^{2+}"
+set xtics -1000, 500, 1000
+set ytics -1000, 500, 1000
+set yrange [-1000:1000]
+set xrange [-1000:1000]
+set cbrange [3:5.5]
+
+set label "A" at -900, 800 tc rgb "white" font ",40" front
+set out "14111808.eps" 
+splot "14111808.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "B" at -900, 800 tc rgb "white" font ",40" front
+set out "14111807.eps" 
+splot "14111807.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "C" at -900, 800 tc rgb "white" font ",40" front
+set out "14111806.eps" 
+splot "14111806.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "D" at -900, 800 tc rgb "white" font ",40" front
+set out "14111805.eps" 
+splot "14111805.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+set label "E" at -900, 800 tc rgb "white" font ",40" front
+set out "14111808_deconvoluted.eps" 
+splot "14111808_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "F" at -900, 800 tc rgb "white" font ",40" front
+set out "14111807_deconvoluted.eps" 
+splot "14111807_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "G" at -900, 800 tc rgb "white" font ",40" front
+set out "14111806_deconvoluted.eps" 
+splot "14111806_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "H" at -900, 800 tc rgb "white" font ",40" front
+set out "14111805_deconvoluted.eps" 
+splot "14111805_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+
+set palette defined (-1 "red", 0 "black", 1 "green")
+set cbrange [-0.7:0.7]
+set label "I" at -900, 800 tc rgb "white" font ",40" front
+set out "14111808_dd.eps" 
+splot "14111808_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "J" at -900, 800 tc rgb "white" font ",40" front
+set out "14111807_dd.eps" 
+splot "14111807_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "K" at -900, 800 tc rgb "white" font ",40" front
+set out "14111806_dd.eps" 
+splot "14111806_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "L" at -900, 800 tc rgb "white" font ",40" front
+set out "14111805_dd.eps" 
+splot "14111805_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+
+
+set palette rgbformulae -30, -31, -32 # quickgrid
+set cbrange [3:5.3]
+#set cbrange [0.09:0.14]
+set label "A" at -900, 800 tc rgb "white" font ",40" front
+set out "14070706.eps" 
+splot "14070706.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "B" at -900, 800 tc rgb "white" font ",40" front
+set out "14070707.eps" 
+splot "14070707.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "C" at -900, 800 tc rgb "white" font ",40" front
+set out "14070708.eps" 
+splot "14070708.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "D" at -900, 800 tc rgb "white" font ",40" front
+set out "14070709.eps" 
+splot "14070709.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+set label "E" at -900, 800 tc rgb "white" font ",40" front
+set out "14070706_deconvoluted.eps" 
+splot "14070706_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "F" at -900, 800 tc rgb "white" font ",40" front
+set out "14070707_deconvoluted.eps" 
+splot "14070707_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "G" at -900, 800 tc rgb "white" font ",40" front
+set out "14070708_deconvoluted.eps" 
+splot "14070708_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "H" at -900, 800 tc rgb "white" font ",40" front
+set out "14070709_deconvoluted.eps" 
+splot "14070709_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+set palette defined (-1 "red", 0 "black", 1 "green")
+set cbrange [-0.7:0.7]
+set label "I" at -900, 800 tc rgb "white" font ",40" front
+set out "14070706_dd.eps" 
+splot "14070706_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "J" at -900, 800 tc rgb "white" font ",40" front
+set out "14070707_dd.eps" 
+splot "14070707_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "K" at -900, 800 tc rgb "white" font ",40" front
+set out "14070708_dd.eps" 
+splot "14070708_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+set label "L" at -900, 800 tc rgb "white" font ",40" front
+set out "14070709_dd.eps" 
+splot "14070709_dd.txt" u (($1-10)*100):(($2-10)*100):($3/0.023) notitle
+unset label
+
+set palette defined (-1 "red", 0 "black", 1 "green")
+set cbrange [-0.02:0.02]
+set label "I" at -900, 800 tc rgb "white" font ",40" front
+set out "14070706_diff.eps" 
+splot "14070706_diff.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "J" at -900, 800 tc rgb "white" font ",40" front
+set out "14070707_diff.eps" 
+splot "14070707_diff.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "K" at -900, 800 tc rgb "white" font ",40" front
+set out "14070708_diff.eps" 
+splot "14070708_diff.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "L" at -900, 800 tc rgb "white" font ",40" front
+set out "14070709_diff.eps" 
+splot "14070709_diff.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+set label "M" at -900, 800 tc rgb "white" font ",40" front
+set out "14070706_diffo.eps" 
+splot "14070706_diffo.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "N" at -900, 800 tc rgb "white" font ",40" front
+set out "14070707_diffo.eps" 
+splot "14070707_diffo.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "O" at -900, 800 tc rgb "white" font ",40" front
+set out "14070708_diffo.eps" 
+splot "14070708_diffo.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+set label "P" at -900, 800 tc rgb "white" font ",40" front
+set out "14070709_diffo.eps" 
+splot "14070709_diffo.txt" u (($1-10)*100):(($2-10)*100):(-$3/0.023+9) notitle
+unset label
+
+
+

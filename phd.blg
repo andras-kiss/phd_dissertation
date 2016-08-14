@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: phd.aux
+The style file: ieeetr.bst
+Illegal, another \bibstyle command---line 463 of file phd.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: phd.bib
+Repeated entry---line 706 of file phd.bib
+ : @article{horrocks1993scanning
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 923 of file phd.bib
+ : @article{beyenal2004improved
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1286 of file phd.bib
+ : @article{gyetvai2007solid
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1308 of file phd.bib
+ : @article{lamaka2009novel
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1341 of file phd.bib
+ : @article{kiss2011air
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in ling1950external
+Warning--empty journal in sorensen1909messung
+Warning--can't use both volume and number fields in durst1975standardization
+Warning--empty journal in covington2002measurement
+Warning--empty journal in hinke1959glass
+Warning--empty journal in hill2015art
+Warning--empty journal in chen2006deconvolution
+Too many commas in name 1 of "Havas, J.; Kecskes, L.; Erdelyi, J." for entry havas1981
+while executing---line 969 of file ieeetr.bst
+Warning--empty title in havas1981
+You've used 109 entries,
+            1876 wiz_defined-function locations,
+            1111 strings with 22636 characters,
+and the built_in function-call counts, 34359 in all, are:
+= -- 3650
+> -- 1183
+< -- 0
++ -- 437
+- -- 328
+* -- 2482
+:= -- 4661
+add.period$ -- 115
+call.type$ -- 109
+change.case$ -- 102
+chr.to.int$ -- 0
+cite$ -- 117
+duplicate$ -- 1722
+empty$ -- 3070
+format.name$ -- 328
+if$ -- 8444
+int.to.chr$ -- 0
+int.to.str$ -- 109
+missing$ -- 112
+newline$ -- 337
+num.names$ -- 109
+pop$ -- 218
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1368
+stack$ -- 0
+substring$ -- 2881
+swap$ -- 853
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 8
+while$ -- 368
+width$ -- 112
+write$ -- 1135
+(There were 7 error messages)

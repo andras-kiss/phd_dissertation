@@ -1,0 +1,33 @@
+%####################################################################################################
+%########################################## by ANDRÁS KISS ##########################################
+%###################################### Doctoral Dissertation #######################################
+%############################################### 2016 ###############################################
+%####################################################################################################
+
+\input{tex/preamble.tex}
+
+\begin{document}
+
+\frontmatter
+   \input{tex/title.tex}
+   \input{tex/preface.tex}
+   \input{tex/acknowledgements.tex}
+\mainmatter
+   \input{tex/motivation.tex}
+   \input{tex/introduction.tex}
+   \input{tex/theory.tex}
+   \input{tex/methods.tex}
+   \input{tex/results.tex}
+   \input{tex/conclusions.tex}
+\backmatter
+   \addcontentsline{toc}{chapter}{List of Figures}
+   \listoffigures
+   \addcontentsline{toc}{chapter}{List of Tables}
+   \listoftables
+   \input{tex/abbreviations.tex}
+   \bibliography{phd}{}
+   \bibliographystyle{plain}
+   \input{tex/appendix.tex}
+   \input{tex/preparation.tex}
+
+\end{document}

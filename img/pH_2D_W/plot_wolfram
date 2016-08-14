@@ -1,0 +1,76 @@
+set size square
+set pm3d map
+#set dgrid3d 31, 31, 10, gauss 80, 80
+set pm3d interpolate 2,2
+#set contour
+#set cntrparam levels auto 10
+set term postscript enhanced color
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "Y / {/Symbol m}m"
+#set palette negative cubehelix
+set palette rgb -21,-22,-23 #hot
+#set palette rgbformulae 22, 13, -31 # quickgrid
+#set palette rgbformulae 33, 13, 10 # rainbow
+#set palette rgbformulae -30, -31, -32 # complete heatmap
+#matlab palette colors
+#set palette defined ( 0 "#000090",\
+ #                     1 "#000fff",\
+  #                    2 "#0090ff",\
+   #                   3 "#0fffee",\
+    #                  4 "#90ff70",\
+     #                 5 "#ffee00",\
+      #                6 "#ff7000",\
+       #               7 "#ee0000",\
+        #              8 "#7f0000")
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -2,0
+set xlabel offset 0,-2
+
+### SCANS
+set size square
+set pm3d map
+set dgrid3d 21, 21 , 10, gauss 70, 70
+set pm3d interpolate 3,3
+set xtics -1000, 500, 1000
+set ytics -1000, 500, 1000
+set yrange [-1000:1000]
+set xrange [-1000:1000]
+#set dgrid3d 31, 31, 1
+set cblabel "E vs. Ag/AgCl/3M KCl / V"
+
+set autoscale
+set label "B" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.32:-0.36]
+set out "16020905.eps"
+splot "16020905.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set autoscale
+set label "D" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.32:-0.42]
+set out "16020905_deconvoluted.eps"
+splot "16020905_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set autoscale
+set label "A" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.32:-0.36]
+set out "16020904.eps"
+splot "16020904.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set autoscale
+set label "C" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.32:-0.42]
+set out "16020904_deconvoluted.eps"
+splot "16020904_deconvoluted.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+

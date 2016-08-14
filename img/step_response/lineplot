@@ -1,0 +1,51 @@
+#set size square;
+#set cntrparam levels auto 10
+set term postscript enhanced color
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "pMg^{2+}"
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -2,0
+set xlabel offset 0,-2
+set key font ",25"
+set key spacing 3
+
+
+
+#step(x) = x>50 ? -280 : -182.5
+set ylabel "E / mV"
+unset xrange
+unset yrange
+set xlabel "time / s"
+#set label "A" at 0.01, 0 tc rgb "black" font ",40" front
+set xrange [30:100]
+set yrange [-350:-100]
+set out "transient3.eps"
+plot "transient3.txt" with points pt 7 lc rgb "red" title "raw recording","transient3_deconvoluted07.txt" with points pt 7 lc rgb "orange" title "RC = 1.40s", "transient3_deconvoluted075.txt" with points pt 7 lc rgb "yellow" title "RC = 1.74s", "transient3_deconvoluted08.txt" with points pt 7 lc rgb "green" title "RC = 2.24s", "transient3_deconvoluted085.txt" with points pt 7 lc rgb "cyan" title "RC = 3.76s", "transient3_deconvoluted09.txt" with points pt 7 lc rgb "blue" title "RC = 4.75s", "transient3_deconvoluted095.txt" with points pt 7 lc rgb "violet" title "RC = 9.75s" 
+
+#plot "transient3.txt" with lines lc rgb "red" notitle,"transient3_deconvoluted07.txt" with lines lc rgb "orange" notitle, "transient3_deconvoluted075.txt" with lines lc rgb "yellow" notitle, "transient3_deconvoluted08.txt" with lines lc rgb "green" notitle, "transient3_deconvoluted085.txt" with lines lc rgb "cyan" notitle, "transient3_deconvoluted09.txt" with lines lc rgb "blue" notitle, "transient3_deconvoluted095.txt" with lines lc rgb "violet" notitle 
+
+
+unset label
+
+
+set ylabel "E / V"
+unset xrange
+unset yrange
+set xlabel "time / s"
+#set label "A" at 0.01, 0 tc rgb "black" font ",40" front
+set xrange [30:100]
+set yrange [-350:-150]
+set out "transient2.eps"
+plot "transient2.txt" with points pt 7,"transient2_deconvoluted.txt" with points pt 7 
+unset label
+
+set out "transient_deconvoluted.eps"
+plot "transient_deconvoluted.txt"  u ($2) with lines notitle
+unset label

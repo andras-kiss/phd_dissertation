@@ -1,0 +1,119 @@
+set size square
+set pm3d map
+set dgrid3d 21, 21, 1
+set pm3d interpolate 4,4
+#set contour
+#set cntrparam levels auto 10
+set term postscript enhanced color
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "Y / {/Symbol m}m"
+set cblabel "E vs. Ag/AgCl/3M KCl / V"
+set palette rgbformulae 22, 13, -31 # quickgrid
+#set palette rgbformulae 33, 13, 10 # rainbow
+#set palette rgbformulae 30, 31, 32 # complete heatmap
+# matlab palette colors
+#set palette defined ( 0 "#000090",\
+ #                     1 "#000fff",\
+  #                    2 "#0090ff",\
+   #                   3 "#0fffee",\
+    #                  4 "#90ff70",\
+     #                 5 "#ffee00",\
+      #                6 "#ff7000",\
+       #               7 "#ee0000",\
+        #              8 "#7f0000")
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -2,0
+set xlabel offset 0,-1
+
+### SCANS
+set xtics -1000, 500, 1000
+set ytics -1000, 500, 1000
+set yrange [-1000:1000]
+set xrange [-1000:1000]
+set dgrid3d 21, 21, 1
+
+set label "A" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.302:-0.29]
+set out "13121313.eps"
+splot "13121313.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "E" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.292:-0.255]
+set out "13121313_deconvoluted.eps"
+splot "13121313_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "B" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.32:-0.305]
+set out "13121314.eps"
+splot "13121314.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "F" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.308:-0.265]
+set out "13121314_deconvoluted.eps"
+splot "13121314_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "C" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.321:-0.308]
+set out "13121315.eps"
+splot "13121315.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "G" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.305:-0.265]
+set out "13121315_deconvoluted.eps"
+splot "13121315_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "D" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.31:-0.298]
+set out "13121316.eps"
+splot "13121316.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "H" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.3:-0.265]
+set out "13121316_deconvoluted.eps"
+splot "13121316_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "1000 ms" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.315:-0.305]
+set out "13121317.eps"
+splot "13121317.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "1000 ms" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.315:-0.3]
+set out "13121317_deconvoluted.eps"
+splot "13121317_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "2000 ms" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.345:-0.335]
+set out "13121318.eps"
+splot "13121318.txt" u (($1-10)*100):(($2-10)*100):($3) notitle
+unset label
+
+set label "2000 ms" at -900, 800 tc rgb "white" font ",40" front
+set cbrange [-0.345:-0.335]
+set out "13121318_deconvoluted.eps"
+splot "13121318_deconvoluted.txt" u ($1-1000):($2-1000):($3) notitle
+unset label
+
+set label "1000 ms" at -900, 800 tc rgb "white" font ",40" front
+set dgrid 21,21,1 gauss 100,100
+set cbrange [-0.23:-0.15]
+set out "arc_deconvoluted.eps"
+splot "arc_deconvoluted.txt"  notitle
+unset label

@@ -1,0 +1,51 @@
+set size 0.8,0.8
+set pm3d map
+set dgrid3d 45, 21, 10 gauss 50, 50
+set pm3d interpolate 3,3
+#set contour
+#set cntrparam levels auto 10
+#set key outside
+#set term jpeg
+set term postscript enhanced color
+#set terminal pdf
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "Y / {/Symbol m}m"
+set cblabel "E vs. Ag/AgCl/10^{-3}M NaCl / V"
+#set palette gray
+
+#set palette rgbformulae -30, -31, -32 # quickgrid
+#set palette defined (-0.6 "blue", -0.37 "black", -0.28 "red")
+set palette defined (-0.48 "black", -0.44 "blue", -0.4 "green", -0.34 "green", -0.31 "yellow", -0.28 "red")
+#set palette defined (-0.48 "black", -0.44 "purple", -0.4 "blue", -0.34 "blue", -0.31 "green", -0.28 "yellow")
+
+#set palette rgbformulae 22, 13, -31 # quickgrid
+#set palette rgbformulae 33, 13, 10 # rainbow
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -3,0
+set xlabel offset 0,-2
+#set xtics 0, 500, 2200
+#set ytics 0, 500, 2200
+set yrange [-1000:0]
+set xrange [-2200:0]
+#set cbrange [-0.5:-0.3]
+
+
+### SCANS
+#set colorbox vertical user origin .7, 0 size 0.02, 0.5 
+#set colorbox horizontal
+set label "A" at -2000, -150 tc rgb "black" font ",40" front
+set out "1.eps" 
+splot "1.txt" u ($1):($2):($3) notitle
+unset label
+#set cbrange [-0.51:-0.320]
+
+set label "B" at -2000, -150 tc rgb "black" font ",40" front
+set out "1_deconvoluted.eps" 
+splot "1_deconvoluted.txt" u ($1):($2):($3) notitle
