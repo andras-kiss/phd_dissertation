@@ -36,11 +36,6 @@ a=0.
 b=0.
 mask=1
 
-! Tömb feltöltése. Ha azt akarod, hogy egy cella ne 
-! változzon (Dirichlet), akkor azon a cellán mask=0.
-! Fluxus tömb: minden körben hozzáadódik a fluxusban 
-! tárolt érték a c-tömbhöz. Térbeli felbontást a 
-! D (const) határozza meg.
 do i=1, 100
   do j=1, 100
     if ( ((i-50)**2+(j-50)**2) < 20**2 ) then
@@ -66,22 +61,18 @@ do i=0, 100, 5
 end do
 close(1)
 
-! Dirichlet feltétel
-! front és hátsó lap
 do k=1, 100
   do i=1, 100
     mask(i, 1, k)=0
     mask(i, 100, k)=0
   end do
 end do
-! jobb és bal lap
 do k=1, 100
   do j=1, 100
     mask(1, j, k)=0
     mask(100, j, k)=0
   end do
 end do
-! fed¿lap
 do j=1, 100
   do i=1, 100
     do i=1, 100
@@ -89,8 +80,6 @@ do j=1, 100
     end do
 end do
 
-! Számolás. Az id¿beli felbontást D (const) határozza meg.
-! b és a tömbök váltakoznak, így nem kell az egész tömböt másolgatni.
 b=a
 switch=0
 ! x=i, y=j, z=k, h=time
@@ -118,14 +107,12 @@ do h=1, 500 ! M A I N  L O O P
     end do
   end do
         
-  ! Fluxusok hozzáadása.
   do j=1, 100
     do i=1, 100
       b(i,j,1)=b(i,j,1)+flux(i,j,1)
     end do
   end do  
         
-  ! a és b tömbök cseréje
   a=b
   print *,h
 
