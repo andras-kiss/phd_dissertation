@@ -11,7 +11,7 @@
 #gnuplot plot_transient
 
 # gnuplot plot_sb
-# pdflatex phd.tex
+pdflatex phd.tex
 bibtex phd
-# pdflatex phd.tex
+pdflatex phd.tex
 pdflatex phd.tex

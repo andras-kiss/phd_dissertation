@@ -1,4 +1,7 @@
 *.pdf
+!phd.pdf
+!img/zinc_copper/1.pdf
+!img/zinc_copper/1_deconvoluted.pdf
 phd.aux
 phd.bbl
 phd.blg
