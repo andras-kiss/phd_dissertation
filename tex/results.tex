@@ -116,6 +116,7 @@ Scan rate: 12.5 $\upmu$m/s.}
 \label{fig:solid_liquid_pipette}
 \end{figure}
 
+
 \begin{table}
                 \caption[Resistance measurements for the two kinds of Mg$^{2+}$ ion-selective micropipette electrodes.]{Resistance measurements for the two kinds of Mg$^{2+}$ ion-selective micropipette electrodes conducted in 1 mM MgCl$_2$  1 mM NaCl solution.}
                 \label{table:comp}
@@ -427,6 +428,40 @@ After deconvolution however, all of the linescans became similar to the equilibr
 \caption[Raw and deconvoluted SECM linescans with the antimony microelectrode.]{(A) Raw, and, (B) deconvoluted SECM linescans above the center of the target, at h = 100 mm height, using three different equilibration periods: 0.5 s, (green), 1 s, (blue), and 5 s, (red).}
 \label{fig:lines_pH}
 \end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+	\begin{axis}[width=5cm,height=5cm,view={0}{90},unit vector ratio*=1 1 1, colormap/thermal,xlabel=x / $\upmu$m, ylabel=y / $\upmu$m]
+	\addplot3[
+		surf,
+		shader=interp,
+		%shader=flat,
+		samples=50,
+		%mesh/rows=21
+		%mesh/cols=21
+		domain=-2:2,y domain=-2:2] 
+		%{sin(deg(x+y^2))};	
+		table from {img/sim/meander_sim.txt};
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[width=5cm,height=5cm, view={0}{90},unit vector ratio*=1 1 1, colormap/thermal,xlabel=x / $\upmu$m, ylabel=y / $\upmu$m]
+	\addplot3[
+		surf,
+		shader=interp,
+		samples=50,
+		domain=-2:2,y domain=-2:2] 
+		{sin(deg(x+y^2))};	
+	\end{axis}
+\end{tikzpicture}
+
+\caption{Pgfplots test figure.}
+\label{fig:lines_pH}
+\end{figure}
+
+
+
 
 			\subsubsection{2D scans performed with the antimony microelectrode}
 \begin{figure}
