@@ -15,3 +15,5 @@ pdflatex phd.tex
 bibtex phd
 pdflatex phd.tex
 pdflatex phd.tex
+
+rm *.{aux,bbl,blg,lof,log,lot,out,toc}
