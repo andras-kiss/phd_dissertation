@@ -448,32 +448,23 @@ After deconvolution however, all of the linescans became similar to the equilibr
 %\begin{figure}
 %\centering
 %\begin{tikzpicture}
-%	\begin{axis}[width=5cm,height=5cm,view={0}{90},unit vector ratio*=1 1 1, colormap/thermal,xlabel=x / $\upmu$m, ylabel=y / $\upmu$m]
+%	\begin{axis}[width=5cm,height=5cm,view={0}{90},unit vector ratio*=1 1 1, colormap/thermal,xlabel=x / $\upmu$m, ylabel=y / $\upmu$m, mesh/rows=21, mesh/cols=21, mesh/ordering=y varies]
 %	\addplot3[
 %		surf,
-%		%shader=interp,
-%		shader=flat,
-%		samples=50,
-%		%mesh/rows=21
-%		%mesh/cols=21
-%		domain=-2:2,y domain=-2:2] 
-%		%{sin(deg(x+y^2))};	
+%		shader=faceted interp,
+%		samples=500,
+%		]
 %		table from {img/sim/meander_sim.txt};
-%	\end{axis}
-%\end{tikzpicture}
-%\begin{tikzpicture}
-%	\begin{axis}[width=5cm,height=5cm, view={0}{90},unit vector ratio*=1 1 1, colormap/thermal,xlabel=x / $\upmu$m, ylabel=y / $\upmu$m]
-%	\addplot3[
-%		surf,
-%		%shader=interp,
-%		samples=50,
-%		domain=-2:2,y domain=-2:2] 
-%		{sin(deg(x+y^2))};	
-%	\end{axis}
-%\end{tikzpicture}
+%	\addplot3 [surf] gnuplot [raw gnuplot] {
+%		set dgrid3d 21,21,1 spline;
+%		%set pm3d interpolate 4,4;
+%	        splot 'img/sim/meander_sim.txt';       
+%	};
 %
+%	\end{axis}
+%\end{tikzpicture}
 %\caption{Pgfplots test figure.}
-%\label{fig:lines_pH}
+%\label{fig:test}
 %\end{figure}
 
 
