@@ -313,11 +313,8 @@ Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.
 \begin{axis}[xmin=-50, xmax=100, width=12cm,height=6cm,xlabel=Time / s, ylabel=E vs. Ag/AgCl/3 M KCl \, mV, clip marker paths=true]
 \addplot [domain=-50:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=-0.1:100, samples=500, color=red, line width=0.4mm] {-280.2+(280.2-183)*exp(-(x)/3.76)};
-%f2(x)=-280.2+(-183+280.2)*exp(-x/3.763245);
-%y = -280.2 + (280.2 - 183) * e-x/3.76
 \node[red, above right] at (axis cs:5,-200) {$y = - 280.2 + (280.2 - 183) \times e^{-x/3.76}$};
 \end{axis}
-%\node[draw] at (0,0) {y = -280.2 + (280.2 - 183) $\times \exp{-x/3.76}$ };
 \end{tikzpicture}
 \caption[Transient response of the antimony microelectrode to analyte activity step.]{Transient response of the antimony microelectrode to analyte activity step.
 The measuring and reference electrodes were dipped into buffer solutions with pH = 4 before the measurements started, and pH = 6 at t = 0 s, respectively.
