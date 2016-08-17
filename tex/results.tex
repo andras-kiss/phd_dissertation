@@ -309,13 +309,19 @@ Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.3\textwidth, angle=-90]{img/transient.eps}
-
-\includegraphics[width=0.3\textwidth, angle=-90]{img/transient_cut.eps}
-
+\begin{tikzpicture}
+\begin{axis}[xmin=-50, xmax=100, width=12cm,height=6cm,xlabel=Time / s, ylabel=E vs. Ag/AgCl/3 M KCl \, mV, clip marker paths=true]
+\addplot [domain=-50:100, color=gray, mark=*] table {data/transient_aligned.txt};
+\addplot [domain=-0.1:100, samples=500, color=red, line width=0.4mm] {-280.2+(280.2-183)*exp(-(x)/3.76)};
+%f2(x)=-280.2+(-183+280.2)*exp(-x/3.763245);
+%y = -280.2 + (280.2 - 183) * e-x/3.76
+\node[red, above right] at (axis cs:5,-200) {$y = - 280.2 + (280.2 - 183) \times e^{-x/3.76}$};
+\end{axis}
+%\node[draw] at (0,0) {y = -280.2 + (280.2 - 183) $\times \exp{-x/3.76}$ };
+\end{tikzpicture}
 \caption[Transient response of the antimony microelectrode to analyte activity step.]{Transient response of the antimony microelectrode to analyte activity step.
-(A) The measuring and reference electrodes were dipped into buffer solutions with pH = 4 and pH = 6 respectively.
-(B) Eq. \ref{eq:rc} was fitted (solid black line) on the section (red dots) of (A) from the pH step to the end of the curve when potential reaches equilibrium in the pH = 6 buffer.}
+The measuring and reference electrodes were dipped into buffer solutions with pH = 4 before the measurements started, and pH = 6 at t = 0 s, respectively.
+Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the pH step to the end of the curve when potential reaches equilibrium in the pH = 6 buffer.}
 \label{fig:transient}
 \end{figure}
 
@@ -421,14 +427,23 @@ After deconvolution however, all of the linescans became similar to the equilibr
 
 \begin{figure}
 \centering
-% trim = top left bottom right
-\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, width=0.3\textwidth, angle=-90]{img/linescans/raw_lines_pH.eps}\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, width=0.3\textwidth, angle=-90]{img/linescans/deconvoluted_lines_pH.eps}
-
-%\includegraphics[trim = 0mm 0mm 0mm 0mm, clip, width=0.3\textwidth, angle=-90]{deconvoluted_lines8.eps}
+\begin{tikzpicture}
+\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=E / V]
+\addplot [color=green] table {data/pH_linescans/500ms.txt};
+\addplot [color=blue] table {data/pH_linescans/1000ms.txt};
+\addplot [color=red] table {data/pH_linescans/5000ms.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=E / V]
+\addplot [color=green] table {data/pH_linescans/500ms_deconvoluted.txt};
+\addplot [color=blue] table {data/pH_linescans/1000ms_deconvoluted.txt};
+\addplot [color=red] table {data/pH_linescans/5000ms_deconvoluted.txt};
+\end{axis}
+\end{tikzpicture}
 \caption[Raw and deconvoluted SECM linescans with the antimony microelectrode.]{(A) Raw, and, (B) deconvoluted SECM linescans above the center of the target, at h = 100 mm height, using three different equilibration periods: 0.5 s, (green), 1 s, (blue), and 5 s, (red).}
 \label{fig:lines_pH}
 \end{figure}
-
 
 	\subsubsection{2D scans performed with the antimony microelectrode}
 \begin{figure}
@@ -506,7 +521,20 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth, angle=-90]{img/linescans/raw_lines.eps}\includegraphics[width=0.3\textwidth, angle=-90]{img/linescans/deconvoluted_lines.eps}
+\begin{tikzpicture}
+\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=pMg, y dir = reverse]
+\addplot [color=red] table {data/Mg_linescans/400ms.txt};
+\addplot [color=green] table {data/Mg_linescans/1900ms.txt};
+\addplot [color=blue] table {data/Mg_linescans/4900ms.txt};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=pMg, y dir = reverse]
+\addplot [color=red] table {data/Mg_linescans/400ms_deconvoluted.txt};
+\addplot [color=green] table {data/Mg_linescans/1900ms_deconvoluted.txt};
+\addplot [color=blue] table {data/Mg_linescans/4900ms_deconvoluted.txt};
+\end{axis}
+\end{tikzpicture}
 
 \caption[Raw, and deconvoluted linescans conducted with the Mg$^{2+}$ ISME]{(A) Raw scan lines recorded $h$ = 100 $\upmu$m over the center of the pipette orifice, which served as a Mg$^{2+}$ ion diffusion source.
 (B) Scan lines obtained after deconvolution.
