@@ -14,3 +14,4 @@ phd.out
 *.dep
 *.md5
 *.dpth
+*.auxlock
