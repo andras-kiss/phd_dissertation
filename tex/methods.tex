@@ -180,6 +180,25 @@ The time needed to reach 95\% of the total potential change caused by the change
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{img/response_time_explained.eps}
+
+\begin{tikzpicture}
+\begin{axis}    [
+                only marks,
+                xmin=900,
+                xmax=1200,
+                ymin=-130,
+                ymax=-70,
+                width=9cm,
+                height=7cm,
+                xlabel={time, s},
+                ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+                /pgf/number format/.cd, use comma, 1000 sep={}
+                ]
+                \addplot [mark=*, mark size=0.5] table {data/electrodes/solid_response_time.txt};
+                %\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+\end{axis}
+\end{tikzpicture}
+
 \caption[Illustration of the parameters used for the determination of response time.]{Illustration of the quantities used for the determination of response time.
 $E_0$: electrode potential prior to change in the activity (of the measured ion), $E_{eq}$: equilibrium electrode potential after the change in activity.
 $\Delta E$: total difference between $E_{eq}$ and $E_{eq}$, $E_{95}$: electrode potential when 95\% of the total change has occured.
