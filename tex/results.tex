@@ -434,7 +434,33 @@ With increasing RPM, the measured $RC$ should converge closer and closer to the 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth, angle=-90]{img/step_response/transient3.eps}
+\begin{tikzpicture}
+\begin{axis}	[legend style={draw=none},
+		xmin=30,
+		xmax=100,
+		ymin=-350,
+		ymax=-100,
+		width=12cm,
+		height=10cm,
+		xlabel={time, s},
+		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+		clip marker paths=true]
+\addplot [only marks, domain=30:100, color=red, mark=*] table {data/step_response/original.txt};
+\addplot [only marks, domain=30:100, color=orange, mark=*] table {data/step_response/deconvoluted070.txt};
+\addplot [only marks, domain=30:100, color=yellow, mark=*] table {data/step_response/deconvoluted075.txt};
+\addplot [only marks, domain=30:100, color=green, mark=*] table {data/step_response/deconvoluted080.txt};
+\addplot [only marks, domain=30:100, color=cyan, mark=*] table {data/step_response/deconvoluted085.txt};
+\addplot [only marks, domain=30:100, color=blue, mark=*] table {data/step_response/deconvoluted090.txt};
+\addplot [only marks, domain=30:100, color=purple, mark=*] table {data/step_response/deconvoluted095.txt};
+\addlegendentry{raw recording}
+\addlegendentry{RC = 1.40 s}
+\addlegendentry{RC = 1.74 s}
+\addlegendentry{RC = 2.24 s}
+\addlegendentry{RC = 3.76 s}
+\addlegendentry{RC = 4.75 s}
+\addlegendentry{RC = 9.75 s}
+\end{axis}
+\end{tikzpicture}
 \caption[]{Transient response of the antimony microelectrode to analyte activity step (red), and decovolutions performed with different assumed $RC$ time-constants.
 The measured time-constant was $\tau = 3.76 s$ (cyan).
 The measuring and reference electrodes were dipped into buffer solutions with pH = 4 and pH = 6 respectively.}
