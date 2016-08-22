@@ -11,3 +11,6 @@ phd.lot
 phd.toc
 phd.out
 *.log
+*.dep
+*.md5
+*.dpth

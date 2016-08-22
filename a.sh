@@ -11,8 +11,8 @@
 #gnuplot plot_transient
 
 # gnuplot plot_sb
-pdflatex -shell-escape phd.tex
+#pdflatex -shell-escape phd.tex
 bibtex phd
 pdflatex -shell-escape phd.tex
-pdflatex -shell-escape phd.tex
-rm *.{aux,bbl,blg,lof,log,lot,out,toc}
+#pdflatex -shell-escape phd.tex
+#rm *.{aux,bbl,blg,lof,log,lot,out,toc}

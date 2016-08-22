@@ -60,13 +60,31 @@ The solid contact electrode had a slightly wider dynamic range, reaching below $
 Selectivity coefficients, characterization of the potassium ion-selective electrode, and further characterization of the magnesium ion-selective electrode can be found in \cite{calugareanu2013ion}.
 
 \begin{figure}
-\centering
-% trim = top left bottom right
-\includegraphics[width=1\textwidth]{img/solid_liquid_calibration.eps}
+\begin{tikzpicture}
+\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true,xtick distance=1, ytick distance=20, xminorticks=true, minor x tick num = 1]
+\addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/liquid_calibration_plot.txt};
+\addplot [domain=0:3, samples=500, line width=0.1mm] {86.8-x*29.12};
+\node[anchor=north east] at (rel axis cs:0.98,0.98) {A};
+\node[anchor=south west] at (rel axis cs:0,0) {\Delta S = 29.12 mV / pMg};
+\node[anchor=south west] at (rel axis cs:0,0.1) {R$^2$ = 0.99833};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true,xtick distance=1, ytick distance=30, xminorticks=true, minor x tick num = 1]
+\addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/solid_calibration_plot.txt};
+\addplot [domain=0:3.5, samples=500, line width=0.1mm] {-6.62-x*33.44};
+\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+\node[anchor=south west] at (rel axis cs:0,0) {\Delta S = 33.44 mV / pMg};
+\node[anchor=south west] at (rel axis cs:0,0.1) {R$^2$ = 0.99928};
+\end{axis}
+\end{tikzpicture}
 \caption[Calibration plots for the Mg$^{2+}$ ISME.]{Calibration plots for the Mg$^{2+}$ ISME in 1 mM NaCl solutions containing varying amounts of MgCl$_2$ ($pMg^{2+} = -log_{10} [Mg^{2+}]$).
 (A) Liquid-contact, and (B) solid-contact.}
 \label{fig:solid_liquid_calibration}
 \end{figure}
+
+
 
 Response characteristics were investigated by measuring the electrode resistance $R$, and the $\tau_{95}$ response time.
 The two parameters are related: $1-e^{-3RC/RC} = 1-e^{-3} \approx 0.95$.
@@ -77,8 +95,41 @@ Based on these values, the solid contact electrode was expected to produce less 
 
 \begin{figure}
 \centering
-% trim = top left bottom right
-\includegraphics[width=1\textwidth]{img/solid_liquid_response_time.eps}
+\begin{tikzpicture}
+\begin{axis}	[
+		only marks,
+     		xmin=0,
+		xmax=1400,
+		ymin=-20,
+		ymax=40,
+		width=7cm,
+		height=6cm,
+		xlabel={time, s},
+		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+		/pgf/number format/.cd, use comma, 1000 sep={}
+		]
+		\addplot [mark=*, mark size=0.5] table {data/electrodes/liquid_response_time.txt};
+		\node[anchor=north east] at (rel axis cs:0.98,0.98) {A};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}	[
+		only marks,
+     		xmin=0,
+		xmax=1400,
+		ymin=-130,
+		ymax=-70,
+		width=7cm,
+		height=6cm,
+		xlabel={time, s},
+		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+		/pgf/number format/.cd, use comma, 1000 sep={}
+		]
+		\addplot [mark=*, mark size=0.5] table {data/electrodes/solid_response_time.txt};
+		\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+\end{axis}
+\end{tikzpicture}
 \caption[Dynamic response curves obtained for response time measurements to changes in MgCl$_2$ concentrations.]{Dynamic response curves obtained for response time measurements to changes in MgCl$_2$ concentrations of 10$^{-1}$ M and 10$^{-2}$ M, in 10$^{-3}$ M NaCl.
 (A) liquid-contact, and (B) solid-contact Mg$^{2+}$ ISME.}
 \label{fig:solid_liquid_response_time}
@@ -86,8 +137,50 @@ Based on these values, the solid contact electrode was expected to produce less 
 
 \begin{figure}
 \centering
-% trim = top left bottom right
-\includegraphics[width=1\textwidth]{img/solid_liquid_resistance.eps}
+\begin{tikzpicture}
+\begin{axis}	[
+		only marks,
+     		xmin=0,
+		xmax=400,
+		ymin=-70,
+		ymax=20,
+		width=7cm,
+		height=6cm,
+		xlabel={time, s},
+		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+		/pgf/number format/.cd, use comma, 1000 sep={}
+		]
+		\addplot [mark=*, mark size=0.5] table {data/electrodes/liquid_resistance.txt};
+		\node[anchor=north east] at (rel axis cs:0.98,0.98) {A};
+		\node[anchor=south west] at (axis cs:20,-60) {$\infty$};
+		\node[anchor=south west] at (axis cs:90,-20) {0.5 G$\ohm$};
+		\node[anchor=south west] at (axis cs:205,-23) {1 G$\ohm$};
+		\node[anchor=south west] at (axis cs:320,-60) {$\infty$};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}	[
+		only marks,
+     		xmin=0,
+		xmax=400,
+		ymin=-100,
+		ymax=-20,
+		width=7cm,
+		height=6cm,
+		xlabel={time, s},
+		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
+		/pgf/number format/.cd, use comma, 1000 sep={}
+		]
+		\addplot [mark=*, mark size=0.5] table {data/electrodes/solid_resistance.txt};
+		\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+		\node[anchor=south west] at (axis cs:20,-85) {$\infty$};
+		\node[anchor=south west] at (axis cs:110,-55) {0.5 G$\ohm$};
+		\node[anchor=south west] at (axis cs:230,-62) {1 G$\ohm$};
+		\node[anchor=south west] at (axis cs:350,-85) {$\infty$};
+\end{axis}
+\end{tikzpicture}
+
 \caption[Response of ISME to shorting resistors for the voltage divider method.]{Response of ISME to shorting resistors for the voltage divider method: (A) Liquid-contact, and (B) solid-contact.}
 \label{fig:solid_liquid_resistance}
 \end{figure}
