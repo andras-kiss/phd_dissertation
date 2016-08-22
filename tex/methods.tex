@@ -195,10 +195,14 @@ The time needed to reach 95\% of the total potential change caused by the change
                 /pgf/number format/.cd, use comma, 1000 sep={}
                 ]
                 \addplot [mark=*, mark size=0.5] table {data/electrodes/solid_response_time.txt};
-                %\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+		\draw (axis cs:975,-87) -- (axis cs:1050,-87);
+		\draw (axis cs:0,-115.5) -- (axis cs:1050,-115.5);
+		\draw (axis cs:0,-116.4) -- (axis cs:1200,-116.4);
+		\draw[{latex[scale=5.0]}-{latex[scale=5.0]}] (axis cs:975,-87) -- (axis cs:975,-116.4);
+		\draw (axis cs:1050,-82) node[above] {$\tau_{95}$} -- (axis cs:1050,-130);
+
 \end{axis}
 \end{tikzpicture}
-
 \caption[Illustration of the parameters used for the determination of response time.]{Illustration of the quantities used for the determination of response time.
 $E_0$: electrode potential prior to change in the activity (of the measured ion), $E_{eq}$: equilibrium electrode potential after the change in activity.
 $\Delta E$: total difference between $E_{eq}$ and $E_{eq}$, $E_{95}$: electrode potential when 95\% of the total change has occured.
