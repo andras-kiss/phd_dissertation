@@ -452,11 +452,11 @@ For three dimensions, Equation \ref{eq:fick2} can be expressed in discrete form 
 
 \begin{equation}
 \label{eq:3d}
-        \begin{split}
-        \frac   {c_{i,j,k}^{'} - c_{i,j,k}}{\delta t}
-        =
+	\begin{split}
+	\frac   {c_{i,j,k}^{'} - c_{i,j,k}}{\delta t}
+	=
 	\frac {D} {h^2} (c_{i,j+1,k} + c_{i-1,j,k} + c_{i+1,j,k} + c_{i,j-1,k} + c_{i,j,k-1} + c_{i,j,k+1} - 6c_{i,j,k})
-        \end{split}
+	\end{split}
 \end{equation}
 where $h$ is the distance between the adjacent points in space, $c_{i,j}$ is the concentration at the grid point with the coordinates of $i, j$, and $c_{i,j}^{'}$ is the same, but in the previous cycle, at the time instance $t-\delta t$.
 This can be solved numerically for a given time instance by iterating Equation \ref{eq:3d} on every point of a 3D matrix, which represents the diffusion system.
