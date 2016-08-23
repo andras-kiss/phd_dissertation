@@ -115,13 +115,46 @@ Then, PEDOT was polymerized with 10 consecutive cycles from -1.0 V to 1.5 V with
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/edot/polymerization.eps}
+\begin{tikzpicture}
+\begin{axis}    [legend style={draw=none},
+		legend pos=north west,
+                xmin=-0.9,
+                xmax=1.3,
+                ymin=-0.00003,
+                ymax=0.00006,
+                width=10cm,
+                height=9cm,
+                xlabel={E, V},
+                ylabel={i, A},
+                clip marker paths=true]
+\addplot [color=red, mark=none] table {data/edot/polymerization/cycl1.ocw};
+\addplot [color=orange, mark=none] table {data/edot/polymerization/cycl2.ocw};
+\addplot [color=yellow, mark=none] table {data/edot/polymerization/cycl3.ocw};
+\addplot [color=green, mark=none] table {data/edot/polymerization/cycl4.ocw};
+\addplot [color=cyan, mark=none] table {data/edot/polymerization/cycl5.ocw};
+\addplot [color=blue, mark=none] table {data/edot/polymerization/cycl6.ocw};
+\addplot [color=purple, mark=none] table {data/edot/polymerization/cycl7.ocw};
+\addplot [color=black, mark=none] table {data/edot/polymerization/cycl8.ocw};
+\addplot [color=red, mark=none] table {data/edot/polymerization/cycl9.ocw};
+\addplot [color=orange, mark=none] table {data/edot/polymerization/cycl10.ocw};
+\addlegendentry{1}
+\addlegendentry{2}
+\addlegendentry{3}
+\addlegendentry{4}
+\addlegendentry{5}
+\addlegendentry{6}
+\addlegendentry{7}
+\addlegendentry{8}
+\addlegendentry{9}
+\addlegendentry{10}
+\end{axis}
+\end{tikzpicture}
 \caption[Cyclic voltammetric electropolymerization of PEDOT onto the carbon fiber to create the solid internal contact for the ion-selective microelectrodes.]{Cyclic voltammetric electropolymerization of PEDOT onto the carbon fiber to create the solid internal contact for the ion-selective microelectrodes.
 Top left inset indicates the order of the consecutive cycles.}
 \label{fig:polymerization}
 \end{figure}
 
-		\subsection{Instrumentation for the microelectrodes}
+\subsection{Instrumentation for the microelectrodes}
 Microelectrodes have high resistance, therefore, to avoid loading error, some sort of impedance matching is necessary.
 This is also crucial to minimize noise caused by stray capacitance.
 Where the measuring apparatus lacked the high input impedance, a TL082 operational amplifier (Texas Instruments, Texas, USA) based unity gain voltage follower was used between the microelectrode and the measuring apparatus.
