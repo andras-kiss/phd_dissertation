@@ -370,12 +370,101 @@ The fast comb algorithm scans only in one direction, and before advancing in the
 
 \begin{figure}
 \centering
-% top left bottom right
-\includegraphics[trim = 0mm 20mm 0mm 20mm, clip, width=0.4\textwidth, angle=-90]{img/polar/meander_pattern.eps}\includegraphics[trim = 0mm 20mm 0mm 20mm, clip, width=0.4\textwidth, angle=-90]{img/polar/fastcomb_pattern.eps}
+\begin{tikzpicture}
+\begin{axis}    [unit vector ratio*=1 1 1,
+                xmin=-1100,
+                xmax=1100,
+                ymin=-1100,
+                ymax=1100,
+                width=8cm,
+                %height=9cm,
+                xlabel={x, $\upmu$m},
+                ylabel={y, $\upmu$m},
+                clip marker paths=true]
+\addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/meander_pattern.txt};
+\filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
+\filldraw[fill=green, draw=green] (axis cs:1000,1000) circle (4);
+\filldraw[fill=white, draw=white] (axis cs:-900,900) circle (5);
+\node[anchor=center] at (axis cs:-900,900) {A};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}    [unit vector ratio*=1 1 1,
+                xmin=-1100,
+                xmax=1100,
+                ymin=-1100,
+                ymax=1100,
+                width=8cm,
+                %height=9cm,
+                xlabel={x, $\upmu$m},
+                ylabel={y, $\upmu$m},
+                clip marker paths=true]
+\addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/fastcomb_pattern.txt};
+\filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
+\filldraw[fill=green, draw=green] (axis cs:1000,1000) circle (4);
+\filldraw[fill=white, draw=white] (axis cs:-900,900) circle (5);
+\node[anchor=center] at (axis cs:-900,900) {B};
+\end{axis}
+\end{tikzpicture}
 
-\includegraphics[trim = 0mm 20mm 0mm 20mm, clip, width=0.4\textwidth, angle=-90]{img/polar/comb_pattern.eps}\includegraphics[trim = 0mm 20mm 0mm 20mm, clip, width=0.4\textwidth, angle=-90]{img/polar/web_pattern.eps}
+\begin{tikzpicture}
+\begin{axis}    [unit vector ratio*=1 1 1,
+                xmin=-1100,
+                xmax=1100,
+                ymin=-1100,
+                ymax=1100,
+                width=8cm,
+                %height=9cm,
+                xlabel={x, $\upmu$m},
+                ylabel={y, $\upmu$m},
+                clip marker paths=true]
+\addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/comb_pattern.txt};
+\filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
+\filldraw[fill=green, draw=green] (axis cs:-1000,1000) circle (4);
+\filldraw[fill=white, draw=white] (axis cs:-900,900) circle (5);
+\node[anchor=center] at (axis cs:-900,900) {C};
+\end{axis}
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\begin{axis}    [unit vector ratio*=1 1 1,
+                xmin=-1100,
+                xmax=1100,
+                ymin=-1100,
+                ymax=1100,
+                width=8cm,
+                %height=9cm,
+                xlabel={x, $\upmu$m},
+                ylabel={y, $\upmu$m},
+                clip marker paths=true]
+\addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/web_pattern.txt};
+\filldraw[fill=blue, draw=blue] (axis cs:0,0) circle (4);
+\filldraw[fill=green, draw=green] (axis cs:809,-588) circle (4);
+\filldraw[fill=white, draw=white] (axis cs:-900,900) circle (5);
+\node[anchor=center] at (axis cs:-900,900) {D};
+\end{axis}
+\end{tikzpicture}
 
-\includegraphics[trim = 0mm 20mm 0mm 20mm, clip, width=0.4\textwidth, angle=-90]{img/polar/arc_pattern.eps}
+\begin{tikzpicture}
+\begin{axis}    [unit vector ratio*=1 1 1,
+                xmin=-1100,
+                xmax=1100,
+                ymin=-1100,
+                ymax=1100,
+                width=8cm,
+                %height=9cm,
+                xlabel={x, $\upmu$m},
+                ylabel={y, $\upmu$m},
+                clip marker paths=true]
+\addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/arc_pattern.txt};
+\filldraw[fill=blue, draw=blue] (axis cs:0,0) circle (4);
+\filldraw[fill=green, draw=green] (axis cs:995,-101) circle (4);
+\filldraw[fill=white, draw=white] (axis cs:-900,900) circle (5);
+\node[anchor=center] at (axis cs:-900,900) {E};
+\end{axis}
+\end{tikzpicture}
+
 \caption[Scanning algorithms.]{The conventional (A) meander, (B) fast comb and (C) comb, and the new, proposed (D) web, and (E) arc SECM scanning patterns for circularly symmetric targets. Red dots indicate sampling points, red line shows the probe path.
 Blue and green dots indicate starting and finishing positions, respectively.}
 \label{fig:patterns}
