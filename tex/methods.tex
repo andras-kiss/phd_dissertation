@@ -380,7 +380,8 @@ The fast comb algorithm scans only in one direction, and before advancing in the
                 %height=9cm,
                 xlabel={x, $\upmu$m},
                 ylabel={y, $\upmu$m},
-                clip marker paths=true]
+                clip marker paths=true,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/meander_pattern.txt};
 \filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
 \filldraw[fill=green, draw=green] (axis cs:1000,1000) circle (4);
@@ -399,7 +400,8 @@ The fast comb algorithm scans only in one direction, and before advancing in the
                 %height=9cm,
                 xlabel={x, $\upmu$m},
                 ylabel={y, $\upmu$m},
-                clip marker paths=true]
+                clip marker paths=true,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/fastcomb_pattern.txt};
 \filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
 \filldraw[fill=green, draw=green] (axis cs:1000,1000) circle (4);
@@ -418,7 +420,8 @@ The fast comb algorithm scans only in one direction, and before advancing in the
                 %height=9cm,
                 xlabel={x, $\upmu$m},
                 ylabel={y, $\upmu$m},
-                clip marker paths=true]
+                clip marker paths=true,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/comb_pattern.txt};
 \filldraw[fill=blue, draw=blue] (axis cs:-1000,-1000) circle (4);
 \filldraw[fill=green, draw=green] (axis cs:-1000,1000) circle (4);
@@ -437,7 +440,8 @@ The fast comb algorithm scans only in one direction, and before advancing in the
                 %height=9cm,
                 xlabel={x, $\upmu$m},
                 ylabel={y, $\upmu$m},
-                clip marker paths=true]
+                clip marker paths=true,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/web_pattern.txt};
 \filldraw[fill=blue, draw=blue] (axis cs:0,0) circle (4);
 \filldraw[fill=green, draw=green] (axis cs:809,-588) circle (4);
@@ -456,7 +460,8 @@ The fast comb algorithm scans only in one direction, and before advancing in the
                 %height=9cm,
                 xlabel={x, $\upmu$m},
                 ylabel={y, $\upmu$m},
-                clip marker paths=true]
+                clip marker paths=true,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red, mark=*, mark size=1] table {data/scanning_patterns/arc_pattern.txt};
 \filldraw[fill=blue, draw=blue] (axis cs:0,0) circle (4);
 \filldraw[fill=green, draw=green] (axis cs:995,-101) circle (4);
