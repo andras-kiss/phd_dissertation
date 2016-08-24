@@ -269,9 +269,87 @@ Substituting the value of D = 7.06$\times$10$^{-8}$ $dm^2s^{-1}$ \cite{lide2001c
 
 \begin{figure}
 \centering
-% trim = top left bottom right
-\includegraphics[width=0.8\textwidth]{img/retracting.eps}
-\includegraphics[width=0.6\textwidth]{img/lateral_scans.eps} 
+\begin{tikzpicture}
+\begin{axis}	[legend style={draw=none},
+		xmin=0,
+		xmax=1,
+		ymin=0,
+		ymax=0.006,
+		width=6cm,
+		height=7cm,
+		xlabel={height, mm},
+		ylabel={[Mg$^{2+}$], mol$\cdot$dm$^{-3}$},
+		clip marker paths=true]
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {A};
+\addplot [mark=none, color=orange] table {data/approaching_scans/uncoupled/10min.txt};
+\addplot [mark=none, color=yellow] table {data/approaching_scans/uncoupled/20min.txt};
+\addplot [mark=none, color=green] table {data/approaching_scans/uncoupled/30min.txt};
+\addplot [mark=none, color=cyan] table {data/approaching_scans/uncoupled/40min.txt};
+\addplot [mark=none, color=blue] table {data/approaching_scans/uncoupled/50min.txt};
+\addplot [mark=none, color=purple] table {data/approaching_scans/uncoupled/60min.txt};
+\addlegendentry{10 min}
+\addlegendentry{20 min}
+\addlegendentry{30 min}
+\addlegendentry{40 min}
+\addlegendentry{50 min}
+\addlegendentry{60 min}
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}	[legend style={draw=none},
+		xmin=0,
+		xmax=1,
+		ymin=0,
+		ymax=0.1,
+		width=6cm,
+		height=7cm,
+		xlabel={height, mm},
+		%ylabel={[Mg$^{2+}$]},
+		clip marker paths=true]
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {B};
+\addplot [mark=none, color=orange] table {data/approaching_scans/coupled/10min.txt};
+\addplot [mark=none, color=yellow] table {data/approaching_scans/coupled/20min.txt};
+\addplot [mark=none, color=green] table {data/approaching_scans/coupled/30min.txt};
+\addplot [mark=none, color=cyan] table {data/approaching_scans/coupled/40min.txt};
+\addplot [mark=none, color=blue] table {data/approaching_scans/coupled/50min.txt};
+\addplot [mark=none, color=purple] table {data/approaching_scans/coupled/60min.txt};
+\addlegendentry{10 min}
+\addlegendentry{20 min}
+\addlegendentry{30 min}
+\addlegendentry{40 min}
+\addlegendentry{50 min}
+\addlegendentry{60 min}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}	[legend style={draw=none},
+		xmin=0,
+		xmax=5,
+		ymin=0,
+		ymax=0.008,
+		width=12cm,
+		height=7cm,
+		xlabel={lateral distance, mm},
+		ylabel={[Mg$^{2+}$], mol$\cdot$dm$^{-3}$},
+		clip marker paths=true]
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {C};
+\addplot [mark=none, color=red] table {data/lateral_scans/5min.txt};
+\addplot [mark=none, color=orange] table {data/lateral_scans/10min.txt};
+\addplot [mark=none, color=yellow] table {data/lateral_scans/20min.txt};
+\addplot [mark=none, color=green] table {data/lateral_scans/30min.txt};
+\addplot [mark=none, color=cyan] table {data/lateral_scans/40min.txt};
+\addplot [mark=none, color=blue] table {data/lateral_scans/50min.txt};
+\addplot [mark=none, color=purple] table {data/lateral_scans/60min.txt};
+\addlegendentry{5 min}
+\addlegendentry{10 min}
+\addlegendentry{20 min}
+\addlegendentry{30 min}
+\addlegendentry{40 min}
+\addlegendentry{50 min}
+\addlegendentry{60 min}
+\end{axis}
+\end{tikzpicture}
 \caption[Retracting and lateral SECM linescans above the AZ63 sample initiated at different instances in time.]{Retracting and lateral SECM linescans above the AZ63 magnesium-aluminium-zinc alloy sample initiated at different instances in time.
 Scan rate: 10 $\upmu$m/s.}
 \label{fig:retracting}
