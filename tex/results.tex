@@ -61,7 +61,7 @@ Selectivity coefficients, characterization of the potassium ion-selective electr
 
 \begin{figure}
 \begin{tikzpicture}
-\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true,xtick distance=1, ytick distance=20, xminorticks=true, minor x tick num = 1]
+\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, xtick = {0,1,2,3,4,5}, ytick = {-20,0,20,40,60,80}, xminorticks=true, minor x tick num = 1]
 \addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/liquid_calibration_plot.txt};
 \addplot [domain=0:3, samples=500, line width=0.1mm] {86.8-x*29.12};
 \node[anchor=north east] at (rel axis cs:0.98,0.98) {A};
@@ -71,7 +71,7 @@ Selectivity coefficients, characterization of the potassium ion-selective electr
 \end{tikzpicture}
 \hfill
 \begin{tikzpicture}
-\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true,xtick distance=1, ytick distance=30, xminorticks=true, minor x tick num = 1]
+\begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true,xtick = {1,2,3,4,5}, ytick={-150,-120,-90,-60,-30,0}, xminorticks=true, minor x tick num = 1]
 \addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/solid_calibration_plot.txt};
 \addplot [domain=0:3.5, samples=500, line width=0.1mm] {-6.62-x*33.44};
 \node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
@@ -620,14 +620,26 @@ After deconvolution however, all of the linescans became similar to the equilibr
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=E / V]
+\begin{axis}	[xmin=-1000,
+		xmax=1000,
+		width=6cm,
+		height=6cm,
+		xlabel=x / $\upmu$m,
+		ylabel=E / V,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=green] table {data/pH_linescans/500ms.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms.txt};
 \addplot [color=red] table {data/pH_linescans/5000ms.txt};
 \end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
-\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=E / V]
+\begin{axis}	[xmin=-1000,
+		xmax=1000,
+		width=6cm,
+		height=6cm,
+		xlabel=x / $\upmu$m,
+		ylabel=E / V,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=green] table {data/pH_linescans/500ms_deconvoluted.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms_deconvoluted.txt};
 \addplot [color=red] table {data/pH_linescans/5000ms_deconvoluted.txt};
@@ -714,14 +726,28 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
-\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=pMg, y dir = reverse]
+\begin{axis}	[xmin=-1000,
+		xmax=1000,
+		width=6cm,
+		height=6cm,
+		xlabel=x / $\upmu$m,
+		ylabel=pMg,
+		y dir = reverse,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red] table {data/Mg_linescans/400ms.txt};
 \addplot [color=green] table {data/Mg_linescans/1900ms.txt};
 \addplot [color=blue] table {data/Mg_linescans/4900ms.txt};
 \end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
-\begin{axis}[xmin=-1000, xmax=1000, width=6cm,height=6cm,xlabel=x / $\upmu$m, ylabel=pMg, y dir = reverse]
+\begin{axis}	[xmin=-1000,
+		xmax=1000,
+		width=6cm,
+		height=6cm,
+		xlabel=x / $\upmu$m,
+		ylabel=pMg,
+		y dir = reverse,
+		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red] table {data/Mg_linescans/400ms_deconvoluted.txt};
 \addplot [color=green] table {data/Mg_linescans/1900ms_deconvoluted.txt};
 \addplot [color=blue] table {data/Mg_linescans/4900ms_deconvoluted.txt};
