@@ -480,15 +480,19 @@ Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[xmin=-30, xmax=100, width=12cm,height=6cm,xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=8cm, legend style={draw=none}, legend cell align=left]
+\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=8cm, legend style={draw=none}, legend cell align=left]
 \addplot [only marks, domain=-30:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=0:100, samples=500, color=red, line width=0.4mm] {-280+(280-183)*exp(-(x)/3.76)};
 \addplot [domain=0:100, samples=500, color=blue, line width=0.4mm] {-280+(280-183)*(exp(-(x)/9) + exp(-(x)/0.5577))/2};
 %\node[red, above right] at (axis cs:5,-200) {$y = - 280 + 97 \times e^{-x/3.76}$};
 %\node[blue, above right] at (axis cs:5,-220) {$y = - 280 + 97 \times (e^{-x/9} + e^{-x/0.6})/2$};
+\node[black, above left] at (axis cs:0,-290) {pH 4};
+\node[black, above right] at (axis cs:0,-290) {pH 6};
+%\addplot +[mark=none] coordinates {(0, -300)-.- (0, -100)};
+\draw [dashed, black] (axis cs:0,-300) -- (axis cs:0,-100);
 \addlegendentry{raw recording}
-\addlegendentry{$y = - 280 + 97 e^{-x/3.76}$}
-\addlegendentry{$y = - 280 + 97 (e^{-x/9} + e^{-x/0.5577})/2$}
+\addlegendentry{$E = - 280 + 97 e^{-t/3.76}$}
+\addlegendentry{$E = - 280 + 97 (e^{-t/9} + e^{-t/0.5577})/2$}
 \end{axis}
 \end{tikzpicture}
 \caption[Transient response of the antimony microelectrode to analyte activity step.]{Transient response of the antimony microelectrode to analyte activity step.
