@@ -1,37 +1,21 @@
 program diffusion
 implicit none
 
-integer :: stat, counter
-real t, rc, e0, conv, sel, sey
+integer :: stat
+real t, tau1, rc, e0, conv
 
-counter=0
-rc=0.7
+tau1=3.76
 
-open(1,file='transient3.txt')
-open(2,file='transient3_deconvoluted07.txt')
+open(1,file='original_1sec.txt')
+open(2,file='deconvoluted.txt')
 read(1, *) t, e0
+write(2, *) t, e0
 do
    read(1, *, iostat=stat) t, conv
    if (stat /= 0) exit
-   write(2, *) t, ((conv - e0*rc)/(1-rc))
+   write(2, *) t, ((conv - e0*exp(-0.5/tau1))/(1-exp(-0.5/tau1)))
    e0=conv
-   endif
 end do
 close(1) 
 close(2)
-
-sel=0
-sey=0
-
-open(1,file='95.txt')
-read(1, *) t, e0
-do
-   read(1, *, iostat=stat) conv
-   if (stat /= 0) exit
-   sel=sel+(conv+280)**2
-end do
-close(1) 
-
-
-print *,sel/107
 end program diffusion
