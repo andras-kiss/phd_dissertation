@@ -1,0 +1,49 @@
+set size square
+set pm3d map
+set dgrid3d 21, 21, 10 gauss 70, 70
+set pm3d interpolate 3,3
+set contour
+set cntrparam levels auto 10
+#set key outside
+#set term postscript enhanced color
+#set terminal pdf
+set terminal epslatex size 7cm,7cm
+
+
+set xlabel "X / $\\upmu$m"
+set ylabel "Y / $\\upmu$m"
+#set palette gray
+#set palette rgbformulae -30, -31, -32 # quickgrid
+#set palette rgbformulae 22, 13, -31 # quickgrid
+#set palette rgbformulae 33, 13, 10 # rainbow
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+#set cblabel offset 4,0
+#set ylabel offset -3,0
+#set xlabel offset 0,-2
+
+### SCANS
+#set colorbox vertical user origin .7, 0 size 0.02, 0.5 
+#set colorbox horizontal
+set cblabel 'pMg$^{2+}$'
+set xtics 0, 500, 1000
+set ytics 0, 500, 1000
+set yrange [0:1000]
+set xrange [0:1000]
+set cbrange [2.5:4]
+
+set output "liquid_Mg.tex"
+unset label
+set label "A" at 100, 900 tc rgb "black" font ",40" front
+splot "liquid_Mg.txt" u ($1):($2):(-($3*1000-80)/29.12) notitle
+
+set output "solid_Mg.tex"
+unset label
+set label "B" at 100, 900 tc rgb "black" font ",40" front
+splot "solid_Mg.txt" u ($1):($2):(-($3*1000)/33.44) notitle
+
+

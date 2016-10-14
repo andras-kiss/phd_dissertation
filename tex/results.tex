@@ -201,7 +201,8 @@ Potential starts dropping, while it approaches the new equilibrium potential.
 \begin{figure}
 \centering
 % trim = top left bottom right
-\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/liquid_Mg.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/solid_Mg.eps}
+%\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/liquid_Mg.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/solid_Mg.eps}
+{\graphicspath{{img/mg_pipette/}} \input{img/mg_pipette/liquid_Mg.tex}}\hfill{\graphicspath{{img/mg_pipette/}} \input{img/mg_pipette/solid_Mg.tex}} 
 \caption[SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.]{SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.
 (A) liquid-contact, and (B) solid-contact.
 Scan rate: 12.5 $\upmu$m/s.}
@@ -236,13 +237,15 @@ The same can be said about the images of the galvanically coupled magnesium.
 The one scanned with the solid-contact electrode is less distorted.
 Also, higher peak values can be observed, corresponding to magnesium dissolution.
 These anodic spots are resolved much better by the solid-contact electrode.
+a
 
 \begin{figure}
 \centering
 % trim = top left bottom right
-\includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/liquid_uncoupled.eps} \includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/solid_uncoupled.eps}
-
-\includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/liquid_coupled.eps} \includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/solid_coupled.eps}
+%\includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/liquid_uncoupled.eps} \includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/solid_uncoupled.eps}
+{\graphicspath{{img/mg_metal/}} \input{img/mg_metal/liquid_uncoupled.tex}}\hspace{2cm}{\graphicspath{{img/mg_metal/}} \input{img/mg_metal/solid_uncoupled.tex}}\vspace*{-1cm}
+{\graphicspath{{img/mg_metal/}} \input{img/mg_metal/liquid_coupled.tex}}\hspace{2cm}{\graphicspath{{img/mg_metal/}} \input{img/mg_metal/solid_coupled.tex}}
+%\includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/liquid_coupled.eps} \includegraphics[trim = 10mm 40mm 0mm 40mm, clip, width=0.4\textwidth, angle=-90]{img/mg_metal/solid_coupled.eps}
 \caption[SECM scans above the magnesium sample with the solid- and liquid contact magnesium ion-selective micropipettes.]{SECM scans above the magnesium sample (A) uncoupled, and (B) galvanically coupled to the iron sample, while the cell was equipped with the conventional (1) liquid contact, and the new, (2) solid contact micropipette.
 Scans were performed with the Sensolytics SECM, with impedance matching provided by the TL082 based voltage follower.
 Reference electrode was Ag/AgCl/3M KCl.
