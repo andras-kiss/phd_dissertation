@@ -21,7 +21,7 @@ Since the melting points of antimony and borosilicate glass are very similar, th
 With this method, very fine, glass-sealed antimony microwires can be obtained.
 After this step, the diameter of the antimony wires was typically around 30 $\upmu$m.
 If it was necessary, the microwires were pulled even further with a vertical puller (Sutter Instrument, 1 Digital Dr, Novato, CA 94949).
-After the pulling stage, the wires were broken into pieces with a length of 3-4 centimeters.
+After the pulling stage, the wires were broken into pieces with a length of $3-4$ centimeters.
 Then, they were investigated under an optical microscope to select pieces with a continuous antimony wire.
 Due to the fragile nature of these microelectrodes, several of them were used through the course of my work.
 The diameter of the antimony microelectrode used in a particular experiment is always specified in the discussion of that experiment.
@@ -323,7 +323,7 @@ Corrosive electrolyte was 1 mM NaCl.
 
 			\subsubsection{Iron - AZ63 galvanic couple}
 Scans were also performed on an epoxy resin sleeve holding 760 $\upmu$m diameter wires of pure iron and AZ63 magnesium alloy, manufactured from a boyler sacrificial anode with a high-precision lathe.
-The composition of the alloy was determined (in wt.\%) by emission spectrometry (ICP-OES): Al 5.74, Zn 2.88, Cu < 0.005, Fe < 0.005, Ni < 0.005, Si < 0.005, Mg balance.
+The composition of the alloy was determined (in wt.\%) by colleagues from the \emph{University of La Laguna, Spain}, by emission spectrometry (ICP-OES): Al 5.74, Zn 2.88, Cu < 0.005, Fe < 0.005, Ni < 0.005, Si < 0.005, Mg balance.
 Tests were conducted in 1 mM NaCl solution, naturally aerated, and at ambient temperature.
 
 \begin{figure}
@@ -338,7 +338,7 @@ The sample was prepared from such an anode by a precision lathe.}
 Zinc and copper wires with a diameter of 200 $\upmu$m were embedded in the epoxy resin.
 Electrical connection could was provided by copper wires soldered to each of them, and leading to the backside of the epoxy mould. 
 			\subsubsection{Carbon steel}
-The embedded sample in this case was a carbon steel (A $\approx$2 cm$^2$) JIS G3131 SPHC specimen with the composition, C: 0.04\%, Mn: 0.15\%, P: 0.026\%, S: 0.005\%, and Si: 0.02\%.
+The embedded sample in this case was a carbon steel (A $\approx$ 2 cm$^2$) JIS G3131 SPHC specimen with the composition, C: 0.04\%, Mn: 0.15\%, P: 0.026\%, S: 0.005\%, and Si: 0.02\%.
 
 			\subsubsection{Graphite model target}
 To demonstrate and compare the new scanning algorithms, images of pH-de\-pen\-dent potential profiles were recorded $h$ = 100 $\upmu$m above a graphite disc electrode, set to 2 V versus another, identical graphite electrode.
@@ -511,7 +511,7 @@ To confirm the effect of deconvolution on 2D image quality, 2D raster scans were
 In meander, the probe travels through all of the raster coordinates without repetition and wasted movement, by alternating the X scan direction from line to line, resulting in a characteristic ,,meander'' pattern.
 The fast comb algorithm scans only in one direction, and before advancing in the Y direction, the probe travels back to the beginning of the scan line without measuring or stopping at all (paper \textbf{IV}).
 
-Starting position was $X$ = -1000 $\upmu$m, $Y$ = -1000 $\upmu$m.
+Starting position was $X = -1000$ $\upmu$m, $Y = -1000$ $\upmu$m.
 Both algorithms used horizontal scanning.
 Initial scan direction for the meander algorithm, and scan direction for the fast comb algorithm was left to right.
 Step size was 100 $\upmu$m, scanned area was 2000 $\upmu$m $\times$ 2000 $\upmu$m, resulting in overall scanning times of 2205 s, 882 s, 441 s, and 220.5 s.
@@ -560,7 +560,7 @@ where $E_{cell}(t)$ is the cell potential difference at time $t$, $E_{cell}(\inf
         E_{cell}(\infty)
         =
         \frac
-                {[E_{cell}(t) - E_{cell}(0)]e^{-t/RC}}
+                {E_{cell}(t) - E_{cell}(0)e^{-t/RC}}
                 {1 - e^{-t/RC}}
 \end{equation}
 
@@ -576,7 +576,7 @@ To deconvolute the raw image, the following calculation kernel was cycled throug
         E_{cell}(\infty, i)
         =
         \frac
-                {[E_{cell}(t, i) - E_{cell}(t, i-1)]e^{-t/RC}}
+                {E_{cell}(t, i) - E_{cell}(t, i-1)e^{-t/RC}}
                 {1 - e^{-t/RC}}
 \end{equation}
 
@@ -640,7 +640,7 @@ Throughout my work, I used three different SECM.
 One was supplied by Sensolytics (Bochum, Germany).
 The instrument was built around an Autolab (Metrohm, Herisau, Switzerland) electrochemical interface, controlled with a personal computer.
 Amperometric, potentiostatic and potentiometric operations were available in this configuration.
-A voltage follower based on a 10$^{12}$ input impedance operational amplifier (TL082, Texas Instruments) was introduced in the measuring circuit.
+A voltage follower based on a 10$^{12}\; \ohm$ input impedance operational amplifier (TL082, Texas Instruments) was introduced in the measuring circuit.
 The cell voltages were measured with an electrometer and collected by the PC through the electrochemical interface.
 The scanning system (Applicable Electronics Inc, New Haven, CT, USA) used a 3D micropositioner driven by precision stepping motors.
 The distance between the scanning tip and the substrate was usually established by allowing the probe to gently touch the sample, and subsequently the probe was generally retracted to operation distance 100 $\upmu$m with the aid of the Z-positioning motor.
