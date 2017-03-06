@@ -2,7 +2,7 @@
 \section{Microelectrodes}
 %Three, more or less independent resear
 \subsection{Pioneers of using microelectrodes}
-In this section I look at the motivation behind electrode miniaturization, and the difficulties the researchers at those times faced.
+In this section I look at the motivation behind electrode miniaturization, and the difficulties the researchers encountered during the early development of microelectrodes.
 By decreasing electrode diameter, new challenges had to be faced.
 The problem associated with these challenges always lead to a compromise between several competing desired properties, which can never truly be solved, only alleviated to a certain point, to make a particular study possible.
 Researchers that first used microelectrodes faced the same problems as todays researchers, the difference is how severe the compromise is.
@@ -37,7 +37,7 @@ These fibers are available, however, only at restricted seasons and localities a
 \vspace{0.5cm}
 \end{quote}
 
-Interestingly, the Second World War might have induced the further miniaturization of the microelectrodes, because it restricted the availability of the giant squid.
+Interestingly, the Second World War might have accelerated the miniaturization of the microelectrodes, because it restricted the availability of the giant squid.
 Webb and Young wrote in their 1940 paper \cite{webb1940electrolyte}:
 
 \begin{quote}
@@ -87,7 +87,7 @@ Eher and Sakmann were able to reveal discrete changes in conductance of the ion-
 Analytical potentiometry started with the discovery and development of the glass pH-electrode. It is the best electrochemical sensor, and one of the best sensor ever made, with a linear response over more than 13 orders of magnitude, and excellent selectivity.
 Because of its importance, and because pH measurement is used throughout the work described in this thesis, the basic concepts of pH measurement will be introduced through the example of the glass electrode.
 
-It was in 1906, when Cremer discovered that the potential difference across a thin glass membrane is a function of pH when opposite sides of the membrane are in contact with solutions containing different concentrations of H$_3$O$^+$ \cite{cremer1906ursache, cremer1906direkte}.
+It was in 1906, when a botanist named Max Cremer discovered that the potential difference across a thin glass membrane is a function of pH when opposite sides of the membrane are in contact with solutions containing different concentrations of H$_3$O$^+$ \cite{cremer1906ursache, cremer1906direkte}.
 Three years later, in 1909, S\o rensen introduced the concept of pH \cite{sorensen1909messung}.
 He defined it as the negative logarithm of the concentration of H$_3$O$^+$:
 
@@ -204,15 +204,15 @@ To improve the adhesion of the two, and to prevent the electrolyte from creeping
 This improved stability and life-time of these microelectrodes drastically.
 
 He used the new LIX ion-selective microelectrodes to measure chloride, and potassium ion activity in \emph{Aplysia} neurons.
-He estimated the resistance for his electrodes from the charging time of the input of the operational amplifiers in the range of $10^9$ to $10^{10} \ohm$.
+He estimated the resistance for his electrodes from the charging time of the input of the operational amplifiers in the range of $10^9$ to $10^{10}$ $\ohm$.
 He also performed selectivity measurements on the microelectrode, using the Nicolsky-equation \cite{nicolsky1937theory}:
 
 \begin{equation}
 E=E^\theta + \frac{RT}{z_iF} \ln \left [ a_i + \sum_{j} \left ( k_{ij}a_j^{z_i/z_j} \right ) \right ]
 \end{equation}
 
-where E is the emf, E$^\theta$ the standard electrode potential, z the ionic valency including the sign, a the activity, i the ion of interest, j the interfering ions and k$_{ij}$ is the selectivity coefficient.
-The smaller the selectivity coefficient, the less is the interference by j.
+where $E$ is the emf, $E^\theta$ the standard electrode potential, $z$ the ionic valency including the sign, $a$ the activity, $i$ the ion of interest, $j$ the interfering ions and k$_{ij}$ is the selectivity coefficient.
+The smaller the selectivity coefficient, the less is the interference by $j$.
 These microelectrodes were surpassed by the following generation of ion-selective microelectrodes, based on the ionophores.
 
 \subsection{Ionophore based microelectrodes}
@@ -222,7 +222,7 @@ These are carriers for specific ions, and act as complexing ligands.
 Their cell consisted of the following elements:
 
 \begin{equation}
-\text{Ag | AgCl | KCl(aq) || membrane || sample | NH$_4$NO$_3$ | KCl(aq) | Hg$_2$Cl$_2$| Hg}
+\text{Ag | AgCl | KCl(aq) || membrane || sample | NH$_4$NO$_3$(aq) | KCl(aq) | Hg$_2$Cl$_2$| Hg}
 \end{equation}
 
 The inner solution was 0.1 M in the chlorides of all cations tested in one set of experiments and was buffered to pH 8 with acetic acid and triethanolamine.
@@ -549,9 +549,15 @@ After these generalizations, from both equations we get:
 This equation \cite{lindner1986definition} will be modified later in the thesis to estimate $E_{cell}(\infty)$ based on the other variables.
 
 \subsection{On the use of the expression "equilibrium"}
-Throughout my dissertation I use the expression \emph{equilibrium} to describe a steady potential difference between the measuring and the reference electrodes. However, this state of course cannot be regarded an equilibrium, since given enough time, the potential difference will reach zero. The resistance of the whole cell is finite, and if there is a potential difference between any two points in the cell, current will flow. Two phenomena have to be distinguished. The first is the electrochemical process, which in real cells ($i \neq 0$) is in equilibrium \emph{only} if cell potential difference have reached zero, i.e. the cell is depleted. The other process is the charging or discharging of a capacitance modeled by $C$ in Fig. \ref{fig:rc}. If we accept the model described in the previous section, this is can be regarded a purely physical process, which is in true eqilibrium if the voltage across the capacitor $C$ is the same as the voltage of the input ($V_i = V_o$). For this argument to be true, the source of the potential difference must not change over time given an electrolyte composition. This is true in the timeframe of the measurements in this thesis. Therefore, I use the expression \emph{equilibrium} to refer to a state of the potentiometric cell, in which the voltage across the plates of the capacitor does not change over time, and equal to $V_i$ and $V_o$.
+Throughout my dissertation I use the expression \emph{equilibrium} to describe a steady potential difference between the two terminals of the cell, the electrical contact of the measuring and the reference electrodes.
+However, this state of course cannot be regarded an equilibrium, since given enough time, the potential difference will reach zero eventually.
+The resistance of the whole cell is finite, and if there is a potential difference between any two points in the cell, current will flow.
+Two phenomena have to be distinguished.
+The first is the electrochemical process, which in real cells ($i \neq 0$) is in equilibrium \emph{only} if cell potential difference have reached zero, i.e. the cell is depleted.
+The other process is the charging or discharging of a capacitance modeled by $C$ in Fig. \ref{fig:rc}.
+If we accept the model described in the previous section, this can be regarded a purely physical process, which is in true eqilibrium if the voltage across the capacitor $C$ is the same as the voltage of the input ($V_i = V_o$). This state is what I refer to by equilibrium.
 
-
+It must be kept in mind however, that the source of the potential difference in fact \emph{does} change over time for a given electrolyte composition as a consequence of the very small current flowing through the cell (fA range). Therefore it is not an equilibrium, only a steady state.
 \newpage
 \section{Scanning Electrochemical Microscopy}
 \subsection{Origins of the technique}

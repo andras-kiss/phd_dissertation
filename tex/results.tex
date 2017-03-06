@@ -468,7 +468,7 @@ This idea is realized in some pH meters produced by Radelkis (Hungary) in which 
 
 			\subsubsection{Minimal working example: deconvolution of a step response}
 The ,,minimal working example'' method, originally used in programming, is a way of tracking down problems, and finding the cause of certain behaviour.
-The important feature of a minimal working example is that it is as simple as possible, such that it is just sufficient to demonstrate the problem, but without any additional complexity which would make resolution harder.
+The most important feature of a minimal working example is that it is as simple as possible, such that it is just sufficient to demonstrate the problem, but without any additional complexity which would make resolution harder.
 In this case, the minimal working example is a simple step function: the activity of the primary ion is changed suddenly, while the response of the potentiometric cell is recorded.
 The input of the system is a step function, the output is the recorded signal, an exponential decay function.
 If there is no additional distortion, and the transfer function is simply Eq. \ref{eq:rc2}, the square step should be restored. 
@@ -506,8 +506,8 @@ Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the p
 This $RC$ implies a very high resistance.
 It is possible to estimate the resistance of the antimony microelectrode from the specific resistance and the geometry of the antimony wire.
 Diameter, as mentioned in the chapter \emph{,,Materials and Methods''}, was 30 $\upmu$m, length of the antimony wire was around 5 cm.
-Specific resistance of antimony is 417 n$\ohm m$ (at 20 $\celsius$) \cite{lide2001crc}.
-Then, resistance could be calculated as $R = 417 n\ohm m \times 0.05 m / ((15 \upmu m)^2 \times \pi) = 29.50 \ohm$.
+Specific resistance of antimony is 417 n$\ohm$m (at 20 $\celsius$) \cite{lide2001crc}.
+Then, resistance could be calculated as $R$ = 417 n$\ohm$m $\times$ 0.05 m / ((15 $\upmu$m)$^2 \times \pi) = 29.50\; \ohm$.
 It must be noted however, that the measured resistance is a property of the whole cell, not just the microelectrode.
 Resistance of the reference electrode, and that of the solution are included.
 Nevertheless, the difference between the estimated and the measured values is still too high.
@@ -571,14 +571,14 @@ The input function was defined as
 E_{cell}(t) =
 \left\{
 	\begin{array}{ll}
-		-183.18 \; \textrm{mV} & \mbox{if } t < 50 \; \textrm{s} \\
-		-280.20 \; \textrm{mV} & \mbox{if } t \geq  50 \; \textrm{s}
+		-183.18 \; \textrm{mV,} & \mbox{if } t < 50 \; \textrm{s} \\
+		-280.20 \; \textrm{mV,} & \mbox{if } t \geq  50 \; \textrm{s}
 	\end{array}
 \right.
 \label{eq:piecewise}
 \end{equation}
 
-The values for initial ($E_{cell}(0) = -183.18$ mV) and equilibrium ($E_{cell}(\infty) = -280.20$ mV) potentials were obtained by averaging certain portions of the recorded signal: the average from 0 to 49 s is -183.18 mV, and the average from 60 to 80 s is -280.20 mV.
+The values for initial ($E_{cell}(0) = -183.18$ mV) and equilibrium ($E_{cell}(\infty) = -280.20$ mV) potentials were obtained by averaging certain portions of the recorded signal: the average from 0 to 49 s is $-183.18$ mV, and the average from 60 to 80 s is $-280.20$ mV.
 \ref{eq:piecewise} should be obtained experimentally if the potentiometric cell was infinitely fast, and $RC$ would be 0.
 
 \begin{table}
@@ -689,7 +689,7 @@ Again, line blur distortion in the raw images is visible along the alternating s
 By deconvoluting the images, the expected potential maps can be obtained (Fig. \ref{fig:deconvolution}E-H). 
 
 Not only the circular shape of the target in the images is restored, but the peak value above the center of the target as well.
-Maximum value in the raw scans was around -300 mV, whereas in the deconvoluted image, it was about -260 mV, with a significant difference between the two. 
+Maximum value in the raw scans was around $-300$ mV, whereas in the deconvoluted image, it was about $-260$ mV, with a significant difference between the two. 
 
 			\subsubsection{2D scans performed with the tungsten microelectrodes}
 Additionally, 2D SECM scans were also performed with two different tungsten microelectrodes: one prepared from commercial tungsten microwire, and another from the filament of a 100 W Tungsram incandescent lighbulb.
@@ -736,7 +736,7 @@ With $t_e$ = 4.9 s, distortion is less visible.
 Based on the determined $RC$ time constant, in 4.9 seconds, 89.22\% of the total change occurs (1 - e$^{-4.9 s / 2.2 s}$ = 0.8922), and therefore the recorded signal is almost in equilibrium, and can be regarded as a reference for comparison with the concentration profiles obtained using smaller $t_e$ parameters.
 With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs respectively, causing a significant amount of distortion.
 
-\begin{figure}[h]
+\begin{figure}%[h]
 \centering
 \begin{tikzpicture}
 \begin{axis}	[xmin=-1000,
@@ -865,13 +865,13 @@ When zinc and copper are galvanically coupled, and are submersed in the same ele
 Zinc itself becomes the anode, and Zn$^{2+}$ dissolution will take place.
 Simultaneously, pH will decrease at the zinc anode, and increase at the copper cathode.
 A 2D SECM scan was recorded with an antimony microelectrode, capturing both the zinc, and the copper sample (Fig. \ref{fig:zinc_copper}).
-The scan was recorded at a relatively high speed ($r = 500\,\upmu$m/s).
+The scan was recorded at a relatively high speed ($r = 500\;\upmu$m/s).
 Because of the high speed, the obtained image was distorted.
 An improvement in image quality in the deconvoluted image is noticable.
 The processed image clearly shows the two circular targets 1000 $\upmu$m apart.
 There is a significant difference between the raw and deconvoluted images, especially in the close vicinity of the targets.
-Potential above the zinc anode changed from -360 mV to -300 mV as an effect of the deconvolution, which means a whole pH unit.
-Potential above the copper cathode changed from -480 mV to -550 mV by deconvolution.
+Potential above the zinc anode changed from $-360$ mV to $-300$ mV as an effect of the deconvolution, which means a whole pH unit.
+Potential above the copper cathode changed from $-480$ mV to $-550$ mV by deconvolution.
 Both the anodic and cathodic activity would have been underestimated based on the raw, distorted image.
 
 \begin{figure}
