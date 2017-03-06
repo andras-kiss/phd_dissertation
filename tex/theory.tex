@@ -95,7 +95,7 @@ He defined it as the negative logarithm of the concentration of H$_3$O$^+$:
 \textrm{pH} = -\lg c_{\textrm{H}_3\textrm{O}^+}
 \end{equation}
 
-This however, is not entirely true, because pH depends on the \emph{activity} of H$_3$O$^+$, rather than the concentration:
+This however, is not entirely true, because pH depends on the \emph{activity} of H$_3$O$^+$, rather than its concentration:
 
 \begin{equation}
 \textrm{pH} = -\lg a_{\textrm{H}_3\textrm{O}^+}
@@ -139,7 +139,7 @@ To calculate the potential of any half-cell, the \emph{Nernst-equation} can be u
 E = E^\theta - \frac{RT}{z_iF}\ln a_i
 \end{equation}
 
-where $E^\theta$ is the standard potential difference of the cell, $R$ the universal gas constant, $F$ the Faraday constant, $T$ the thermodynamic temperature, z$_i$ is the valence and a$_i$ is the activity of ion species $i$.
+where $E^\theta$ is the standard potential difference of the cell, $R$ the universal gas constant, $F$ the Faraday constant, $T$ the thermodynamic temperature, z$_i$ is the valence and $a_i$ is the activity of ion species $i$.
 The potential difference $E$ of the cell \ref{eq:harned} (corrected to 101.325 kPa partial pressure of hydrogen) is described by the \emph{Nernst-equation} as:
 
 \begin{equation}
@@ -323,72 +323,74 @@ Another very popular metal/metal-oxide electrode used for pH measurements is the
 
 		\subsection{The potentiometric measurement}
 The generation and measurement of the voltage in the potentiometric cell are closely related.
-Unfortunalety, as with any other technique, the measurement itself alters the measured value.
-This effect is especially large in potentiometry.
+Unfortunalety, as with any other technique, the measurement itself influences the measured system, and therefore the measured value.
+This effect is especially strong in potentiometry.
 Fig. \ref{fig:loading_error} shows the circuit diagram of the generation and measurement of the voltage.
 First it will be discussed as if the amplifier wasn't present in the circuit.
-It can be split into three parts \cite{halliwell1987using}:
-
+Without the amplifier, it can be split into three parts \cite{halliwell1987using}:
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{img/theory/loading_error_2.eps}
-\caption[The generation and measurement of the a potential of a microelectrode.]{The generation and measurement of the a potential of a microelectrode.
-The circuit can be split into 3 sections: (A) voltage source, the potential difference between the reference and the measuring electrodes with an $R_0$ output resistance.
-(B) The measuring circuit, which consists of 3 elements: an ideal voltmeter, a resistance $R_{in}$ to account for current flowing in the input in response to the input voltage, and a capacitance $C_{in}$.
-(C) The electrical connection between the voltage generator and the measuring circuit, with a capacitance $C_s$.}
+\caption[The model of the potentiometric measurement.]{The model of the potentiometric measurement. The circuit is constituted by 4 parts: (A) voltage source, the potential difference between the reference and the measuring electrodes with an $R_0$ output resistance. (B) The measuring circuit, which can be split into 3 elements: a voltmeter, a resistance $R_{in}$ to account for current flowing through the terminals of the voltmeter, and an input capacitance $C_{in}$. (C) The electrical connection between the voltage generator and the measuring circuit, with a capacitance $C_s$. (D) Unity gain current buffer built from an operational amplifier in the non-inverting voltage follower configuration.}
 \label{fig:loading_error}
 \end{figure}
-
 
 \emph{(A) Source of the voltage}.
 The potential difference $V$ is developed across the output of an ideal voltage source $E$ in series with a large output resistance $R_0$.
 In the potentiometric cell, $R_0$ is the resistance of the measuring electrode, and $E$ is the potential of the measuring electrode with respect to the reference electrode.
-Although $E$ is regarded perfect, and it produces a constant voltage even if very large currents are generated, the ouput voltage $V$ is reduced by an amount $E - V = iR_0$.
+Although $E$ is regarded perfect in this model, and its voltage is independent of the current drawn, the output voltage $V$ is smaller than $E$, because of the ohmic drop $iR_0 = E - V$.
 Since the resistance of a microelectrode can be in the range of mega-, or even gigaohms, very large errors may result from very small currents.
 
 \emph{(B) The measuring circuit} consist of three elements.
-$V$, an ideal voltmeter, which draws no current from the circuit and responds instantly to potential changes at the input.
-The second element is a resistance $R_{in}$ to account for the imperfection of real voltmeters, the current flowing in the input in response to the input voltage.
+The first element is the voltmeter $V$ with infinitely large input impedance. It draws no current, since $i = U/\infty=0$. It doesn't have any input capacitance ($C_{in}$ is modeled separately), therefore it responds to the input voltage without any delay.
+The second element is a resistance $R_{in}$ to account for the imperfection of real voltmeters, the current flowing through its terminals as a consequence of the potential difference between them.
 The third element is the input capacitance of the voltmeter, modeled by the capacitor $C_{in}$.
-The current drawn by the input is $V/R_{in}$ and determines the error in measuring $E$:
+The current flowing through $R_{in}$ is $i_{R_{in}}=V/R_{in}$. It equals to the difference between the input and the output of the circuit, the error of the measurement of $E$:
 
 \begin{equation}
 \label{eq:loading}
-	E - V = \frac{R_0 V}{R_{in}}
+	E - V = i_{R_{in}} R_0 = \frac{R_0 V}{R_{in}}
 \end{equation}
 
-and 
+The ratio of the two can be calculated by the formula for the voltage divider: 
 
 \begin{equation}
 \label{eq:loading2}
         \frac{V}{E} = \frac{R_{in}}{R_0+R_{in}}
 \end{equation}
 
-The input resistance, $R_{in}$, of a typical voltage meter is often 1 $M\ohm$ or 10 $M\ohm$, of a microelectrode amplifier $10^{12} \ohm$ and of a pH meter $10^{14} \ohm$.
-It is clearly important that $R_{in} \gg R_o$ to minimize the error in potential measurements.
-The input capacitance contributes to slowing the response to a change of $V$, to an extent that depends on $C_{in}$ and $R_{in}$; the output for a step input is an exponential of time constant $\tau = C_{in}R_{in}R_0/(R_{in}+R_0)$.
+Input resistance $R_{in}$ of a typical voltmeter is in the range of $1-10$ M$\ohm$.
+This relatively low resistance can cause a large distortion, because $R_{in}/R_0+R_{in}$ approaches 1 only of $R_{in}$ approaches infinity, or $R_0$ approaches zero.
+Since $R_0$ is a given property of the circuit, the only way the error can be lowered is by increasing $R_{in}$.
+For example, the input resistance of a microelectrode amplifier is about $10^{12}$ $\ohm$, and of a pH meter $\sim 10^{14}$ $\ohm$.
+Based on Eq. \ref{eq:loading} it is very important that $R_{in} \gg R_o$ to minimize the error in potential measurements.
+The effect of input capacitance $C_{in}$ is discussed in the next section (\emph{Response characteristics}).
 
-\emph{(C) The connection} between voltage generator and measuring instrument usually involves a wire of low resistance, but often with important stray capacitance to ground.
-In the case of screened cable (with braided copper shield connected to earth) this amounts to 100-200 pF/m and may restrict the speed of transmitted signals if it is in series with a large output impedence.
-A second effect of this is the source of noise in the measured voltage.
+\emph{(C) The connection} between the voltage source $E$ and the measuring instrument $V$.
+This element influences the measurement in two ways.
+First, it delays the voltage across $V$ compared to $E$, the effect which is detailed in the next section (\emph{Response characteristics}).
+The other effect is a consequence of a very small current, induced by stray capacitance.
+The cable between $E$ and $V$ acts as the plate of a capacitor.
+The other plate can be anything in the environment.
+If the capacitance of the element constituted by these two plates changes -- by objects moving around in the envrionment, or charge transfer occuring -- small current will flow through the cable.
 Since the overall resistance of the circuit is quite high due to the measuring microelectrode, even if very small currents are induced by the stray capacitance, large amount of noise can be added to $V$, because $V = iR_0$.
-In the case of a microelectrode or other high resistance source, the stray capacitance should be kept as small as possible by using short connections between the electrode and amplifier input.
+This effect can be minimised by using shielded cables to decrease stray capacitance, and using as short connections between high the impedance elements and the amplifier as possible.
+Stray capacitance of a typical shielded (braided) cable is $\sim 100-200$ pF/m.
 
-Operational amplifiers are used to solve several of the issues described above.
+\emph{(D) Operational amplifiers} are used to solve several of the issues described above.
 They are introduced between the measuring electrode and the measuring circuit as seen in Fig. \ref{fig:loading_error}.
 The operational amplifier is used as a \emph{unity gain current buffer}.
 It is achieved by connecting the output of the amplifier to the inverting input.
-In this configuration, the entire output voltage is fed back into the inverting input.
-The difference between the non-inverting input voltage and the inverting input voltage is amplified by the op-amp.
-This connection forces the op-amp to adjust its output voltage simply equal to the input voltage.
-$V_{out}$ follows $V_{in}$, so the circuit is named op-amp voltage follower.
-
-The importance of this circuit does not come from any change in voltage, but from the input and output impedances of the op-amp.
-The input impedance of the op-amp is very high (1 $M\ohm$ to 10 $T\ohm$), meaning that the input of the op-amp does not load down the source and draws only minimal current from it.
-Because of this, $E - V = iR_0$ is much less, and the measured $V$ is almost identical to the source $E$.
-
-
+In this configuration, the output is tied back to the inverting input, while the potential to be measured (with respect to ground) is connected to the non-inverting input.
+Since the operational amplifier does everything it can to keep the two inputs at the same voltage, and one of the output is fed back to one of the inputs, the output will be the same as the other input.  
+The name of this circuit is \emph{non-inverting voltage follower}.
+It comes from the fact that the output $V_{out}$ follows $V_{in}$, and the sign of the two equal, as opposed to the inverting configuration, when $V_{out}=-V_{in}$.
+In other words, the circuit has unity ($\times 1$) gain: it does not amplify potential difference.
+The reason this circuit is used as an interface between the high impedance source and the low impedance measuring circuit is that because of its high input impedance, it draws no current from the source.
+Therefore there is no loading error on its high impedance side.
+On the other hand, they have a low output impedance, and can drive the measuring instrument, with minimal $R_0$ of their own, and therefore there is no loading error on the low impedance side either.
+The input impedance of a typical opamp used for this purpose is around 1$-$10 T$\ohm$, so $R_{in}/(R_{in}+R_0)$ is unity, and the measured $V$ is almost identical to the source $E$, because $V/E$ is also 1.
 
 		\subsection{Response characteristics}
 Because the $RC$ time-constant plays a central role in my thesis, I give a detailed derivation of it here.
@@ -548,7 +550,7 @@ After these generalizations, from both equations we get:
 
 This equation \cite{lindner1986definition} will be modified later in the thesis to estimate $E_{cell}(\infty)$ based on the other variables.
 
-\subsection{On the use of the expression "equilibrium"}
+\subsection{On the use of the expression ,,equilibrium''}
 Throughout my dissertation I use the expression \emph{equilibrium} to describe a steady potential difference between the two terminals of the cell, the electrical contact of the measuring and the reference electrodes.
 However, this state of course cannot be regarded an equilibrium, since given enough time, the potential difference will reach zero eventually.
 The resistance of the whole cell is finite, and if there is a potential difference between any two points in the cell, current will flow.
