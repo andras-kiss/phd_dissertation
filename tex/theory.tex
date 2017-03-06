@@ -2,6 +2,13 @@
 \section{Microelectrodes}
 %Three, more or less independent resear
 \subsection{Pioneers of using microelectrodes}
+In this section I look at the motivation behind electrode miniaturization, and the difficulties the researchers at those times faced.
+By decreasing electrode diameter, new challenges had to be faced.
+The problem associated with these challenges always lead to a compromise between several competing desired properties, which can never truly be solved, only alleviated to a certain point, to make a particular study possible.
+Researchers that first used microelectrodes faced the same problems as todays researchers, the difference is how severe the compromise is.
+The fundamental problem of potentiometry with microelectrodes hasn't changed.
+Therefore, I reviewed the literature going back to the first appearances of such electrodes in an effort to better understand the reasons and potential solutions of some of the problems in microelectrode potentiometry.
+
 For the first few decades, the development of microelectrodes was related closely, almost exclusively to neurophysiology.
 The main merit of the work of the early pioneers from the standpoint of the electrochemist, is the foundation of the basics of the micropipette techniques.
 Including the preparation, instrumentation, and basic characterization of them.
@@ -19,7 +26,7 @@ The first successful exeperiments were done by the famous pioneers of the field,
 \label{fig:pioneers}
 \end{figure}
 
-The best subject for electroneurophysiological studies is the giant squid axon.
+They have found that the best subject for electroneurophysiological studies is the giant squid axon.
 The large diameter of the axon provided a great experimental advantage for Hodgkin and Huxley as it allowed them to insert voltage clamp electrodes inside the lumen of the axon.
 But as Graham and Gerard writes \cite{graham1946judith}:
 
@@ -40,7 +47,7 @@ Webb and Young wrote in their 1940 paper \cite{webb1940electrolyte}:
 \end{quote} 
 
 Another species, the much more accessible longfin inshore squid (\emph{Loligo paelii}) had to be used, which has much smaller axons.
-In order to carry out voltage clamp experiments, the intracellular microelectrodes had to be miniaturized further.
+In order to carry out voltage clamp experiments on neurons of this species, the intracellular microelectrodes had to be miniaturized further.
 
 The basic experimental setup for an early neurophysiological study employed several electrodes.
 Usually, there was an intracellular and an extracellular electrode to measure the potential difference across the cell membrane.
@@ -85,28 +92,28 @@ Three years later, in 1909, S\o rensen introduced the concept of pH \cite{sorens
 He defined it as the negative logarithm of the concentration of H$_3$O$^+$:
 
 \begin{equation}
-pH = -lgc_{H_3O^+}
+\textrm{pH} = -\lg c_{\textrm{H}_3\textrm{O}^+}
 \end{equation}
 
 This however, is not entirely true, because pH depends on the \emph{activity} of H$_3$O$^+$, rather than the concentration:
 
 \begin{equation}
-pH = -lga_{H_3O^+}
+\textrm{pH} = -\lg a_{\textrm{H}_3\textrm{O}^+}
 \end{equation}
 
 And since pH is dimensionless, a better way to define pH is:
 
 \begin{equation}
-pH = -lg(\gamma_{H_3O^+} m_{H_3O^+} / m^\theta)
+\textrm{pH} = -\lg(\gamma_{\textrm{H}_3\textrm{O}^+} m_{\textrm{H}_3\textrm{O}^+} / m^\theta)
 \end{equation}
 
 or
 
 \begin{equation}
-pH = -lg(\gamma_{H_3O^+} c_{H_3O^+} / c^\theta)
+\textrm{pH} = -\lg(\gamma_{\textrm{H}_3\textrm{O}^+} c_{\textrm{H}_3\textrm{O}^+} / c^\theta)
 \end{equation}
 
-where $m^\theta = 1 mol kg^{-1}$ and $c^\theta = 1 mol dm^{-3}$ are the standard states, and $\gamma_{H_3O^+}$ is the activity coefficient of $H_3O^+$. 
+where $m^\theta$ = 1 mol$\cdot$kg$^{-1}$ and $c^\theta$ = 1 mol$\cdot$dm$^{-3}$ are the standard states, and $\gamma_{\textrm{H}_3\textrm{O}^+}$ is the activity coefficient of H$_3$O$^+$. 
 
 The current, internationally accepted definition of pH is an instrumental definition, based on an electrochemical cell without transference using the hydrogen gas electrode, known as the \emph{Harned Cell} \cite{harned1958activity} (Fig. \ref{fig:harned}).
 To measure the pH in such a cell, a conventional procedure was developed at NBS (National Bureau of Standards) \cite{durst1975standardization} and recommended at present by the last IUPAC (International Union of Pure and Applied Chemistry) Recommendations \cite{covington2002measurement}.
@@ -122,39 +129,39 @@ NIST (National Institute of Standards and Technology) in the U.S. and PTB (Physi
 pH measurement using the Harned Cell is carried out by measuring the potential difference of the following cell, containing certified standard buffer solution and chloride ions, added in order to use the silver/silver-chloride electrode:
 
 \begin{equation}
-Pt(s) | H_2(g) | \text{buffer solution}, Cl^-(aq) | AgCl(s) | Ag(s)
+\textrm{Pt(s) | H}_2\textrm{(g) | buffer solution, Cl}^-\textrm{(aq) | AgCl(s) | Ag(s)}
 \label{eq:harned}
 \end{equation}
 
 To calculate the potential of any half-cell, the \emph{Nernst-equation} can be used:
 
 \begin{equation}
-E = E^\theta - \frac{RT}{z_iF}lna_i
+E = E^\theta - \frac{RT}{z_iF}\ln a_i
 \end{equation}
 
-where $E^\theta$ is the standard potential difference of the cell, R the universal gas constant, F the Faraday constant, T the thermodynamic temperature, z$_i$ is the valence and a$_i$ is the activity of ion species i.
-The potential difference E of the cell \ref{eq:harned} (corrected to 101.325 kPa partial pressure of hydrogen) is described by the \emph{Nernst-equation} as:
+where $E^\theta$ is the standard potential difference of the cell, $R$ the universal gas constant, $F$ the Faraday constant, $T$ the thermodynamic temperature, z$_i$ is the valence and a$_i$ is the activity of ion species $i$.
+The potential difference $E$ of the cell \ref{eq:harned} (corrected to 101.325 kPa partial pressure of hydrogen) is described by the \emph{Nernst-equation} as:
 
 \begin{equation}
-E = E^\theta - \frac{RTln10}{F}lg\bigg(\frac{a_{H_3O^+}m_{Cl^-}\gamma_{Cl^-}}{m^\theta}\bigg)
+E = E^\theta - \frac{RT\ln 10}{F}\lg\bigg(\frac{a_{\textrm{H}_3\textrm{O}^+}m_{\textrm{Cl}^-}\gamma_{\textrm{Cl}^-}}{m^\theta}\bigg)
 \end{equation}
 
 which can be rearranged to give the pH:
 
 \begin{equation}
-p(a_{H_3O^+}\gamma_{Cl^-}) = -lg(a_{H_3O^+}\gamma_{Cl^-}) = \frac{E - E^\theta}{(RT/F)ln10} + lg \bigg(\frac{m_{Cl^-}}{m^\theta}\bigg)
+\textrm{p}(a_{\textrm{H}_3\textrm{O}^+}\gamma_{\textrm{Cl}^-}) = -\lg(a_{\textrm{H}_3\textrm{O}^+}\gamma_{\textrm{Cl}^-}) = \frac{E - E^\theta}{(RT/F)\ln10} + \lg \bigg(\frac{m_{\textrm{Cl}^-}}{m^\theta}\bigg)
 \end{equation}
 
-where $\gamma_{Cl^-}$ is the molal activity coefficient of the chloride ions at the molality $m_{Cl^-}$.
+where $\gamma_{\textrm{Cl}^-}$ is the molal activity coefficient of the chloride ions at the molality $m_{\textrm{Cl}^-}$.
 
-The acidity function value at zero chloride molality $pa_0 = -lg(a_H \gamma _{Cl^-})m_{Cl^- \to 0}$  is determined by linear extrapolation of the acidity function values obtained by fitting by least square method.
-Calculation of trace activity coefficient of chloride ions $\gamma_{Cl^- \to 0}$ at $m_{Cl^- \to 0}$ according to the Bates-Guggenheim convention \cite{bates1960report}:
+The acidity function value at zero chloride molality p$a_0$ = $-$lg($a_{\textrm{H}^+} \gamma _{\textrm{Cl}^-})m_{\textrm{Cl}^- \to 0}$  is determined by linear extrapolation of the acidity function values obtained by fitting by least square method.
+Calculation of trace activity coefficient of chloride ions $\gamma_{\textrm{Cl}^- \to 0}$ at $m_{\textrm{Cl}^- \to 0}$ according to the Bates-Guggenheim convention \cite{bates1960report}:
 
 \begin{equation}
-lg \gamma_{Cl^- \to 0} = \frac{A I^{1/2}}{1 + 1.5I^{1/2}}
+\lg \gamma_{\textrm{Cl}^- \to 0} = \frac{A I^{1/2}}{1 + 1.5I^{1/2}}
 \end{equation}
 
-where A is the Debye-Hückel temperature-dependent limiting slope and I the ionic strength of the buffer solution.
+where $A$ is the Debye-Hückel temperature-dependent limiting slope and $I$ the ionic strength of the buffer solution.
 If ion molar concentration is $c_i$, number of electric charges is $z_i$, then $I = (1/2) \Sigma c_i z_{i}^{2}$.
 
 Haber and Klemensiewicz gave a full account of the response of the glass electrode in their 1909 paper \cite{haber1909elektrische, haber1909concerning}.
@@ -164,7 +171,7 @@ Hinke created ion-selective electrodes for potassium and sodium using the respec
 He used them to show the correlation between sodium ion concentration in blood, and blood pressure \cite{friedman1958use, friedman1959drug}.
 Also, similarly to what Caldwell did with the glass electrode, Hinke created sodium and potassium ion-selective microelectrodes in 1959 \cite{hinke1959glass} using the same type of ion selective glasses.
 With his revolutionary \textbf{\emph{ion-selective microelectrodes}} (Fig. \ref{fig:hinke}), Hinke was able to perform the first true intracellular ion-selective measurements, and determined the potassium and sodium ion concentration in the muscle cells of the propodite of crab and lobster (\emph{Carcinus m\ae nus} and \emph{Homarus vulgaris}).
-His microelectrodes originally had a tip cross section of 20 $\upmu$m $\times$ 150 $\upmu$m, with a wall thickness of $1 - 4 \upmu$m, and a resistance of $10^{10} - 10^{11} \ohm$.
+His microelectrodes originally had a tip cross section of 20 $\upmu$m $\times$ 150 $\upmu$m, with a wall thickness of 1 - 4 $\upmu$m, and a resistance of $10^{10} - 10^{11}$ $\ohm$.
 
 \begin{SCfigure}
 \centering
@@ -215,7 +222,7 @@ These are carriers for specific ions, and act as complexing ligands.
 Their cell consisted of the following elements:
 
 \begin{equation}
-Ag | AgCl | \text{inner solution} || \text{membrane} || \text{sample} | 0.1 M NH_4NO_3 | KCl std., Hg_2Cl_2 | Hg
+\text{Ag | AgCl | KCl(aq) || membrane || sample | NH$_4$NO$_3$ | KCl(aq) | Hg$_2$Cl$_2$| Hg}
 \end{equation}
 
 The inner solution was 0.1 M in the chlorides of all cations tested in one set of experiments and was buffered to pH 8 with acetic acid and triethanolamine.
@@ -265,26 +272,8 @@ C \includegraphics[width=0.5\textwidth]{img/theory/Nonactin.eps}
 The first synthesized ionophores were introduced in 1969 by Kimura and co-workers \cite{kimura1979potassium}.
 Since then, many research groups synthesized ionophores for many different ions.
 
-An important area of application of ion-selective electrodes is blood analysis.
-Most often, doctors are interested in concentrations of sodium, potassium, calcium, and hydrogen ions.
-In the sixties and early seventies, most of these biological ion measurements were made by the method of flame photometry.
-This method works very well in a central laboratory of a clinic, but not necessarily very adequate for a doctors office.
-But in the sixties, the space program was extremely important, and measurements had to be made in space.
-It meant that the measurement should be simple, fast, it should be easy to use under difficult circumstances.
-Ion-selective cells were developed partially to make those measurements in space.
-A voltage measurement is very simple, it is cheap, and doesn't require complicated instruments, low powered, and also, very importantly, easy to miniaturize with micro fabrication techniques.
-It means, that very small volumes of samples can be analyzed in a very short period of time.
-
-As it was mentioned it is important in clinical diagnostics to measure certain ions in blood.
-For example it is very important to decide very quickly, whether someone with a chest pain has a heartburn or a heart attack.
-Surprisingly, it is a very difficult question to answer.
-If we keep someone with heartburn in the ER, it's extremely expensive.
-If we send home somebody with an acute myocardial infarction, they may die.
-There are instruments to measure the important ions with diagnostic value, but again, in central laboratories.
-That's why it was -- and still is -- very important to develop ion-selective electrodes to minimize the time between patient admission and treatment.
-
 pH and blood gases have been measured routinely since Severinghaus and Bradley developed the blood gas analyzer for CO$_2$ and O$_2$ in 1958 \cite{severinghaus1958electrodes}.
-These are not based on ionophores, but will be described here briefly because they are related closely to the just mentioned blood analyzers.
+These are not based on ionophores, but will be described here briefly because they are related closely to the metal/metal-oxide microelectrodes used in this dissertation.
 To measure oxygen, they used Clarks electrode \cite{clark1953continuous}, and for carbon-dioxide, they developed a gas gas sensor, which since has been known as the \emph{,,Severinghaus--electrode''}.
 It is based on pH measurement in a thin membrane on the surface of a glass pH-electrode.
 Carbon-dioxide diffuses to the membrane, dissolves in the thin film, and lowers the pH.
@@ -299,7 +288,7 @@ Solid-contact electrodes had already been around since the 1970s with the invent
 The instability was solved by the electropolymerization of a thin layer of conductive polymer onto the solid contact, that showed a mixed electronic and ionic conductivity, thereby providing a stable ion-to-electron interface \cite{bobacka2003potentiometric, bobacka2004all, bobacka2006conducting, michalska2006optimizing}.
 A wide range of conductive polymers are used, including polypyrroles \cite{sun2004construction}, polythiophenes \cite{bobacka1994all}, and polyanilins \cite{paciorek2005miniature}.
 In this thesis, the ion-to-electron interface in the solid-contact ion-selective microelectrodes is PEDOT (poly(3,4-ethylenedioxythiophene)), first used for this purpose by Johan Bobacka and coworkers \cite{bobacka1994all}.
-Solid-contact electrodes were used in the work done in our laboratory by Gergely Gyetvai \cite{gyetvai2007solid}, Ágnes Varga \cite{varga2011development} and Javier Izquierdo \cite{izquierdo2012scanning}.
+Solid-contact electrodes were used in the work done in our laboratory earlier \cite{gyetvai2007solid, varga2011development, izquierdo2012scanning}.
 
 An interesting application of solid-contact microelectrodes is described in \cite{kounaves2002determination}.
 An array of electrochemical sensors, including 27 microlectrodes were used to determine the concentration of certain ions in the martian soil.
@@ -311,24 +300,24 @@ Such fluxes have historically deteriorated the detection limits and observed sel
 
 \subsection{Metal/metal-oxide pH microelectrodes}
 Since the glass electrode cannot be effectively miniaturized due to the reasons detailed in the previous sections, intensive research has been conducted for several decades to improve metal/metal-oxide electrodes.
-One of the most often used type of these is the $Ir/IrO_2$ electrode \cite{beyenal2004improved}.
-The oldest is certainly the $Sb/Sb_2O_3$ electrode, its initial characterization dating back to 1923 \cite{uhl1923electrometric}.
+One of the most often used type of these is the Ir/IrO$_2$ electrode \cite{beyenal2004improved}.
+The oldest is certainly the Sb/Sb$_2$O$_3$ electrode, its initial characterization dating back to 1923 \cite{uhl1923electrometric}.
 It is based on the equilibrium between antimony and the antimony-oxide on its surface.
 It is pH sensitive because hydrogen ions participate in the equilibrium:
 
 \begin{equation}
-        \ce{2Sb_{(s)} + 3H_2O <-> Sb_2O_3 + 6H^+ + 6e^-}
+        \ce{2Sb_{(s)} + 3H_2O <=> Sb_2O_3 + 6H^+ + 6e^-}
 \end{equation}
 
 \begin{equation}
-        \ce{Sb_{(s)} + 3OH^- <-> Sb(OH)_3 + 6e^-}
+        \ce{Sb_{(s)} + 3OH^- <=> Sb(OH)_3 + 6e^-}
 \end{equation}
 
-The main reason this particular electrode is so popular is that the melting point of antimony and borosilicate glass are similar ($T_{m, Sb} = 630.63 \celsius, T_{m, glass}\approx 700 \celsius)$, and manufacturing them is relatively easy with standard glass blowing techniques.
+The main reason this particular electrode is so popular is that the melting point of antimony and borosilicate glass are similar ($T_{m, \textrm{Sb}} = 630.63$ $\celsius$, $T_{m, glass}\approx 700$ $\celsius$), and manufacturing them is relatively easy with standard glass blowing techniques.
 
 Another very popular metal/metal-oxide electrode used for pH measurements is the tungsten electrode. Its function is also based on the equilibrium between the metal and its oxide:
 \begin{equation}
-        \ce{W_{(s)} + 3H_2O <-> WO_3 + 6H^+ + 6e^-}
+        \ce{W_{(s)} + 3H_2O <=> WO_3 + 6H^+ + 6e^-}
 \end{equation}
 
 
