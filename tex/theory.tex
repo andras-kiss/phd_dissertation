@@ -418,32 +418,32 @@ Using Ohm's law to express the voltage across the resistor as $iR$ and Kirchhoff
 \end{equation}
 
 where $i$ is the current flowing through any two points of the circuit clockwise.
-Since $i$ is nothing but the change of charge in time, $i = dq / dt$, and $V_{out} = q / C$, Eq. \ref{eq:loop1} can be rewritten as
+Since $i$ is nothing but the change of charge in time, $i = \mathrm{d}q / \mathrm{d}t$, and $V_{out} = q / C$, Eq. \ref{eq:loop1} can be rewritten as
 
 \begin{equation}
 \label{eq:loop2}
-        V_{in} - \frac{dq}{dt}R - \frac{q}{C} = 0
+        V_{in} - \frac{\mathrm{d}q}{\mathrm{d}t}R - \frac{q}{C} = 0
 \end{equation}
 
 This can be rearranged to
 
 \begin{equation}
 \label{eq:loop3}
-        \frac{dq}{dt} = \frac{1}{R}\bigg(V_{in} - \frac{q}{C}\bigg)
+        \frac{\mathrm{d}q}{\mathrm{d}t} = \frac{1}{R}\bigg(V_{in} - \frac{q}{C}\bigg)
 \end{equation}
 
 After cross multiplication we get
 
 \begin{equation}
 \label{eq:loop4}
-        \frac{dq}{V_{in}-\displaystyle{\frac{q}{C}}} = \frac{dt}{R}
+        \frac{\mathrm{d}q}{V_{in}-\displaystyle{\frac{q}{C}}} = \frac{\mathrm{d}t}{R}
 \end{equation}
 
 Rearranging it leads to
 
 \begin{equation}
 \label{eq:loop5}
-        \frac{dq}{q - CV_{in}} = - \frac{dt}{RC}
+        \frac{\mathrm{d}q}{q - CV_{in}} = - \frac{\mathrm{d}t}{RC}
 \end{equation}
 
 To get $q$ as a function of $t$, we need to integrate.
@@ -452,21 +452,21 @@ Then, as we apply the voltage $V_{in}$, the capacitor slowly starts charging, un
 
 \begin{equation}
 \label{eq:loop6}
-        \int_{0}^{q} \frac{dq}{q - CV_{in}} = \int_{0}^{t} - \frac{dt}{RC}
+        \int_{0}^{q} \frac{\mathrm{d}q}{q - CV_{in}} = \int_{0}^{t} - \frac{\mathrm{d}t}{RC}
 \end{equation}
 
 or
 
 \begin{equation}
 \label{eq:loop7}
-        ln(q(t) - CV_{in})\Bigr|_{0}^{q} = - \frac{t}{RC}\Bigr|_{0}^{t}
+        \ln(q(t) - CV_{in})\Bigr|_{0}^{q} = - \frac{t}{RC}\Bigr|_{0}^{t}
 \end{equation}
 
 After solving we get
 
 \begin{equation}
 \label{eq:loop8}
-        ln\bigg(\frac{q(t) - CV_{in}}{-CV_{in}}\bigg) = - \frac{t}{RC}
+        \ln\bigg(\frac{q(t) - CV_{in}}{-CV_{in}}\bigg) = - \frac{t}{RC}
 \end{equation}
 
 If we raise both sides to the natural exponent, we get
