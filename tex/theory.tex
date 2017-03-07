@@ -360,7 +360,7 @@ The ratio of the two can be calculated by the formula for the voltage divider:
 \end{equation}
 
 Input resistance $R_{in}$ of a typical voltmeter is in the range of $1-10$ M$\ohm$.
-This relatively low resistance can cause a large distortion, because $R_{in}/R_0+R_{in}$ approaches 1 only of $R_{in}$ approaches infinity, or $R_0$ approaches zero.
+This relatively low resistance can cause a large distortion, because $R_{in}/(R_0+R_{in})$ approaches 1 only of $R_{in}$ approaches infinity, or $R_0$ approaches zero.
 Since $R_0$ is a given property of the circuit, the only way the error can be lowered is by increasing $R_{in}$.
 For example, the input resistance of a microelectrode amplifier is about $10^{12}$ $\ohm$, and of a pH meter $\sim 10^{14}$ $\ohm$.
 Based on Eq. \ref{eq:loading} it is very important that $R_{in} \gg R_o$ to minimize the error in potential measurements.
@@ -554,9 +554,10 @@ Throughout my dissertation I use the expression \emph{equilibrium} to describe a
 However, this state of course cannot be regarded an equilibrium, since given enough time, the potential difference will reach zero eventually.
 The resistance of the whole cell is finite, and if there is a potential difference between any two points in the cell, current will flow.
 Two phenomena have to be distinguished.
-The first is the electrochemical process, which in real cells ($i \neq 0$) is in equilibrium \emph{only} if cell potential difference have reached zero, i.e. the cell is depleted.
+The first is the electrochemical process, which is in equilibrium \emph{only} if cell potential difference have reached zero, i.e. the cell is depleted.
 The other process is the charging or discharging of a capacitance modeled by $C$ in Fig. \ref{fig:rc}.
-If we accept the model described in the previous section, this can be regarded a purely physical process, which is in true eqilibrium if the voltage across the capacitor $C$ is the same as the voltage of the input ($V_i = V_o$). This state is what I refer to by equilibrium.
+This is the total capacitance of the measuring system, including the capacitance of the cables, and the amplifier input as well.
+If we accept the model described in the previous section, this can be regarded a purely physical process, which is in true equilibrium if the voltage across the capacitor $C$ is the same as the voltage of the input ($V_i = V_o$). This state is what I refer to by equilibrium.
 
 It must be kept in mind however, that the source of the potential difference in fact \emph{does} change over time for a given electrolyte composition as a consequence of the very small current flowing through the cell (fA range). Therefore it is not an equilibrium, only a steady state.
 \newpage
