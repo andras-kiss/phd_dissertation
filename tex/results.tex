@@ -616,7 +616,7 @@ Resistance based on this result is 218.86 k$\ohm$, which is the sum of the resis
 This resistance is still not large enough to explain an RC time constant of 3.76 s, since then the capacitance should be 17.2 $\upmu$F, but it was in fact 11.15 nF (see section \ref{capacitance}.).
 
 Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surface of the electrode, and the exchange of this layer in a new solution is the slowest process as it is discussed by Lindner et al. in \cite{lindner1976response}.
-To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. If there is indeed an adhered layer delaying the response, by stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with R = 218.86 $\ohm$. 
+To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. The measuring electrode in this case was a large ($d$ = 1 mm) antimony disc electrode, with a silver/silver-chloride quasi-reference electrode separated by 1 mm of epoxy resin. Because the antimony surface is much larger than in the case of a microelectrode, a more delayed response can be expected in the unstirred case, if there is indeed an adhered layer on the surface. By stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with R = 218.86 $\ohm$. 
 
 \begin{figure}
 \centering
@@ -637,7 +637,11 @@ To realize a quick change of the buffer solution without interrupting the potent
 \label{fig:stirring}
 \end{figure}
 
-Stirring experiments...
+Indeed, the response is much more delayed than in the case of a microelectrode, which can be observed in the response curves.
+The cell employing the microelectrode had an almost 100\% response in about 1 minute (Fig. \ref{fig:transient}), while with the macroelectrode $\sim$100\% response was reached in about 200 s (first part of the curve in Fig. \ref{fig:stirring}.).
+After stirring was turned on, the cell responded almost instantaneously (Fig. \ref{fig:stirring}) to analyte acivity step (that is depicted by the second part of the curve, after 450 s).
+Unfortunately, the magnetic stirrer introduced so much noise, that the time constant couldn't be determined from this measurement.
+In another experiment, a filter was applied to decrease noise, but, as an RC filter, it added a time constant of its own to the measurement, and thus cannot be evaluated.
 
 Despite this discrepancy, with deconvolution, a sharp step function could be obtained from the potential-time measurement, which was very similar to the step function caused by the sudden change in activity of the hydrogen ions.
 This means, that whatever the cause of the difference between the calculated and estimated resistance is, it distorts the measurement in a very similar way to the $RC$ distortion. Based on the stirring experiments, this is most likely a surface process. Perharps the antimony-oxide on the surface of the antimony microelectrode is porous, and it hinders diffusion. This behaviour wasn't studied any further in this thesis. Since the recorded step response includes every parameter affecting the delay, the fitted function already accounts for this behaviour. The deconvolution function is certainly not complete and far from perfect. However, all deconvolution in this thesis was perfomed in a stepwise manner; by only using one $x-y$ pair from Eq. \ref{eq:rc2}. $X$ coordinate was most often 0.5 s, the time that elapses between two consecutive measurements. That part of the deconvolution function seems to describe the system very well.
