@@ -618,6 +618,25 @@ This resistance is still not large enough to explain an RC time constant of 3.76
 Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surface of the electrode, and the exchange of this layer in a new solution is the slowest process as it is discussed by Lindner et al. in \cite{lindner1976response}.
 To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. If there is indeed an adhered layer delaying the response, by stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with R = 218.86 $\ohm$. 
 
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[ymin=-370, ymax=-200, xmin=0, xmax=750, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=6cm, legend style={draw=none}, legend cell align=left]
+\addplot [domain=0:750, color=red, mark=*] table {data/stirring/stirring2.txt};
+\node[black, above left] at (axis cs:450,-370) {stirring off};
+\node[black, above right] at (axis cs:450,-370) {stirring on};
+\draw [dashed, black] (axis cs:450,-370) -- (axis cs:450,-200);
+%\node[black, above left] at (axis cs:210,-330) {pH = 7};
+%\node[black, above left] at (axis cs:210,-230) {pH = 4};
+\end{axis}
+\end{tikzpicture}
+\caption[The effect of stirring on the antimony microelectrode.]{The effect of stirring on the antimony microelectrode.
+The buffer solutions were quickly changed back and forth between pH = 4 ($\sim \; -240$ mV) and pH = 7 ($\sim \; -340$ mV).
+Stirring was turned on at $t$ = 450 s.
+To realize a quick change of the buffer solution without interrupting the potentiometric circuit, the \emph{,,hanging drop method''} was used. For this experiment, the Arduino-based home-made DAQ was used.}
+\label{fig:stirring}
+\end{figure}
+
 Stirring experiments...
 
 Despite this discrepancy, with deconvolution, a sharp step function could be obtained from the potential-time measurement, which was very similar to the step function caused by the sudden change in activity of the hydrogen ions.
