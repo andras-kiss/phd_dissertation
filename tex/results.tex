@@ -963,7 +963,7 @@ A primitive version of applying this method involves the deconvolution with diff
 $RC$ distortion is especially visible in images scanned with the meander algorithm.
 With this algorithm, subsequent scan lines in the images are shifted by twice the amount with respect to each other than with respect to a fixed point in the image, since the scan directions of subsequent lines are opposite.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 % trim = top left bottom right
 \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.3\textwidth, angle=-90]{img/blind/raw.eps}\includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.3\textwidth, angle=-90]{img/blind/raw_deconvoluted075.eps}
@@ -984,3 +984,120 @@ The best result based on visual inspection would be between (B) and (C), althoug
 (C) is the image which was obtained as a result of deconvolution with the measured time-constant.
 
 A more advanced method would be a statistical approach, where one would try to detect any correlation between the scanning algorithm -- taking into account the scan direction -- and the image, and choose the deconvoluted image with the least correlation.
+
+\newpage
+\section{The effect of electric field on potentiometric SECM images}
+During galvanic corrosion, ions are being released from the anode.
+The measured potential of an ion selective microelectrode is thought to depend only on the activity of the primary ion.
+However, an electric field is also formed as a result of the potential difference between the surfaces of the galvanic pair, which has a direct influence on the potential of the sensing microelectrode, as it is depicted in Fig. \ref{fig:field}. The measured potential is the sum of these two contributions:
+
+\begin{equation}
+\Delta E=E_M-E_R + (\phi_M - \phi_R)
+\label{eq:potential}
+\end{equation}
+
+where $\Delta E$ is the measured potential difference, $E_R$ is the potential of the reference electrode, and $\phi_M$ and $\phi_R$ are the local potentials in the electric field at the measuring and reference electrodes, respectively. $E_M$ is the potential of the measuring ion-selective electrode for instance Mg$^{2+}$:
+
+\begin{equation}
+E_M = S \times lg[Mg^{2+}] + E_M^o
+\label{eq:measuring}
+\end{equation}
+
+where $S$ is the slope of the calibration curve of the potentiometric cell with respect to the primary ion, and $E_M^o$ is the standard potential.
+
+\begin{figure}
+\centering
+% trim = top left bottom right
+\includegraphics[width=0.5\textwidth]{img/field/field.eps}
+\caption{An electric field is formed between the surfaces of the dissimilar metals constituting the galvanic couple. The potential difference between the measuring ($\phi_M$) and reference ($\phi_R$) electrodes is added to the Nernstian potential associated with the activity of the particular ion.}
+\label{fig:field}
+\end{figure}
+
+
+The potential difference caused by the electric field can be substantially large, exceeding that of the potential difference associated with the activity of the primary ion.
+In this section, I present experimental evidence of this feature, and investigate the extent to which it influences the final chemically-resolved image.
+
+A series of consecutive Z-approach curves were recorded above the corroding AZ63 sample (as shown in fig. \ref{fig:approach}A). The first 6 measurements were taken while the AZ63 sample was not electrically connected to the iron sample (red lines, a-b). As expected, Mg$^{2+}$ activity slowly increased with time as a result of spontaneous corrosion. The overall change was about 10 mV in 5 minutes. Next, the two metals were connected at the rear of the mould. As result of establishing the galvanic connection, there was an immediate rise of about 40 mV in the measured potential of the microelectrode (transition from b to c, depicted by $\Delta E_1$ in fig. \ref{fig:approach}A). Since the galvanic coupling was established while the scanning tip was located 1000 $\upmu$m from the AZ63 sample, the reported change cannot possibly be attributed solely to an abrupt increase in Mg$^{2+}$ activity. Indeed, such a 40 mV change would correspond to an increase of ca. 1.5 orders of magnitude in Mg$^{2+}$ activity occuring in less than one second. Immediately after, six additional Z-approach curves were recorded during the galvanic coupling. The resulting accelerated dissolution of Mg$^{2+}$ can be distinguished from the blue curves (c-d) in fig. \ref{fig:approach}A. Intense gas evolution could be observed on the surface of the AZ63 sample, which explains the noticeably more noisy curves recorded in this case. During this period of galvanic coupling, the potential sensed at the ISME, when situated at h = 1000 $\upmu$m, increased in app. 40 mV. This rise ($\Delta E_2$) can be totally attributed to the increase in activity of the dissolving metal, i.e.: $\Delta E = 29.5 mV \times \Delta lg[$Mg$^{2+}]$. Finally, when the galvanic connection was stopped, 2 additional Z-approach curves were measured (green curves in fig. \ref{fig:approach}A). A sudden jump in potential ($\Delta E_3$, transition from d to e) can be observed, of the same magnitude as before, though in the opposite direction, as a result of electric field vanishing. The shape of the latest Z-approach curves is very similar to the initial approaching curves recorded before galvanic connection was established, though they are shifted by about 40 mV in the positive direction. This is the result of the enhanced corrosion during the second phase of the experiment; Mg$^{2+}$ activity changed by about the same factor along the length of the scan-line. The shape of the Z-approach curves recorded during the galvanic coupling is notoriously different from those recorded during the spontaneous corrosion of the metal. This is because the contribution of the electric field, just like the contribution from Mg$^{2+}$, is not uniform at different distances on the scanned line. The strength of the electric field is inversely proportional to the square of the distance. The shape of the function 1/$z^2$ is recognizable from these plots.
+
+An attempt was made to distinguish the effect of the electric field from that of the Nernstian response of the ISME \cite{reviewer2} by substracting curve \emph{b} from the subsequent curve \emph{c}. \emph{B} is the result of the Nernstian response, while \emph{c} features the contribution from the electric field as well. Since \emph{c} was recorded just after \emph{b} in a short period of time, it can be assumed that there was no significant increase of Mg$^{2+}$ concentration during these two scans, therefore \emph{c} is just \emph{b}+$\Delta \phi$. The result of the substraction is curve \emph{f} in fig. \ref{fig:approach}A, which can be regarded as the effect of the electric field formed between the galvanic pair.
+
+\begin{figure}
+\centering
+%\includegraphics[width=0.5\textwidth]{field-figure0.pdf}\includegraphics[width=0.466\textwidth]{field-figure1.pdf}
+\begin{tikzpicture}
+\begin{axis}[ymin=-80, ymax=80, xmin=0, xmax=1000, xlabel={height, $\upmu$m}, ylabel={E, mV vs Ag/AgCl/ 3M KCl}, clip marker paths=true, width=7cm, height=7cm, legend style={draw=none}, legend cell align=left, ytick={-75, -50, -25, 0, 25, 50, 75}]
+\addplot [line width=0.5mm, domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/1.txt};
+\addplot [domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/2.txt};
+\addplot [domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/3.txt};
+\addplot [domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/4.txt};
+\addplot [line width=0.5mm, domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/5.txt};
+\addplot [domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/6.txt};
+\addplot [domain=0:1000, color=red, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/7.txt};
+\addplot [line width=0.5mm, domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/8.txt};
+\addplot [domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/9.txt};
+\addplot [domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/10.txt};
+\addplot [domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/11.txt};
+\addplot [domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/12.txt};
+\addplot [line width=0.5mm, domain=0:1000, color=blue, dashed, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/13.txt};
+\addplot [line width=0.5mm, domain=0:1000, color=green, densely dashdotted, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/14.txt};
+\addplot [domain=0:1000, color=green, densely dashdotted, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/15.txt};
+\addplot [line width=0.5mm, domain=0:1000, color=cyan, y filter/.code={\pgfmathparse{\pgfmathresult*1000}}] table {data/field/16_field.txt};
+\node[anchor=north east] at (rel axis cs:0.98,0.98) {A};
+
+\node[red, left] at (axis cs:100,-65) {a};
+\node[red, left] at (axis cs:100,-48) {b};
+\node[blue, left] at (axis cs:100,-9) {c};
+\node[blue, left] at (axis cs:100,67) {d};
+\node[green, left] at (axis cs:100,-22) {e};
+\node[cyan, left] at (axis cs:100,45) {f};
+
+\draw [line width=0.25mm, black, ->] (axis cs:800,-53.5) -- (axis cs:800,-49);
+\node[black, left] at (axis cs:800,-58) {$\Delta$E$_0$};
+
+\draw [line width=0.25mm, black, ->] (axis cs:800,-49) -- (axis cs:800,-22);
+\node[black, left] at (axis cs:800,-36) {$\Delta$E$_1$};
+
+\draw [line width=0.25mm, black, ->] (axis cs:800,-22) -- (axis cs:800,14);
+\node[black, left] at (axis cs:800,10) {$\Delta$E$_2$};
+
+\draw [line width=0.25mm, black, ->] (axis cs:830,14) -- (axis cs:830,-18);
+\node[black, right] at (axis cs:830,5) {$\Delta$E$_3$};
+
+\draw [line width=0.25mm, black, ->] (axis cs:830,-49) -- (axis cs:830,-18);
+\node[black, right] at (axis cs:830,-36) {$\Delta$E$_4$};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[ymin=-75, ymax=200, xmin=0, xmax=680, xlabel={time, s}, ylabel={E, mV vs Ag/AgCl/ 3M KCl}, clip marker paths=true, width=7cm, height=7cm, legend style={draw=none}, legend cell align=left]
+\addplot [domain=-30:100, color=red, mark=*] table {data/field/on_off_100.txt};
+\addplot [domain=-30:100, color=blue, mark=*] table {data/field/on_off_1000.txt};
+\node[anchor=north east] at (rel axis cs:0.98,0.98) {B};
+\node[red, above right] at (axis cs:10,20) {h = 100 $\upmu$m};
+\node[blue, above right] at (axis cs:10,-50) {h = 1000 $\upmu$m};
+\draw [black, ->] (axis cs:320,125) -- (axis cs:320,100);
+\node[black, above] at (axis cs:320,125) {on};
+\draw [black, ->] (axis cs:460,125) -- (axis cs:460,100);
+\node[black, above] at (axis cs:460,125) {off};
+\end{axis}
+\end{tikzpicture}
+\caption{(A) Sequence of consecutive Z-approach curves recorded above the center of the AZ63 wire with a Mg$^{2+}$ ISME. Step size: 10 $\upmu$m. 500 ms settling time was allowed for the potentiometric cell at each points before measurements. Lines in chronological order: solid red = spontaneous corrosion, dashed blue = galvanic corrosion, dash dotted green = spontaneous corrosion. (B) Stationary recordings above the center of the AZ63 target with the ISME placed at: red = 100 $\upmu$m, blue = 1000 $\upmu$m distance from the metal. On/off denote the moment when galvanic coupling was either established or ceased. Temporal resolution was 1 Hz.}
+\label{fig:approach}
+\end{figure}
+
+In another series of experiments, the ISME was maintained at a constant height from the metal surface, and its potential was recorded as a function of time, while the galvanic connection was established between the two metals (fig. \ref{fig:approach}B). Thus, the tip was first positioned 100 $\upmu$m above the center of the AZ63 wire (red curve in fig. \ref{fig:approach}B), and for about 300 s the spontaneous corrosion of the alloy sample was recorded. Then, the galvanic connection was established, and a sharp increase in potential of about 70 mV could be observed. This change would correspond to a two orders of magnitude increase of Mg$^{2+}$ activity in a very short period of time. When the galvanic connection was removed, a potential change of the same magnitude, though opposite direction could be observed. In order to discard the possibility that this rise could be still explained by an abrupt release of Mg$^{2+}$ from the surface, the experiment was repeated while the tip was positioned 1000 $\upmu$m above the target (blue curve in fig. \ref{fig:approach}B). A very similar sequence of potential changes could be observed, despite the big separation between the probe and the corroding sample. The only plausible explanation is that the abrupt change in the recorded potential is due to the electric field developed between the two metals. 
+
+
+Finally, in order to demonstrate the influence of the electric field on SECM imaging, measurements were made after 30 minutes of galvanic coupling by using a constant 100 $\upmu$m tip-sample distance.
+Then the galvanic connection was ceased, and immediately another 2D scan was recorded above the Mg disk. The sequence of the two images can be seen in fig. \ref{fig:2d}. Apparently, in the case of galvanic coupling, a 0.1 M Mg$^{2+}$ activity is monitored even in the bulk of the solution, whereas above the center of the disk the activity reaches the implausible 10$^{4}$ M value by using the calibration curve for calculation.
+In fig. \ref{fig:2d}B the measured values are in the linear range of the ISME, and the overall potential change is several orders of magnitude smaller than in fig. \ref{fig:2d}A.
+
+\def\s{0.35}
+\begin{figure}
+\centering
+% trim = top left bottom right
+\includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012501.eps}\includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012503_deconvoluted.eps}
+\caption{2D Mg$^{2+}$ ion distributions above the AZ63 wire while: (A) galvanically connected to Fe and (B) immediately after ceasing electrical connection between the two metallic materials. Tip-sample distance: 100 $\upmu$m.}
+\label{fig:2d}
+\end{figure}
+
+
