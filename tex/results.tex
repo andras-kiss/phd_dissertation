@@ -473,9 +473,9 @@ In this case, the minimal working example is a simple step function: the activit
 The input of the system is a step function, the output is the recorded signal, an exponential decay function.
 If there is no additional distortion, and the transfer function is simply Eq. \ref{eq:rc2}, the square step should be restored. 
 
-To measure the time-constant, the transient response curve of the potentiometric cell was recorded while the pH = 4 buffer solution was changed to pH = 6.
+To measure the time-constant of the potentiometric cell employing the antimony microelectrode, the transient response curve was recorded while the pH = 4 buffer solution was changed to pH = 6.
 Then, Eq. \ref{eq:rc} was fitted on the curve (Fig. \ref{fig:transient}).
-Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.76s} = 0.8755$, which means, only 12\% of the total change occurs in 0.5 s ($1 - 0.8755 = 0.1245$). 
+Based on the fit, time constant of the cell is $\tau = 3.76$ s, and $e^{-0.5 \; s/3.76 \; s} = 0.8755$, which means, only 12\% of the total change occurs in 0.5 s ($1 - 0.8755 = 0.1245$). 
 
 \begin{figure}
 \centering
@@ -483,8 +483,10 @@ Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.
 \begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=8cm, legend style={draw=none}, legend cell align=left]
 \addplot [only marks, domain=-30:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=0:100, samples=500, color=red, line width=0.4mm] {-280+(280-183)*exp(-x/3.76)};
-\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*(exp(-x/9) + exp(-x/0.5577))/2};
-\addplot [domain=0:100, samples=500, color=blue, line width=0.4mm] {-280+(280-183)*(1/(1+sqrt(x)))};
+%\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*(exp(-x/9) + exp(-x/0.5577))/2};
+%\addplot [domain=0:100, samples=500, color=blue, line width=0.4mm] {-280+(280-183)*(1/(1+sqrt(x)))};
+%\addplot [domain=0:100, samples=500, color=cyan, line width=0.4mm] {-280+(280-183)*(1/(1+sqrt(0.000000000001*x)))*exp(-x/0.5577)};
+
 %\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*exp(-x/9)};
 %\node[red, above right] at (axis cs:5,-200) {$y = - 280 + 97 \times e^{-x/3.76}$};
 %\node[blue, above right] at (axis cs:5,-220) {$y = - 280 + 97 \times (e^{-x/9} + e^{-x/0.6})/2$};
@@ -494,7 +496,7 @@ Based on the fit, time constant of the cell is $\tau = 3.76 s$, and $e^{-0.5s/3.
 \draw [dashed, black] (axis cs:0,-300) -- (axis cs:0,-100);
 \addlegendentry{raw recording}
 \addlegendentry{$E = - 280 + 97 e^{-t/3.76}$}
-\addlegendentry{$E = - 280 + 97 (e^{-t/9} + e^{-t/0.5577})/2$}
+%\addlegendentry{$E = - 280 + 97 (e^{-t/9} + e^{-t/0.5577})/2$}
 \end{axis}
 \end{tikzpicture}
 \caption[Transient response of the antimony microelectrode to analyte activity step.]{Transient response of the antimony microelectrode to analyte activity step.
@@ -503,22 +505,6 @@ Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the p
 \label{fig:transient}
 \end{figure}
 
-This $RC$ implies a very high resistance.
-It is possible to estimate the resistance of the antimony microelectrode from the specific resistance and the geometry of the antimony wire.
-Diameter, as mentioned in the chapter \emph{,,Materials and Methods''}, was 30 $\upmu$m, length of the antimony wire was around 5 cm.
-Specific resistance of antimony is 417 n$\ohm$m (at 20 $\celsius$) \cite{lide2001crc}.
-Then, resistance could be calculated as $R$ = 417 n$\ohm$m $\times$ 0.05 m / ((15 $\upmu$m)$^2 \times \pi) = 29.50\; \ohm$.
-It must be noted however, that the measured resistance is a property of the whole cell, not just the microelectrode.
-Resistance of the reference electrode, and that of the solution are included.
-Nevertheless, the difference between the estimated and the measured values is still too high.
-The very significant deviation from the expected value just calculated can be explained by a discontinuity defect in the antimony electrode, although it is unlikely, since all of the antimony electrodes appeared to have such a high resistance.
-Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surace of the electrode, and the exchange of this layer in a new solution is the slowest process.
-This has been discussed thoroughly by Lindner et al. in \cite{lindner1976response}.
-Unfortunately, it has been pointed out to the author only a few days before submitting the thesis, by Professors Mirkin and Bakker on the Analytica Conference 2016, and new experiments couldn't yet be performed to further investigate the discrepancy.
-It could be verified by measuring the resistance of the antimony microelectrode by the voltage divider method, since the Prandtl-layer won't go through any change throughout the measurement, and the real $R$ could be obtained after substracting the resistance of the reference electrode, and the resistance of the solution between the reference and measuring electrodes.
-The voltage divider method was used in the case of the experiments with the magnesium, and potassium ion-selective micropipettes discussed later in the thesis, therefore this is not a problem there.
-Another way to resolve the problem would be to carry out activity-step measurements while the measured sample buffers are stirred with different RPMs.
-With increasing RPM, the measured $RC$ should converge closer and closer to the actual $RC$, since the transformation of the adhered layer would be faster and faster.
 
 \begin{figure}
 \centering
@@ -600,7 +586,32 @@ The values for initial ($E_{cell}(0) = -183.18$ mV) and equilibrium ($E_{cell}(\
 
 Table \ref{table:rc} shows the results of the statistical evaluation.
 The performed statistics confirms the assumption and the visual observation.
-Lowest mean squared error was obtained when the measured $RC$ time-constant ($\tau = 3.76 s$) was used for the deconvolution.
+Lowest mean squared error was obtained when the measured $RC$ time-constant ($\tau = 3.76$ s) was used for the deconvolution.
+
+
+
+\subsubsection{Investigation of surface processes}
+
+There are two interesting properties of the fit in Fig. \ref{fig:transient}. to be noted.
+First, the shape of the fitted curve does not follow the measured curve perfectly.
+The initial part of the measurement seems to be changing faster than it is expected from an RC circuit with a time-constant of 3.76 s, while the second part (from around 7 s) has a lower rate of change compared to the model.
+This indicates that the process cannot be properly described by simple potentiometric step response function.
+The second discrepancy is that the $RC$ determined in the previous section implies a very high resistance (G$\ohm$ range).
+It is possible to estimate the resistance of the antimony microelectrode from the specific resistance and the geometry of the antimony wire.
+Diameter, as mentioned in the chapter \emph{,,Materials and Methods''}, was 30 $\upmu$m, length of the antimony wire was around 5 cm.
+Specific resistance of antimony is 417 n$\ohm$m (at 20 $\celsius$) \cite{lide2001crc}.
+Then, resistance could be calculated as $R$ = 417 n$\ohm$m $\times$ 0.05 m / ((15 $\upmu$m)$^2 \times \pi) = 29.50\; \ohm$.
+It must be noted however, that the measured resistance is a property of the whole cell, not just the microelectrode.
+Resistance of the reference electrode and the solution are included.
+Nevertheless, the difference between the estimated and the measured values is still too high.
+The very significant deviation from the expected value just calculated can be explained by a discontinuity defect in the antimony electrode, although it is unlikely, since all of the antimony electrodes appeared to have such a high resistance.
+Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surace of the electrode, and the exchange of this layer in a new solution is the slowest process.
+This has been discussed thoroughly by Lindner et al. in \cite{lindner1976response}.
+Unfortunately, it has been pointed out to the author only a few days before submitting the thesis, by Professors Mirkin and Bakker on the Analytica Conference 2016, and new experiments couldn't yet be performed to further investigate the discrepancy.
+It could be verified by measuring the resistance of the antimony microelectrode by the voltage divider method, since the Prandtl-layer won't go through any change throughout the measurement, and the real $R$ could be obtained after substracting the resistance of the reference electrode, and the resistance of the solution between the reference and measuring electrodes.
+The voltage divider method was used in the case of the experiments with the magnesium, and potassium ion-selective micropipettes discussed later in the thesis, therefore this is not a problem there.
+Another way to resolve the problem would be to carry out activity-step measurements while the measured sample buffers are stirred with different RPMs.
+With increasing RPM, the measured $RC$ should converge closer and closer to the actual $RC$, since the transformation of the adhered layer would be faster and faster.
 
 There are some additional remarks that should be noted observing Fig. \ref{fig:transient}.
 The fitted curve is slightly different than the recorded response.
