@@ -345,7 +345,7 @@ In this way, only the well-defined cross section of the samples were exposed to 
 \end{flushleft}
 
 \includegraphics[width=0.6\textwidth]{img/model_photo.jpg}
-\caption{Sketch of the moulded model targets and the SECM scan setup used for these targets.}
+\caption[Sketch of the moulded model targets and the SECM scan setup used for these targets.]{(A) Sketch of the moulded model targets and the SECM scan setup used for these targets. (B) Close-up photograph of the Mg$^{2+}$ ion selective microelectrode above the AZ63 sample.}
 \label{fig:model}
 \end{figure}
 
@@ -534,9 +534,9 @@ The images obtained with the two polar coordinate-based algorithms were interpol
 	\subsection{SECM routines for the deconvolution study}
 		\subsubsection{Linescans}
 
-To examine the effect of equilibration interval length on the image distortion, and for easy comparison of raw and deconvoluted data, line scans were recorded with three different time intervals allocated for each data aquisition point: 0.5 s, 2 s, and 5 s.
+To examine the effect of equilibration interval length on the image distortion, and for easy comparison of raw and deconvoluted data, line scans were recorded with three different time intervals allocated for each data aquisition point: 0.5 s, 2$~$s, and 5$~$s.
 Probe movement speed was 1000 $\upmu$m/s, and therefore probe movement interval was 0.1 s, resulting in equilibration interval lengths ($t_e$) of 0.4 s, 1.9 s, and 4.9 s, respectively.
-Step size was 100 $\upmu$m, scan distance was 2000 $\upmu$m with the source center in the middle.
+Step size was 100$~\upmu$m, scan distance was 2000 $\upmu$m with the source center in the middle.
 8 consecutive line scans (4 forward and 4 reverse scans) were performed in each case to confirm repeatability.
 
 		\subsubsection{2D scans}
@@ -685,7 +685,7 @@ The following calculation kernel was cycled through the data points using the sa
 \label{eq:scan}
 C_i = c_i + ( C_{i-1} - c_i ) \times T
 \end{equation}
-where $C_i$ and $c_i$ are the values of the $i$-th point in the output, and input matrices, respectively, $C_{i-1}$ is the value at the previous point, at $i-1$, and $T$ is a constant, equivalent of expression $e^{-RC/t}$ in Equation \ref{eq:rc}.
+where $C_i$ and $c_i$ are the values of the $i$-th point in the output, and input matrices, respectively, $C_{i-1}$ is the value at the previous point, at $i-1$, and $T$ is a constant, equivalent of expression $e^{-t/RC}$ in Equation \ref{eq:rc}.
 A value of 0.7 was set for $T$.
 For $i$ = 1, $C_i$ was set to $c_i$, assuming the potentiometric cell was in equilibrium in the beginning of the scan simulation.
 
@@ -743,6 +743,6 @@ To estimate the flux of Mg$^{2+}$ ions from the AZ63 sample, fixed height latera
 Height of lateral scans was 100 $\upmu$m, resolution was 5 $\upmu$m, lateral distance was 5 mm with the Mg/Al sample in the centre.
 Retracting curves were recorded at t = 10, 20, 30, 40, 50, 60 minutes after introduction of the corrosive media, step size was 5 $\upmu$m.
 Since ionselective electrodes of this size have high resistance compared to the low input resistance of potentiometers, to avoid loading the potentiometric sensor, a homemade high impedance voltage follower circuit was used as current buffer based on the TL082 operational amplifier (Texas Instruments).
-The potential was measured with a MeTeX potentiometer (MeTeX M-3630D) connected to a PC, the signal was recorded with thesoftware provided by MeTeX.
+The potential was measured with a MeTeX potentiometer (MeTeX M-3630D) connected to a PC, the signal was recorded with the software provided by MeTeX.
 Scans were performed with the galvanic pair both coupled, and uncoupled.
 Corrosive media was distilled water saturated with air.
