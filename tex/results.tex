@@ -622,7 +622,7 @@ To test this hypothesis, step response measurements were carried out in unstirre
 \centering
 \begin{tikzpicture}
 \begin{axis}[ymin=-370, ymax=-200, xmin=0, xmax=750, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=6cm, legend style={draw=none}, legend cell align=left]
-\addplot [domain=0:750, color=red, mark=*] table {data/stirring/stirring2.txt};
+\addplot [domain=0:750, color=red, mark=*] table {data/stirring/stirring.txt};
 \node[black, above left] at (axis cs:450,-370) {stirring off};
 \node[black, above right] at (axis cs:450,-370) {stirring on};
 \draw [dashed, black] (axis cs:450,-370) -- (axis cs:450,-200);
