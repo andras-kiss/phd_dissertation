@@ -452,8 +452,8 @@ Potential was measured against an Ag/AgCl/3M KCl reference electrode.}
 		\subsection{Deconvolution of measurements performed with metal/metal-oxide microelectrodes}
 In this section, deconvolution of measurements obtained with the metal/metal-oxide electrodes (antimony/antimony-oxide, and tungsten/tungsten-oxide) are attempted.
 First, a simple step response, then 1D linescans, and finally 2D raster images were deconvoluted.
-It has been pointed out to the author on the Analytica Conference 2016 just a few days before the submission of the thesis, that a method has been already proposed in 1981 to deteremine the response time of potentiometric cells, based on the initial portion of the response curve, since it holds the same information.
-However, they didn't go any further with their proposition.
+It has been pointed out to the author on the Analytica Conference 2016, that a method has been already proposed in 1981 to determine the response time of potentiometric cells, based on the initial portion of the response curve, since it holds the same information.
+However, the authors of the paper about that method didn't go any further with their proposition.
 As Lindner and his coauthors write in \cite{lindner1984definition}:
 
 \begin{quote}
@@ -548,7 +548,7 @@ Fig. \ref{fig:deconvoluted_transient} shows the results of those deconvolutions.
 As expected, the recording becomes most similar to the step function when the measured $RC$ time-constant is used.
 When a higher value was substituted into Eq. \ref{eq:rc2}, the recorded potential was underestimated, and the deconvolution recovered more than necessary.
 If a lower value was used, the cell was assumed to be faster than it actually was, and the deconvoluted potential values did not reach the equilibrium values.
-To confirm the visual observation, statistics was performed on the deconvoluted data.
+To see the effect of using a time constant other than the one that was obtained from the fit, statistics was performed on the deconvoluted data.
 Mean squared error was calculated by first taking the difference between the input function and the deconvoluted function at every time instance.
 Then the square of those differences was averaged.
 The input function was defined as 
@@ -585,17 +585,17 @@ The values for initial ($E_{cell}(0) = -183.18$ mV) and equilibrium ($E_{cell}(\
 \end{table}
 
 Table \ref{table:rc} shows the results of the statistical evaluation.
-The performed statistics confirms the assumption and the visual observation.
-Lowest mean squared error was obtained when the measured $RC$ time-constant ($\tau = 3.76$ s) was used for the deconvolution.
-
-
+Mean squared error rapidly increases when instead of the measured time constant, smaller or larger values were used in the deconvolution.
 
 \subsubsection{Investigation of surface processes}
 
 There are two interesting properties of the fit in Fig. \ref{fig:transient}. to be noted.
-First, the shape of the fitted curve does not follow the measured curve perfectly.
+First, the fitted curve is slightly different than the recorded response.
 The initial part of the measurement seems to be changing faster than it is expected from an RC circuit with a time-constant of 3.76 s, while the second part (from around 7 s) has a lower rate of change compared to the model.
-This indicates that the process cannot be properly described by simple potentiometric step response function.
+This means, that the transfer function is more complicated than Eq. \ref{eq:rc2}, and the process cannot be properly described by simple potentiometric step response function.
+The effect of this behaviour can be observed in the first few data points of the deconvoluted measurement: there is a small overshoot compared to the equilibrium potential, even in the one that was deconvoluted with the measured $RC$.
+It was observed in all of the measurements, and the error was certainly carried through to all of the deconvoluted images, when the original measurement was performed with the antimony microelectrode. 
+
 The second discrepancy is that the $RC$ determined in the previous section implies a very high resistance (G$\ohm$ range).
 It is possible to estimate the resistance of the antimony microelectrode from the specific resistance and the geometry of the antimony wire.
 Diameter, as mentioned in the chapter \emph{,,Materials and Methods''}, was 30 $\upmu$m, length of the antimony wire was around 5 cm.
@@ -605,30 +605,28 @@ It must be noted however, that the measured resistance is a property of the whol
 Resistance of the reference electrode and the solution are included.
 Nevertheless, the difference between the estimated and the measured values is still too high.
 The very significant deviation from the expected value just calculated can be explained by a discontinuity defect in the antimony electrode, although it is unlikely, since all of the antimony electrodes appeared to have such a high resistance.
-Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surace of the electrode, and the exchange of this layer in a new solution is the slowest process.
-This has been discussed thoroughly by Lindner et al. in \cite{lindner1976response}.
-Unfortunately, it has been pointed out to the author only a few days before submitting the thesis, by Professors Mirkin and Bakker on the Analytica Conference 2016, and new experiments couldn't yet be performed to further investigate the discrepancy.
-It could be verified by measuring the resistance of the antimony microelectrode by the voltage divider method, since the Prandtl-layer won't go through any change throughout the measurement, and the real $R$ could be obtained after substracting the resistance of the reference electrode, and the resistance of the solution between the reference and measuring electrodes.
-The voltage divider method was used in the case of the experiments with the magnesium, and potassium ion-selective micropipettes discussed later in the thesis, therefore this is not a problem there.
-Another way to resolve the problem would be to carry out activity-step measurements while the measured sample buffers are stirred with different RPMs.
-With increasing RPM, the measured $RC$ should converge closer and closer to the actual $RC$, since the transformation of the adhered layer would be faster and faster.
 
-There are some additional remarks that should be noted observing Fig. \ref{fig:transient}.
-The fitted curve is slightly different than the recorded response.
-This means, that the transfer function is more complicated than Eq. \ref{eq:rc2}.
-At the beginning of the change (from 0 s to about 5 s in Fig. \ref{fig:transient}B), the recorded signal was approaching the equilibrium cell potential slightly faster, then it slowed down.
-The effect of this can be observed in the first few data points of the deconvoluted measurement: there is a minor overshoot compared to the equilibrium potential, even in the one that was deconvoluted with the measured $RC$.
+To verify that there was no discontinuity in the antimony microelectrodes, their resistance was measured directly by attaching one probe of a high precision multimeter to the microelectrode, while submersing the other probe and the tip of the microelectrode into a beaker containing mercury.
+Several electrodes has been tested this way, and their resistance never exceeded 20 $\ohm$.
+The typical value was around 12 $\ohm$, comparable to what was calculated from the electrode geometry and specific resistance of antimony.
 
-The slight deviation from the ideal behaviour was not investigated in this thesis, and might be completely the effect of the error in measuring $RC$.
-It was observed in all of the measurements, and the error was certainly carried through to all of the deconvoluted images, when the original measurement was performed with the antimony microelectrode. 
+Then, resistance of the whole cell was measured with the voltage divider method.
+Open circuit potential was $-219.9$ mV, while potential difference while the terminals were shorted through a 200 k$\ohm$ precision resistor was $-105.0$ mV.
+Resistance based on this result is 218.86 k$\ohm$, which is the sum of the resistances of the microelectrode, the reference electrode, and the solution.
+This resistance is still not large enough to explain an RC time constant of 3.76 s, since then the capacitance should be 17.2 $\upmu$F, but it was in fact 11.15 nF (see section \ref{capacitance}.).
+
+Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surface of the electrode, and the exchange of this layer in a new solution is the slowest process as it is discussed by Lindner et al. in \cite{lindner1976response}.
+To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. If there is indeed an adhered layer delaying the response, by stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with R = 218.86 $\ohm$. 
+
+Stirring experiments...
 
 Despite this discrepancy, with deconvolution, a sharp step function could be obtained from the potential-time measurement, which was very similar to the step function caused by the sudden change in activity of the hydrogen ions.
-This means, that whatever the cause of the difference between the calculated and estimated resistance is, it distorts the measurement in a very similar way to the $RC$ distortion.
+This means, that whatever the cause of the difference between the calculated and estimated resistance is, it distorts the measurement in a very similar way to the $RC$ distortion. Based on the stirring experiments, this is most likely a surface process. Perharps the antimony-oxide on the surface of the antimony microelectrode is porous, and it hinders diffusion. This behaviour wasn't studied any further in this thesis. Since the recorded step response includes every parameter affecting the delay, the fitted function already accounts for this behaviour. The deconvolution function is certainly not complete and far from perfect. However, all deconvolution in this thesis was perfomed in a stepwise manner; by only using one $x-y$ pair from Eq. \ref{eq:rc2}. $X$ coordinate was most often 0.5 s, the time that elapses between two consecutive measurements. That part of the deconvolution function seems to describe the system very well.
 
 			\subsubsection{Linescans performed with the antimony microelectrode}
 
 Going further, deconvolution of the simplest SECM experiment, the deconvolution of linescans was attemped.
-The potentiometric cell included the same measuring and reference electrodes.
+The potentiometric cell included the same measuring and reference electrodes as in the previous sections.
 A model system was built to perform the linescan on.
 In the system, a hemispherical pH gradient was created.
 The measured time constant ($\tau = 3.76$ s), implies a significant amount of imaging distortion if the equilibration period is only $t_e = 0.5$ s.
@@ -730,7 +728,8 @@ Deconvolution was also applied to SECM scans performed with magnesium and potass
 In these cases however, $RC$ was determined with another method.
 $R$ and $C$ were measured individually.
 
-			\subsubsection{Linescans performed with a magnesium ion-selective micropipette} 
+			\subsubsection{Linescans performed with a magnesium ion-selective micropipette}
+\label{capacitance} 
 				\paragraph{Measuring $R$ and $C$.}
 
 First, the Mg$^{2+}$ ISME and the amplifier were characterized.
