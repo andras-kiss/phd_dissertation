@@ -39,7 +39,8 @@ Additionally, to increase the probe translation speed $v$ and maximize the time 
 Increasing $v$ has practical limitations, for a probe moving too fast between sampling points might stir the electrolyte.
 Scanning speeds of commercially available SECM devices however, haven't reached this limit, and are in the range of several tens of micrometers per second at best, due to hardware or software restrictions.
 With the custom built microscope, translation speeds up to 1000 $\upmu$m/s are possible.
-
+	
+	\newpage
 	\section{Using solid-contact electrodes as potentiometric SECM probes}
 	\label{solid_result}
 Solid-contact electrodes have lower resistance, compared to their otherwise identical, liquid-contact counterparts.
@@ -59,7 +60,7 @@ Sensitivities towards the primary ion (Mg$^{2+}$) were close to nernstian and ve
 The solid contact electrode had a slightly wider dynamic range, reaching below $10^{-5}$ M.
 Selectivity coefficients, characterization of the potassium ion-selective electrode, and further characterization of the magnesium ion-selective electrode can be found in \cite{calugareanu2013ion}.
 
-\begin{figure}
+\begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, xtick = {0,1,2,3,4,5}, ytick = {-20,0,20,40,60,80}, xminorticks=true, minor x tick num = 1]
 \addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/liquid_calibration_plot.txt};
@@ -83,8 +84,6 @@ Selectivity coefficients, characterization of the potassium ion-selective electr
 (A) Liquid-contact, and (B) solid-contact.}
 \label{fig:solid_liquid_calibration}
 \end{figure}
-
-
 
 Response characteristics were investigated by measuring the electrode resistance $R$, and the $\tau_{95}$ response time.
 The two parameters are related: $1-e^{-3RC/RC} = 1-e^{-3} \approx 0.95$.
@@ -374,6 +373,19 @@ Diameter of the iron cathodes; black rectangle: d = 0.59 mm, red circle: d = 0.7
 	\section{Optimization of scanning algorithms}
 	\label{patterns_result}
 		\subsection{SECM simulations}
+To obtain high quality images in scanning probe microscopy, a certain amount of scanning time is required, depending on the number of sampling points, and the scanning speed.
+Usually, there is a compromise between scanning speed and image quality.
+This is most critical in the potentiometric scanning electrochemical microscopy, which is severely limited by the relatively long response time of the ultramicro-electrode probes.
+That is, scanning speed can be increased only at the expense of image quality.
+
+In a great majority of the SECM studies, the subjects are circularly symmetric systems.
+In this section, I present a method to increase SECM imaging speed of such systems, while improving image quality at the same time.
+It is achieved by using new, polar coordinate-based scanning patterns, exploiting the symmetry of the studied system, and using imaging time more economically.
+This technique significantly improves the imaging of circularly symmetric targets.
+
+Numerical simulations and SECM scans using the traditional, and the new scanning algorithms have
+been performed. The resulting images have been compared with the expected, ideal image.
+
 First, SECM scanning simulations were performed and the resulting images were compared (Figure \ref{fig:simulations}).
 It was expected that the new, polar coordinate-based scanning algorithms would yield less distorted images than the traditional, raster-based algorithms.
 Not only the two new algorithms finish faster, but result images with lower distortion (Table \ref{table:comp}).
@@ -450,7 +462,13 @@ Potential was measured against an Ag/AgCl/3M KCl reference electrode.}
 	\label{dec_result}
 
 		\subsection{Deconvolution of measurements performed with metal/metal-oxide microelectrodes}
-In this section, deconvolution of measurements obtained with the metal/metal-oxide electrodes (antimony/antimony-oxide, and tungsten/tungsten-oxide) are attempted.
+In order to image rapidly changing systems with the Scanning Electrochemical Microscope, high scan rate must be used, otherwise by the time the scan is completed, major changes in the studied system would have occured.
+But if the scan rate is too high, there is not enough time for the detector to reach equilibrium before the signal is recorded at a given data acquisition point, and the image will be distorted.
+This is a problem especially in potentiometric SECM, where the long response time of the potentiometric cell using ultramicro electrode probes imposes a limit on the maximum scan rate.
+In this section I demonstrate that high scan rates combined with signal processing can be used in potentiometric SECM to keep scan time to a minimum, and still obtain high quality results by deconvoluting the raw, distorted image.
+Model systems were studied with high scan rate, then the images were deconvoluted using the inverse of the potentiometric response function to calculate the equilibrium value for each data acquisition point from the respective observed values.
+
+Deconvolution of measurements obtained with the metal/metal-oxide electrodes (antimony/antimony-oxide, and tungsten/tungsten-oxide) are attempted.
 First, a simple step response, then 1D linescans, and finally 2D raster images were deconvoluted.
 It has been pointed out to the author on the Analytica Conference 2016, that a method has been already proposed in 1981 to determine the response time of potentiometric cells, based on the initial portion of the response curve, since it holds the same information.
 However, the authors of the paper about that method didn't go any further with their proposition.
@@ -958,11 +976,6 @@ Even with just visual inspection of the deconvoluted data, one would choose the 
 Based on this observation, blind deconvolution of 2D images might be possible.
 To explore this possibility, similarly to the step response deconvolution, I deconvoluted a pH image using the deconvolution function with several different time-constant substituations, including the measured one.
 
-A primitive version of applying this method involves the deconvolution with different $RC$ values (Fig. \ref{fig:blind}), and choosing the images with the least amount of visible $RC$ distortion.
-,,Evaluating'' distortion is relatively easy if the scanning algorithm is known.
-$RC$ distortion is especially visible in images scanned with the meander algorithm.
-With this algorithm, subsequent scan lines in the images are shifted by twice the amount with respect to each other than with respect to a fixed point in the image, since the scan directions of subsequent lines are opposite.
-
 \begin{figure}[h]
 \centering
 % trim = top left bottom right
@@ -976,6 +989,13 @@ The measured time constant was $\tau = 2.38$ s.
 Figure shows the raw image (A), and deconvolutions with assumed time-constants $\tau$ = 1.39 s (B), \textbf{$\tau$ = 2.38 s (C)}, $\tau$ = 7.80 s (D).}
 \label{fig:blind}
 \end{figure}
+
+
+A primitive version of applying this method involves the deconvolution with different $RC$ values (Fig. \ref{fig:blind}), and choosing the images with the least amount of visible $RC$ distortion.
+,,Evaluating'' distortion is relatively easy if the scanning algorithm is known.
+$RC$ distortion is especially visible in images scanned with the meander algorithm.
+With this algorithm, subsequent scan lines in the images are shifted by twice the amount with respect to each other than with respect to a fixed point in the image, since the scan directions of subsequent lines are opposite.
+
 
 Observing the images, (B) is still distorted, the individual lines are ,,shifted'' in the same direction as in the raw image.
 In (D) however, they are shifted in the opposite direction, because the assumed time-constant is too high, and there is excess deconvolution in the image.
