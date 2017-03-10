@@ -908,38 +908,7 @@ The raster scan pattern was used with the meander algorithm starting in the bott
 \end{figure}
 
 
-		\subsection{Applications}
-			\subsubsection{Investigation of the galvanic corrosion of zinc and copper}
-During the cooperation with colleagues from the \emph{University of La Laguna}, Spain, the galvanic corrosion of zinc and copper was studied with potentiometric SECM, and the scanrate had to be high in order for the resulting image to be instantaneous. 
-
-When zinc and copper are galvanically coupled, and are submersed in the same electrolyte, zinc will protect copper from corrosion by cathodically polarizing it.
-Zinc itself becomes the anode, and Zn$^{2+}$ dissolution will take place.
-Simultaneously, pH will decrease at the zinc anode, and increase at the copper cathode.
-A 2D SECM scan was recorded with an antimony microelectrode, capturing both the zinc, and the copper sample (Fig. \ref{fig:zinc_copper}).
-The scan was recorded at a relatively high speed ($r = 500\;\upmu$m/s).
-Because of the high speed, the obtained image was distorted.
-An improvement in image quality in the deconvoluted image is noticable.
-The processed image clearly shows the two circular targets 1000 $\upmu$m apart.
-There is a significant difference between the raw and deconvoluted images, especially in the close vicinity of the targets.
-Potential above the zinc anode changed from $-360$ mV to $-300$ mV as an effect of the deconvolution, which means a whole pH unit.
-Potential above the copper cathode changed from $-480$ mV to $-550$ mV by deconvolution.
-Both the anodic and cathodic activity would have been underestimated based on the raw, distorted image.
-
-\begin{figure}
-\centering
-%top left bottom right
-\includegraphics[trim = 0mm 0mm 30mm 60mm, clip, width=0.7\textwidth]{img/zinc_copper/1.pdf}
-\includegraphics[trim = 0mm 0mm 30mm 60mm, clip, width=0.7\textwidth]{img/zinc_copper/1_deconvoluted.pdf}
-
-\caption[Raw, and deconvoluted SECM image of a galvanically coupled zinc-copper pair.]{Raw (A), and deconvoluted (B) SECM image of a galvanically coupled zinc-copper pair.
-Left: zinc, right: copper.
-Diameter of the zinc and copper samples was 200 $\upmu$m.
-Corrosive electrolyte was 1 mM NaCl.
-Recorded $h$ = 100 $\upmu$m over the surface with a scanrate of 12.5 $\upmu$m/s.}
-\label{fig:zinc_copper}
-\end{figure}
-
-			\subsubsection{Investigation of the corrosion of carbon steel}
+		\subsection{Application: investigation of the corrosion of carbon steel}
 Corroding carbon steel was imaged as part of a collaboration with colleagues from the \emph{University of Ibn Zohr}, Agadir.
 They were curious about the pH changes above the corroding sample while it was polarized anodically with different current densities applied.
 Since corrosion is highly localized, a single linescan above the center wasn't enough, as it might not have covered all of the local anodes, ie. the surface cannot be regarded homogeneous without proof.
@@ -976,7 +945,7 @@ Even with just visual inspection of the deconvoluted data, one would choose the 
 Based on this observation, blind deconvolution of 2D images might be possible.
 To explore this possibility, similarly to the step response deconvolution, I deconvoluted a pH image using the deconvolution function with several different time-constant substituations, including the measured one.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 % trim = top left bottom right
 \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.3\textwidth, angle=-90]{img/blind/raw.eps}\includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.3\textwidth, angle=-90]{img/blind/raw_deconvoluted075.eps}
@@ -1028,7 +997,7 @@ E_M = S \times lg[Mg^{2+}] + E_M^o
 
 where $S$ is the slope of the calibration curve of the potentiometric cell with respect to the primary ion, and $E_M^o$ is the standard potential.
 
-\begin{figure}
+\begin{figure}[b]
 \centering
 % trim = top left bottom right
 \includegraphics[width=0.5\textwidth]{img/field/field.eps}
