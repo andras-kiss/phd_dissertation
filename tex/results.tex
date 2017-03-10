@@ -586,7 +586,7 @@ The values for initial ($E_{cell}(0) = -183.18$ mV) and equilibrium ($E_{cell}(\
 \ref{eq:piecewise} should be obtained experimentally if the potentiometric cell was infinitely fast, and $RC$ would be 0.
 
 \begin{table}
-                \caption{Comparison of the deconvoluted time-potential recordings with different assumed time-consants, including the measured value (highlighted in bold).}
+                \caption[Comparison of the deconvoluted time-potential recordings with different assumed time-consants.]{Comparison of the deconvoluted time-potential recordings with different assumed time-consants, including the measured value (highlighted in bold).}
                 \label{table:rc}
                 \centering
                 \begin{tabular}{r c c c}
@@ -749,7 +749,7 @@ The scans were performed 100 $\upmu$m above the copper target, while it was galv
 Line blur distortion is also visible here in the raw images.
 After deconvolution the expected potential maps can be obtained (Fig. \ref{fig:deconvolution_tungsten}C-D).
 Electrode potential above the center of the target increased by about 70 mV in both cases, and the circular symmetry of the copper sample was restored in the image.
-Considering the sensitivity of the tungset/tungsten-oxide electrode, the difference between the pH of the solution adjacent to the center of the target and the bulk pH would have been underestimated by about 1.5 pH units.
+Considering the sensitivity of the tungsten/tungsten-oxide electrode, the difference between the pH of the solution adjacent to the center of the target and the bulk pH would have been underestimated by about 1.5 pH units.
 
 \begin{figure}[h]
 \centering
@@ -988,20 +988,13 @@ However, an electric field is also formed as a result of the potential differenc
 \label{eq:potential}
 \end{equation}
 
-where $\Delta E$ is the measured potential difference, $E_R$ is the potential of the reference electrode, and $\phi_M$ and $\phi_R$ are the local potentials in the electric field at the measuring and reference electrodes, respectively. $E_M$ is the potential of the measuring ion-selective electrode for instance Mg$^{2+}$:
-
-\begin{equation}
-E_M = S \times lg[Mg^{2+}] + E_M^o
-\label{eq:measuring}
-\end{equation}
-
-where $S$ is the slope of the calibration curve of the potentiometric cell with respect to the primary ion, and $E_M^o$ is the standard potential.
+where $\Delta E$ is the measured potential difference, $E_M$ and $E_R$ is the potential of the measuring and the reference electrode, and $\phi_M$ and $\phi_R$ are the local potentials in the electric field at the measuring and reference electrodes, respectively.
 
 \begin{figure}[b]
 \centering
 % trim = top left bottom right
 \includegraphics[width=0.6\textwidth]{img/field/field.eps}
-\caption{An electric field is formed between the surfaces of the galvanic couple. The potential difference between the measuring ($\phi_M$) and reference ($\phi_R$) electrodes is added to the Nernstian potential associated with the activity of the primary ion.}
+\caption[An electric field is formed between the surfaces of the galvanic couple.]{An electric field is formed between the surfaces of the galvanic couple. The potential difference between the measuring ($\phi_M$) and reference ($\phi_R$) electrodes is added to the Nernstian potential associated with the activity of the primary ion.}
 \label{fig:field}
 \end{figure}
 
@@ -1076,7 +1069,7 @@ An attempt was made to distinguish the effect of the electric field from that of
 \node[black, above] at (axis cs:460,125) {off};
 \end{axis}
 \end{tikzpicture}
-\caption{(A) Sequence of consecutive Z-approach curves recorded above the center of the AZ63 wire with a Mg$^{2+}$ ISME. Step size: 10 $\upmu$m. 500 ms settling time was allowed for the potentiometric cell at each points before measurements. Lines in chronological order: solid red = spontaneous corrosion, dashed blue = galvanic corrosion, dash dotted green = spontaneous corrosion. (B) Stationary recordings above the center of the AZ63 target with the ISME placed at: red = 100 $\upmu$m, blue = 1000 $\upmu$m distance from the metal. On/off denote the moment when galvanic coupling was either established or ceased. Temporal resolution was 1 Hz.}
+\caption[Sequence of consecutive Z-approach curves recorded above the center of the AZ63 wire with a Mg$^{2+}$ ISME. Stationary recordings above the center of the AZ63 target.]{(A) Sequence of consecutive Z-approach curves recorded above the center of the AZ63 wire with a Mg$^{2+}$ ISME. Step size: 10 $\upmu$m. 500 ms settling time was allowed for the potentiometric cell at each points before measurements. Lines in chronological order: solid red = spontaneous corrosion, dashed blue = galvanic corrosion, dash dotted green = spontaneous corrosion. (B) Stationary recordings above the center of the AZ63 target with the ISME placed at: red = 100 $\upmu$m, blue = 1000 $\upmu$m distance from the metal. On/off denote the moment when galvanic coupling was either established or ceased. Temporal resolution was 1 Hz.}
 \label{fig:approach}
 \end{figure}
 
@@ -1092,7 +1085,7 @@ In fig. \ref{fig:2d}B the measured values are in the linear range of the ISME, a
 \centering
 % trim = top left bottom right
 \includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012501.eps}\includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012503_deconvoluted.eps}
-\caption{2D Mg$^{2+}$ ion distributions above the AZ63 wire while: (A) galvanically connected to Fe and (B) immediately after ceasing electrical connection between the two metallic materials. Tip-sample distance: 100 $\upmu$m.}
+\caption[2D Mg$^{2+}$ ion distributions above the AZ63 wire.]{2D Mg$^{2+}$ ion distributions above the AZ63 wire while: (A) galvanically connected to Fe and (B) immediately after ceasing electrical connection between the two metallic materials. Tip-sample distance: 100 $\upmu$m.}
 \label{fig:2d}
 \end{figure}
 
