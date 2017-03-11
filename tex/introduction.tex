@@ -4,25 +4,26 @@ Since the invention of Scanning Tunnelling Microscopy (STM) in 1981 by Binnig an
 As an indication of the importance of their pioneering work, they received the Nobel Prize in 1986, only five years later.
 STM was but the first of a family of techniques, called Scanning Probe Microscopy (SPM), with many more to come in the following years.
 Their basic element is a local experiment, which is repeated sequentially at the pre-defined points of a raster grid.
+Then, the gathered information is prsented by plotting the measured parameter as a function of their coordinate.
 The most important advantage of them over the conventional optical microscopy is their incredible resolution.
 Even individual atoms can be ,,seen'', because they are not limited by Abbes' formula.
 Modifications of the original STM followed quickly.
-Atomic Force Microscopy was invented in 1982 by the same researchers.
+For instance, Atomic Force Microscopy was invented in 1982 by the same researchers.
 
 In 1989, not long after the introduction of the STM, electrochemists invented the Scanning Electrochemical Microscope (SECM), the electrochemical version of SPM.
 It is based on the same concept, except the scanning probe is a microelectrode.
 With this technique, highly resolved chemical information can be gathered about a wide range of surfaces.
 One of the biggest disadvantages of the SPM techniques in general is their low speed, due to the scanning process.
-The entire image is recorded with the same measuring tip, as opposed to optical techniques, where there is usually a sensor matrix.
+The entire image is recorded with the same measuring tip, as opposed to optical techniques, where there is usually a sensor array.
 As a consequence of this, the more data points are in an image, the longer it will take to record it.
 This is especially a problem in the potentiometric operation mode of the SECM.
 The response time of the measuring cell is determined by the \emph{RC} time constant, which in turn, depends mainly on the resistance of the measuring microelectrode.
-Due to the small size of the microelectrodes, their resistance can even reach the $G\ohm$ range, resulting in imaging times that can be measured in minutes.
+Due to the small size of the microelectrodes, their resistance can even reach the G$\ohm$ range, resulting in imaging times that can be measured in minutes.
 
-Other SPM techniques have received significant improvement during the last few decades, and their imaging speed can even reach video rates.
+Other SPM techniques have received significant improvement during the last few decades, and their imaging speed can even reach video framerates.
 Low speed, however, is an often overlooked limitation of the SECM, and prevents the quick recording of highly resolved images.
 That is, one has to choose between high resolution and quick imaging.
-The image will either be quickly completed but distorted, or high quality but hard to evaluate, because the points of the image will not only have different spatial, but different temporal coordinates as well.
+The image will either be quickly completed but distorted, or high quality but asynchronous, because the points of the image will not only have different spatial, but different temporal coordinates as well.
 
 My thesis is mostly devoted to the investigation of this problem, and three possible solutions to it:
 
@@ -47,7 +48,11 @@ The third technique is image processing.
 The relationship between cell potential difference and time is relatively simple, and by measuring some basic parameters of the microelectrode and the potentiometric cell, a deconvolution function can be obtained.
 With this, the equilibrium potential can be calculated for each data aquisition point of the raster grid, and distortion can be removed from the image.
 
-To test out these techniques, I've used simple model systems, then, I've applied them in corrosion studies as an example where they can be useful.
+To investigate the performance of these techniques, I've used simple model systems, then, I've applied them in corrosion studies as an example where they can be useful.
 During collaborations with colleagues, I used these techniques on several occasions, and I've included some of those results in my thesis.
 
-Additionally, I investigated the undesired effect of electric field generated in certain SECM experiments. In some cases, where there is a potential difference between two points in the electrolyte, a relatively strong electric field can be formed. For instance during galvanic corrosion there is a large potential difference between the surfaces of the metals constituting the galvanic couple. The local electric field at the tip of the measuring electrode might influence the measured potential. I investigated this contribution to the measured value, and tried to isolate the effect of the electric field.
+Additionally, I investigated the undesired effect of electric field generated in certain SECM experiments.
+In some cases, where there is a potential difference between two points in the electrolyte, a relatively strong electric field can be formed.
+For instance during galvanic corrosion there is a large potential difference between the surfaces of the metals constituting the galvanic couple.
+The local electric field at the tip of the measuring electrode might influence the measured potential.
+I investigated this contribution to the measured value, and tried to isolate the effect of the electric field.
