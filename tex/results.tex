@@ -374,7 +374,7 @@ Diameter of the iron cathodes; black rectangle: d = 0.59 mm, red circle: d = 0.7
 	\label{patterns_result}
 		\subsection{SECM simulations}
 
-\marginnote{This section is based on paper IV.}
+%\marginnote{This section is based on paper IV.}
 
 %\begin{mdframed}[topline=false, bottomline=false, leftline=false,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt, innertopmargin=0, innerbottommargin=0pt]
 
@@ -504,7 +504,7 @@ Based on the fit, time constant of the cell is $\tau = 3.76$ s, and $e^{-0.5 \; 
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=10cm, height=6cm, legend style={draw=none}, legend cell align=left]
+\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=6cm, legend style={draw=none}, legend cell align=left]
 \addplot [only marks, domain=-30:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=0:100, samples=500, color=red, line width=0.4mm] {-280+(280-183)*exp(-x/3.76)};
 %\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*(exp(-x/9) + exp(-x/0.5577))/2};
@@ -538,8 +538,8 @@ Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the p
 		xmax=100,
 		ymin=-350,
 		ymax=-100,
-		width=12cm,
-		height=10cm,
+		width=10cm,
+		height=8cm,
 		xlabel={time, s},
 		ylabel={E vs. Ag/AgCl/3 M KCl, mV},
 		clip marker paths=true]
