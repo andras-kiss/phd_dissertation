@@ -291,7 +291,7 @@ An interesting application of solid-contact microelectrodes is described in \cit
 An array of electrochemical sensors, including 27 microlectrodes were used to determine the concentration of certain ions in the martian soil.
 This is a good demonstration of how little and simple instrumentation is enough to carry out potentiometric measurements.
 During Mars missions it is extremely important that the carried instruments are reliable, robust, and light.
-The reason behind the choice of microelectrodes in this case wasn't based on the scale of the measurement, but rather the mass of the payload carried by the vessel.
+The reason behind the choice of microelectrodes in this case wasn't based solely on the scale of the measurement -- the solvent had to be carried to Mars by the vessel in its ,,wet chemistry cells'' --, but also the mass of the payload carried by the vessel.
 
 The ,,golden age'' of ion selective microelectrodes was certainly during the period of $1960-1980$.
 One of the most prominent research groups in that time was lead by Professor Pungor.
@@ -306,7 +306,7 @@ This model is assuming local equilibrium between the adjacent phases (aqueous/or
 Equilibrium in charged systems regarding an ion is realized when the electrochemical potential of that ion in the phases of the system is equal. The electrochemical potential of a phase can be given by the equation that was first introduced by Guggenheim \cite{guggenheim1929conceptions, guggenheim1930conception}:
 
 \begin{equation}
-\bar\upmu_i = \upmu_i + z_i F \phi = \upmu_i^0 + RT\ln a_i + z_i F \phi
+\bar\mu_i = \mu_i + z_i F \phi = \mu_i^0 + RT\ln a_i + z_i F \phi
 \end{equation}
 where $\phi$ is the Galvani potential.
 The PB model neglects any kinetic parameter, for instance the mobilities of ions.
@@ -317,9 +317,9 @@ E_{PB} = \frac{RT}{z_i F}\ln k_i + \frac{RT}{z_i F}\ln \frac{a_i(aq)}{a_i(org)}
 \end{equation}
 where $a_i(aq)$ and $a_i(org)$ are the activity of ion $i$ in the aqueous and the organic phase, $z_i$ is its charge. $k_i$ is a function of the relative free energies of solvation in both the sample and the membrane phase \cite{bakker2004phase}.
 
-To account for the influence of kinetic parameters in a wide range of phenomena involving charged particles -- including the behaviour of ion selective electrodes --, the Nernst-Planck-Poisson (NPP) model \cite{planck1890ueber, nernst1889elektromotorische, planck1890ueber} can be used.
+To account for the influence of kinetic parameters in a wide range of phenomena involving charged particles -- including the behaviour of ion selective electrodes --, the Nernst-Planck-Poisson (NPP) model \cite{planck1890ueber, nernst1889elektromotorische, planck1890ueber2} can be used.
 This model successfully accounts for several parameters of ion selective electrodes, including their selectivity \cite{lingenfelter2006time} and lower detection limit \cite{sokalski2009time}.
-The model has recently been adopted for the description of ion selective electrodes employing neutral ionophores by Lewenstam et al. \cite{jasielec2015neutral}.
+The model has recently been adopted for the theoretical description of ion selective electrodes employing neutral ionophores by Lewenstam et al. \cite{jasielec2015neutral}.
 The description therein is an improvement of the NPP model.
 Besides the transport of ion $i^+$ between the three phases:
 
@@ -331,6 +331,7 @@ the reaction between the measured ion and the ligand -- complexing the ion -- is
 
 \begin{equation}
   i^+_{membrane} + L_{membrane} \ce{<=>} iL^+_{membrane}
+  \label{eq:ligand_reaction}
 \end{equation}
 
 Previously this reaction has been regarded infinitely fast.
@@ -447,7 +448,7 @@ The input impedance of a typical opamp used for this purpose is around 1$-$10 T$
 
 		\subsection{Response characteristics}
 In this section the response delay associated with the $RC$ time constant is considered.
-There are other factors delaying the response, which has been previously discussed in \ref{ionophore_based}.
+There are other factors delaying the response, which has been previously introduced in \ref{ionophore_based}.
 
 Because the $RC$ time-constant plays a central role in my thesis, I give a detailed derivation of it here.
 The potentiometric cell can be modeled as a series $RC$ circuit (Fig. \ref{fig:rc}).
