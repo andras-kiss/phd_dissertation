@@ -504,7 +504,7 @@ Based on the fit, time constant of the cell is $\tau = 3.76$ s, and $e^{-0.5 \; 
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=6cm, legend style={draw=none}, legend cell align=left]
+\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=6cm, legend style={draw=none}, legend cell align=left, ytick={-290, -270, -250, -230, -210, -190, -170}]
 \addplot [only marks, domain=-30:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=0:100, samples=500, color=red, line width=0.4mm] {-280+(280-183)*exp(-x/3.76)};
 %\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*(exp(-x/9) + exp(-x/0.5577))/2};
@@ -655,7 +655,7 @@ To test this hypothesis, step response measurements were carried out in unstirre
 \end{axis}
 \end{tikzpicture}
 \caption[The effect of stirring on the antimony microelectrode.]{The effect of stirring on the antimony microelectrode.
-The buffer solutions were quickly changed back and forth between pH = 4 ($E \approx -240$ mV) and pH = 7 ($E \approx -340$ mV).
+The buffer solution that was in contact with the electrodes was alternated between pH = 4 ($E \approx -240$ mV) and pH = 7 ($E \approx -340$ mV).
 Stirring was turned on at $t$ = 450 s.
 To realize a quick change of the buffer solution without interrupting the potentiometric circuit, the \emph{,,hanging drop method''} was used. For this experiment, the Arduino-based home-made DAQ was used.}
 \label{fig:stirring}
@@ -695,6 +695,7 @@ After deconvolution however, all of the linescans became similar to the equilibr
 		height=6cm,
 		xlabel=x / $\upmu$m,
 		ylabel=E / V,
+		ytick={-0.31, -0.3, -0.29, -0.28, -0.27},
 		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=green] table {data/pH_linescans/500ms.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms.txt};
@@ -708,6 +709,7 @@ After deconvolution however, all of the linescans became similar to the equilibr
 		height=6cm,
 		xlabel=x / $\upmu$m,
 		ylabel=E / V,
+		ytick={-0.31, -0.3, -0.29, -0.28, -0.27, -0.26},
 		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=green] table {data/pH_linescans/500ms_deconvoluted.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms_deconvoluted.txt};
@@ -803,6 +805,7 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 		height=6cm,
 		xlabel=x / $\upmu$m,
 		ylabel=pMg,
+		ytick={5, 4.5, 4, 3.5, 3},
 		y dir = reverse,
 		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red] table {data/Mg_linescans/400ms.txt};
@@ -817,6 +820,7 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 		height=6cm,
 		xlabel=x / $\upmu$m,
 		ylabel=pMg,
+		ytick={5, 4.5, 4, 3.5, 3},
 		y dir = reverse,
 		/pgf/number format/.cd, use comma, 1000 sep={}]
 \addplot [color=red] table {data/Mg_linescans/400ms_deconvoluted.txt};
