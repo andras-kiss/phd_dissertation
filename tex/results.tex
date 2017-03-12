@@ -504,7 +504,7 @@ Based on the fit, time constant of the cell is $\tau = 3.76$ s, and $e^{-0.5 \; 
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=12cm, height=8cm, legend style={draw=none}, legend cell align=left]
+\begin{axis}[ymin=-290, ymax=-170, xmin=-30, xmax=100, xlabel={time, s}, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, width=10cm, height=6cm, legend style={draw=none}, legend cell align=left]
 \addplot [only marks, domain=-30:100, color=gray, mark=*] table {data/transient_aligned.txt};
 \addplot [domain=0:100, samples=500, color=red, line width=0.4mm] {-280+(280-183)*exp(-x/3.76)};
 %\addplot [domain=0:100, samples=500, color=green, line width=0.4mm] {-280+(280-183)*(exp(-x/9) + exp(-x/0.5577))/2};
@@ -1014,21 +1014,22 @@ These contradictory results can be explained by a contribution of the electric f
 
 In this section, I present experimental evidence of this phenomenon, and investigate the extent to which it influences the final potentiometric SECM image.
 For this purpose, I use the Fe-AZ63 galvanic pair studied in the previous sections.
-The SECM probe was a solid contact magnesium ion selective electrode.
+The SECM probe was a solid contact magnesium ion selective microelectrode.
+
 
 First, a series of consecutive Z-approach curves were recorded above the corroding AZ63 sample (as shown in fig. \ref{fig:approach}A).
-The first 6 measurements were taken while the AZ63 sample was not electrically connected to the iron sample (red lines, a-b).
+The first 6 measurements were conducted while the AZ63 sample was electrically isolated from the iron sample (red lines, a-b).
 As expected, Mg$^{2+}$ activity slowly increased with time as a result of spontaneous corrosion.
 The overall change was about 10 mV in 5 minutes.
 Next, the two metals were connected at the rear of the mould.
 As result of establishing the galvanic connection, there was an immediate rise of about 40 mV in the measured potential of the microelectrode (transition from b to c, depicted by $\Delta E_1$ in fig. \ref{fig:approach}A).
 Since the galvanic coupling was established while the scanning tip was located 1000 $\upmu$m from the AZ63 sample, the reported change cannot possibly be attributed solely to an abrupt increase in Mg$^{2+}$ activity.
-Indeed, such a 40 mV change would correspond to an increase of ca. 1.5 orders of magnitude in Mg$^{2+}$ activity occuring in less than one second.
+Indeed, such a 40 mV change would correspond to an increase of $\sim$ 1.5 orders of magnitude in Mg$^{2+}$ activity occuring in less than one second.
 Immediately after, six additional Z-approach curves were recorded during the galvanic coupling.
 The resulting accelerated dissolution of Mg$^{2+}$ can be distinguished from the blue curves (c-d) in fig. \ref{fig:approach}A.
 Intense gas evolution could be observed on the surface of the AZ63 sample, which explains the noticeably more noisy curves recorded in this case.
-During this period of galvanic coupling, the potential sensed at the ISME, when situated at h = 1000 $\upmu$m, increased in app. 40 mV.
-This rise ($\Delta E_2$) can be totally attributed to the increase in activity of the dissolving metal, i.e.: $\Delta E = 29.5 mV \times \Delta lg[$Mg$^{2+}]$.
+During this period of galvanic coupling, the potential sensed at the ISME, when situated at h = 1000 $\upmu$m, increased by $\sim$ 40 mV.
+This rise ($\Delta E_2$) can be totally attributed to the increase in activity of the dissolving metal, i.e.: $\Delta E = 29.5~\textrm{mV} \cdot \Delta \lg[$Mg$^{2+}]$.
 Finally, when the galvanic connection was stopped, 2 additional Z-approach curves were measured (green curves in fig. \ref{fig:approach}A).
 A sudden jump in potential ($\Delta E_3$, transition from d to e) can be observed, of the same magnitude as before, though in the opposite direction, as a result of electric field vanishing.
 The shape of the latest Z-approach curves is very similar to the initial approaching curves recorded before galvanic connection was established, though they are shifted by about 40 mV in the positive direction.
