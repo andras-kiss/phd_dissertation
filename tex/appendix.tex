@@ -10,12 +10,8 @@ integer :: x_size, y_size, z_size
 integer :: res, height
 integer :: time_res
 
-! 0.000703 mm^2/s = 703um^2/s for resolution of 1umx1um and 1s
-! = 0.00000703 cm^2/s for resolution of 1umx1um and 1s
-! CRC Handbook of chemistry and physics 87th 2006-2007.pdf page 848
-! 1/2 Zn2+ -ra vonatkozik.
-real :: const=0.017575 !for resolution of 20umx20um and 0.1s
-! real :: const=0.02812 !for resolution of 50umx50um and 0.1s
+real :: const=0.017575
+!for resolution of 20umx20um and 0.1s
 
 integer :: h,i,j,k,x,y,m,switch,cells
 real, dimension(0:101,0:101,0:101) :: a, b
@@ -39,7 +35,7 @@ mask=1
 do i=1, 100
   do j=1, 100
     if ( ((i-50)**2+(j-50)**2) < 20**2 ) then
-      !20 itt a source sugara = 400um
+      !20 radius of source is 400 um
       flux(i,j,1)=0.1
     endif
   end do
@@ -84,8 +80,8 @@ b=a
 switch=0
 ! x=i, y=j, z=k, h=time
 do h=1, 500 ! M A I N  L O O P
-
-  ! All real cells computed. Not cycled: borders, which are all zeros.
+  ! All real cells computed.
+  ! Not cycled: borders, which are all zeros.
   do k=1, 100
     do j=1, 100
       do i=1, 100
@@ -100,8 +96,9 @@ do h=1, 500 ! M A I N  L O O P
           if ((i==1) .or. (i==100)) then
             cells=cells-1
           endif
-          b(i,j,k)=a(i,j,k)+const*(a(i,j+1,k)+a(i-1,j,k)+a(i+1,j,k) &
-          +a(i,j-1,k)+a(i,j,k-1)+a(i,j,k+1)-cells*a(i,j,k))
+          b(i,j,k)=a(i,j,k)+const*(a(i,j+1,k)&
+	  +a(i-1,j,k)+a(i+1,j,k)+a(i,j-1,k)&
+	  +a(i,j,k-1)+a(i,j,k+1)-cells*a(i,j,k))
         endif
       end do
     end do
@@ -156,12 +153,14 @@ e0=a(0,0,height)
 open(1,file='fast_comb.txt')
 do y=0, 100, 5
   do x=0, 100, 5
-    sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
+    sim(x,y) = a(x,y,height)&
+     +(e0-a(x,y,height))*0.8
     e0=sim(x,y)
     write(1, *) x*20, y*20, sim(x,y)
   end do
   do x=100, 0, 5
-    e0 = a(x,y,height) + (e0-a(x,y,height))*0.9
+    e0 = a(x,y,height)&
+     +(e0-a(x,y,height))*0.9
   end do
 end do
 close(1)
@@ -174,13 +173,15 @@ do y=0, 100, 5
   direction=direction*(-1)
   if (direction==1) then
     do x=0, 100, 5
-      sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
+      sim(x,y) = a(x,y,height)&
+	+(e0-a(x,y,height))*0.8
       e0=sim(x,y)
       write(1, *) x*20, y*20, sim(x,y)
     end do
   else
     do x=100, 0, -5
-      sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
+      sim(x,y) = a(x,y,height)&
+	+(e0-a(x,y,height))*0.8
       e0=sim(x,y)
       write(1, *) x*20, y*20, sim(x,y)
     end do
@@ -195,13 +196,15 @@ open(1,file='comb.txt')
 open(2,file='comb_pattern.txt')
 do y=0, 100, 5
   do x=0, 100, 5
-    sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
+    sim(x,y) = a(x,y,height)&
+      +(e0-a(x,y,height))*0.8
     e0=sim(x,y)
     !write(1, *) x*20, y*20, sim(x,y)
     write(2, *) x*20, y*20, sim(x,y)
   end do
   do x=100, 0, -5
-    sim(x,y) = (sim(x,y) + a(x,y,height) + (e0-a(x,y,height))*0.8)/2
+    sim(x,y) = (sim(x,y) + a(x,y,height)&
+      +(e0-a(x,y,height))*0.8)/2
     e0=a(x,y,height) + (e0-a(x,y,height))*0.8
     write(1, *) x*20, y*20, sim(x,y)
     write(2, *) x*20, y*20, sim(x,y)
@@ -214,14 +217,13 @@ close(2)
 x_real=0
 y_real=0
 e0=a(50,50,height)
-open(1,file='spider_net.txt')
+open(1,file='web.txt')
 do r=0, 10
   do alpha=0, 2*pi-pi/10, 2*pi/10
     x_real=100*r*cos(alpha)
     y_real=100*r*sin(alpha)
     x=nint((x_real+1000)/20)
     y=nint((y_real+1000)/20)
-    !sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
     e0=a(x,y,height)+(e0-a(x,y,height))*0.8
     write(1, *) nint(x_real), nint(y_real), e0
     print *,x_real,y_real
@@ -233,7 +235,7 @@ close(1)
 x_real=0
 y_real=0
 e0=a(50,50,height)
-open(1,file='stonehenge.txt')
+open(1,file='arc.txt')
 write(1, *) 0, 0, e0
 do r=0, 10
   circumference=2*r*100*pi
@@ -243,7 +245,6 @@ do r=0, 10
     y_real=100*r*sin(alpha)
     x=nint((x_real+1000)/20)
     y=nint((y_real+1000)/20)
-    !sim(x,y) = a(x,y,height) + (e0-a(x,y,height))*0.8
     e0=a(x,y,height)+(e0-a(x,y,height))*0.8
     write(1, *) nint(x_real), nint(y_real), e0
     print *,x_real,y_real
@@ -252,29 +253,4 @@ end do
 close(1)
        
 end program diffusion
-\end{lstlisting}
-	
-	\section{Deconvolution program in Fortran}
-\begin{lstlisting}
-program deconvolution
-implicit none
-
-integer :: i, j, stat
-real rc, e0, conv
-real t
-
-rc=0.85
-open(1,file='data.txt')
-open(2,file='data_deconvoluted.txt')
-read(1, *) i, j, e0
-do
-   read(1, *, iostat=stat) i, j, conv
-   if (stat /= 0) exit
-   write(2, *) i, j, ((conv - e0*rc)/(1-rc))
-   e0=conv
-end do
-close(1) 
-close(2)
-
-end program deconvolution
 \end{lstlisting}

@@ -11,7 +11,7 @@ This means, for an image to be recorded with a step size of \emph{s} ($\upmu$m),
 	t = (L/s+1)^{2}\times(s/v + t_e)
 \end{equation}
 
-Using the example from the \emph{"Introduction"}, if \emph{R} = 1 G$\ohm$ and \emph{C} = 500 pF, then \emph{RC} = 0.5 s, and $t$ = 882 s, or about 16 min, since about $t_e = 4 \times RC$ is necessary to obtain the equilibrium electrode potential with good approximation.
+For instance, if \emph{R} = 1 G$\ohm$ and \emph{C} = 500 pF, then \emph{RC} = 0.5 s, and $t$ = 882 s, or about 16 min, since about $t_e = 4 \times RC$ is necessary to obtain the equilibrium electrode potential with good approximation.
 To decrease the overall scanning time, there are a number of possibilities.
 If \emph{L} or $t_e$ is decreased or \emph{v} or \emph{s} is increased, then $t$ is decreased.
 But, if the scanned area or resolution cannot be decreased further, then manipulating \emph{L} and \emph{s} is not a viable option.
@@ -88,7 +88,7 @@ Selectivity coefficients, characterization of the potassium ion-selective electr
 Response characteristics were investigated by measuring the electrode resistance $R$, and the $\tau_{95}$ response time.
 The two parameters are related: $1-e^{-3RC/RC} = 1-e^{-3} \approx 0.95$.
 This means, that $3\times RC \approx \tau_{95}$, because in $3\times RC$, equilibrium electrode potential is reached by about 95\%.
-Calculated from the voltage divider measurements (Fig. \ref{fig:solid_liquid_response_time}, Table \ref{table:comp}), electrode resistance was 4.8 $G\ohm$ and 0.56 $G\ohm$ for the liquid, and solid contact electrodes, respectively.
+Calculated from the voltage divider measurements (Fig. \ref{fig:solid_liquid_response_time}, Table \ref{table:comp}), electrode resistance was $4.8~$G$\ohm$ and $0.56~$G$\ohm$ for the liquid, and solid contact electrodes, respectively.
 The measured $\tau_{95}$ parameters were 71.1 s, and 27.7 s, respectively (Fig. \ref{fig:solid_liquid_resistance}).
 Based on these values, the solid contact electrode was expected to produce less distorted images with the same scanning parameters.
 
@@ -378,18 +378,18 @@ Diameter of the iron cathodes; black rectangle: d = 0.59 mm, red circle: d = 0.7
 
 %\begin{mdframed}[topline=false, bottomline=false, leftline=false,innerleftmargin=3pt,innerrightmargin=3pt,leftmargin=-3pt,rightmargin=-3pt, innertopmargin=0, innerbottommargin=0pt]
 
-To obtain high quality images in scanning probe microscopy, a certain amount of scanning time is required, depending on the number of sampling points, and the scanning speed.
-Usually, there is a compromise between scanning speed and image quality.
-This is most critical in the potentiometric scanning electrochemical microscopy, which is severely limited by the relatively long response time of the ultramicro-electrode probes.
-That is, scanning speed can be increased only at the expense of image quality.
+%To obtain high quality images in scanning probe microscopy, a certain amount of scanning time is required, depending on the number of sampling points, and the scanning speed.
+%Usually, there is a compromise between scanning speed and image quality.
+%This is most critical in the potentiometric scanning electrochemical microscopy, which is severely limited by the relatively long response time of the ultramicro-electrode probes.
+%That is, scanning speed can be increased only at the expense of image quality.
 
-In a great majority of the SECM studies, the subjects are circularly symmetric systems.
-In this section, I present a method to increase SECM imaging speed of such systems, while improving image quality at the same time.
-It is achieved by using new, polar coordinate-based scanning patterns, exploiting the symmetry of the studied system, and using imaging time more economically.
-This technique significantly improves the imaging of circularly symmetric targets.
+%In a great majority of the SECM studies, the subjects are circularly symmetric systems.
+%In this section, I present a method to increase SECM imaging speed of such systems, while improving image quality at the same time.
+%It is achieved by using new, polar coordinate-based scanning patterns, exploiting the symmetry of the studied system, and using imaging time more economically.
+%This technique significantly improves the imaging of circularly symmetric targets.
 
-Numerical simulations and SECM scans using the traditional, and the new scanning algorithms have
-been performed. The resulting images have been compared with the expected, ideal image.
+%Numerical simulations and SECM scans using the traditional, and the new scanning algorithms have been performed.
+%The resulting images have been compared with the expected, ideal image.
 %\end{mdframed}
 
 First, SECM scanning simulations were performed and the resulting images were compared (Figure \ref{fig:simulations}).
@@ -468,11 +468,11 @@ Potential was measured against an Ag/AgCl/3M KCl reference electrode.}
 	\label{dec_result}
 
 		\subsection{Deconvolution of measurements performed with metal/metal-oxide microelectrodes}
-In order to image rapidly changing systems with the Scanning Electrochemical Microscope, high scan rate must be used, otherwise by the time the scan is completed, major changes in the studied system would have occured.
-But if the scan rate is too high, there is not enough time for the detector to reach equilibrium before the signal is recorded at a given data acquisition point, and the image will be distorted.
-This is a problem especially in potentiometric SECM, where the long response time of the potentiometric cell using ultramicro electrode probes imposes a limit on the maximum scan rate.
-In this section I demonstrate that high scan rates combined with signal processing can be used in potentiometric SECM to keep scan time to a minimum, and still obtain high quality results by deconvoluting the raw, distorted image.
-Model systems were studied with high scan rate, then the images were deconvoluted using the inverse of the potentiometric response function to calculate the equilibrium value for each data acquisition point from the respective observed values.
+%In order to image rapidly changing systems with the Scanning Electrochemical Microscope, high scan rate must be used, otherwise by the time the scan is completed, major changes in the studied system would have occured.
+%But if the scan rate is too high, there is not enough time for the detector to reach equilibrium before the signal is recorded at a given data acquisition point, and the image will be distorted.
+%This is a problem especially in potentiometric SECM, where the long response time of the potentiometric cell using ultramicro electrode probes imposes a limit on the maximum scan rate.
+%In this section I demonstrate that high scan rates combined with signal processing can be used in potentiometric SECM to keep scan time to a minimum, and still obtain high quality results by deconvoluting the raw, distorted image.
+%Model systems were studied with high scan rate, then the images were deconvoluted using the inverse of the potentiometric response function to calculate the equilibrium value for each data acquisition point from the respective observed values.
 
 Deconvolution of measurements obtained with the metal/metal-oxide electrodes (antimony/antimony-oxide, and tungsten/tungsten-oxide) are attempted.
 First, a simple step response, then 1D linescans, and finally 2D raster images were deconvoluted, using four different electrodes; pH sensing microelectrodes made from antimony and tungsten, and ion selective microelectrodes for magnesium and potassium ions.
