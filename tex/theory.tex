@@ -51,11 +51,11 @@ In order to carry out voltage clamp experiments on neurons of this species, the 
 The basic experimental setup for an early neurophysiological study employed several electrodes.
 To measure the potential difference across the cell membrane, an intra- and an extracellular electrode is necessary.
 This technique has been used to measure the resting potential in the axon of the squid \cite{curtis1940membrane, curtis1942membrane}.
-A microelectrode consisting of a long glass capillary was pushed into one and of the axon until it reached a distance of 10-30 mm.
+A microelectrode consisting of a long glass capillary was pushed into one and of the axon until it reached a distance of $10-30~$mm.
 To avoid causing damage to the cell membrane, great care had to be taken during this step.
 The small diameter of most nerve and muscle fibres made it extremely difficult to use this technique.
 The breakthrough came when Graham and Gerard showed that a very small electrode can be inserted perpendicularly into a muscle fiber without causing damage or unintentional excitation \cite{graham1946judith, ling1949normal}.
-But, in order to obtain successful results, the microelectrodes should have had an external diameter of less the 0.5 $\upmu$m.
+But, in order to obtain successful results, the microelectrodes should have had an external diameter of less then 0.5 $\upmu$m.
 Such a small electrode diameter however introduced additional difficulties associated to the inevitable increase in electric resistance.
 From that point on, the further development of microelectrodes depended on the development of the recording apparatus, as its properties combined with those of the microelectrode together determine the response characteristics.
 At that time, the state of the art amplifiers were of valve types.
@@ -214,6 +214,7 @@ where $E$ is the open circuit potential, $E^\theta$ the standard electrode poten
 These microelectrodes were surpassed by the following generation of ion-selective microelectrodes, based on the ionophores.
 
 \subsection{Ionophore based microelectrodes}
+\label{ionophore_based}
 The ion-selective microelectrodes used today are based on the ionophores.
 These are carriers for specific ions, and act as complexing ligands.
 \v{S}tefanac and Simon published their work concerning the use of nonactin, a lipophilic antibiotic, as ionophore in ion-selective membranes \cite{stefanac1966highly, vstefanac1967ion}.
@@ -275,7 +276,7 @@ It is based on pH measurement in a thin membrane on the surface of a glass pH-el
 Carbon-dioxide diffuses to the membrane, dissolves in the thin film, and lowers the pH.
 The cell has been miniaturized by several research groups \cite{cai1993development, de1997fast, zhao1997improved, hanstein2001miniaturised, beyenal2004improved}.
 The cited papers are all using an improved, miniaturized, microelectrode version of the original electrode.
-I used a similar, antimony based miniaturized Severinghaus--electrode in my masters thesis, and published spatially resolved CO$_2$ measurements -- with the same electrode -- of living yeast colonies in \cite{kiss2011air}.
+I used a similar, antimony based miniaturized Severinghaus--electrode in my masters thesis \cite{msc2011}, and published spatially resolved CO$_2$ measurements -- with the same electrode -- of living yeast colonies in \cite{kiss2011air}.
 
 A big advancement in the field of ion-selective electrodes was the elimination of the internal filling solution from the conventional ion-selective electrodes.
 This resulted in the so-called \emph{solid-contact} electrodes.
@@ -287,13 +288,54 @@ In this thesis, the ion-to-electron interface in the solid-contact ion-selective
 Solid-contact electrodes were used in the work done in our laboratory earlier \cite{gyetvai2007solid, varga2011development, izquierdo2012scanning}.
 
 An interesting application of solid-contact microelectrodes is described in \cite{kounaves2002determination}.
-An array of electrochemical sensors, including 27 microlectrodes were used to determine the concentration of certain ions in the martian soil. This is a good demonstration of how little and simple instrumentation is enough to carry out potentiometric measurements. During Mars missions it is extremely important that the carried instruments are reliable, robust, and light. The reason behind the choice of microelectrodes in this case wasn't based on the scale of the measurement, but rather the mass of the payload carried by the vessel.
+An array of electrochemical sensors, including 27 microlectrodes were used to determine the concentration of certain ions in the martian soil.
+This is a good demonstration of how little and simple instrumentation is enough to carry out potentiometric measurements.
+During Mars missions it is extremely important that the carried instruments are reliable, robust, and light.
+The reason behind the choice of microelectrodes in this case wasn't based on the scale of the measurement, but rather the mass of the payload carried by the vessel.
 
-
+The ,,golden age'' of ion selective microelectrodes was certainly during the period of $1960-1980$.
+One of the most prominent research groups in that time was lead by Professor Pungor.
+After this period the next big advancement in the field came at the end of the 1990s by better understanding the theory behind the ion selective microelectrodes, and a consequent lowering of their lower detection limit.
 The lower limit of detection of ion-selective electrodes has usually not been lower than $10^{-6}$ M.
 Several research groups have achieved better results recently by optimizations \cite{sodergaard2003lowering}.
 Lower limit can be achieved by drastically reducing zero-current ion fluxes from the membrane in the direction of the sample \cite{malon2006potentiometry}.
-Such fluxes have historically deteriorated the detection limits and observed selectivities of such sensors by many orders of magnitude \cite{sutter2004solid}.
+Such ion fluxes have notoriously prevented achieving better detection limits and selectivities with such sensors \cite{sutter2004solid}.
+
+The above mentioned models are improvements over the previous, Phase Boundary Model (PBM).
+This model is assuming local equilibrium between the adjacent phases (aqueous/organic/aqueous) -- and therefore throughout the whole system.
+Equilibrium in charged systems regarding an ion is realized when the electrochemical potential of that ion in the phases of the system is equal. The electrochemical potential of a phase can be given by the equation that was first introduced by Guggenheim \cite{guggenheim1929conceptions, guggenheim1930conception}:
+
+\begin{equation}
+\bar\upmu_i = \upmu_i + z_i F \phi = \upmu_i^0 + RT\ln a_i + z_i F \phi
+\end{equation}
+where $\phi$ is the Galvani potential.
+The PB model neglects any kinetic parameter, for instance the mobilities of ions.
+The model is summarized by the following equation:
+
+\begin{equation}
+E_{PB} = \frac{RT}{z_i F}\ln k_i + \frac{RT}{z_i F}\ln \frac{a_i(aq)}{a_i(org)}
+\end{equation}
+where $a_i(aq)$ and $a_i(org)$ are the activity of ion $i$ in the aqueous and the organic phase, $z_i$ is its charge. $k_i$ is a function of the relative free energies of solvation in both the sample and the membrane phase \cite{bakker2004phase}.
+
+To account for the influence of kinetic parameters in a wide range of phenomena involving charged particles -- including the behaviour of ion selective electrodes --, the Nernst-Planck-Poisson (NPP) model \cite{planck1890ueber, nernst1889elektromotorische, planck1890ueber} can be used.
+This model successfully accounts for several parameters of ion selective electrodes, including their selectivity \cite{lingenfelter2006time} and lower detection limit \cite{sokalski2009time}.
+The model has recently been adopted for the description of ion selective electrodes employing neutral ionophores by Lewenstam et al. \cite{jasielec2015neutral}.
+The description therein is an improvement of the NPP model.
+Besides the transport of ion $i^+$ between the three phases:
+
+\begin{equation}
+  i^+_{sample} \ce{<=>} i^+_{membrane} \ce{<=>} i^+_{inner  solution}
+\end{equation}
+
+the reaction between the measured ion and the ligand -- complexing the ion -- is considered as well:
+
+\begin{equation}
+  i^+_{membrane} + L_{membrane} \ce{<=>} iL^+_{membrane}
+\end{equation}
+
+Previously this reaction has been regarded infinitely fast.
+However by considering this process, a more accurate model can be obtained.
+The rate of this reaction can be an additional factor determining the response characteristics of an ion selective microelectrode.
 
 \subsection{Metal/metal-oxide pH microelectrodes}
 Since the glass electrode cannot be effectively miniaturized due to the reasons detailed in the previous sections, intensive research has been conducted for several decades to improve metal/metal-oxide electrodes.
@@ -310,7 +352,21 @@ It is pH sensitive because hydrogen ions participate in the equilibrium:
         \ce{Sb_{(s)} + 3OH^- <=> Sb(OH)_3 + 6e^-}
 \end{equation}
 
-The main reason this particular electrode is so popular is that the melting point of antimony and borosilicate glass are similar ($T_{m, \textrm{Sb}} = 630.63$ $\celsius$, $T_{m, glass}\approx 700$ $\celsius$), and manufacturing them is relatively easy with standard glass blowing techniques.
+Using the Nernst-equation to describe the relationship between [Sb$^{3+}$] and the measured electrode potential \cite{kurzweil2009metal}:
+
+\begin{equation}
+E = E^\theta - \frac{RT}{3F}\ln a_{\textrm{Sb}^{3+}}
+\end{equation}
+
+Which can be rewritten by using $K_W$, the water ion product, and $K_L$, the solubility product of antimony hydroxide as \cite{kurzweil2009metal}:
+
+\begin{equation}
+E = E^\theta - \frac{RT}{3F}\ln \frac{K_L}{K_W} + \frac{RT}{F}\ln a_{\textrm{H}^+}
+= E^{\theta '} - \frac{RT}{0.4343F} \textrm{pH}  
+\end{equation}
+because [Sb$^{3+}$]=[H$^+$]$\cdot K_L / K_W$.
+
+The main reason this particular electrode is so popular is that the melting point of antimony and the softening point of borosilicate glass are similar ($T_{m, \textrm{Sb}} = 630.63~\celsius$, $T_{m, glass}\approx 700~\celsius$), and manufacturing them is relatively easy with standard glass blowing techniques.
 
 Another very popular metal/metal-oxide electrode used for pH measurements is the tungsten electrode. Its function is also based on the equilibrium between the metal and its oxide:
 \begin{equation}
@@ -390,6 +446,9 @@ On the other hand, they have a low output impedance, and can drive the measuring
 The input impedance of a typical opamp used for this purpose is around 1$-$10 T$\ohm$, so $R_{in}/(R_{in}+R_0)$ is unity, and the measured $V$ is almost identical to the source $E$, because $V/E$ is also 1.
 
 		\subsection{Response characteristics}
+In this section the response delay associated with the $RC$ time constant is considered.
+There are other factors delaying the response, which has been previously discussed in \ref{ionophore_based}.
+
 Because the $RC$ time-constant plays a central role in my thesis, I give a detailed derivation of it here.
 The potentiometric cell can be modeled as a series $RC$ circuit (Fig. \ref{fig:rc}).
 Kirchhoff's second law states that the directed sum of the electrical potential differences (voltages) around any closed network is zero \cite{hill2015art}:
