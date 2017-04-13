@@ -31,7 +31,7 @@ set cblabel font ",25"
 set cbtics font ",25"
 set cblabel offset 4,0
 set ylabel offset -2,0
-set xlabel offset 0,-2
+set xlabel offset 0,-1
 
 ### SCANS
 set size square

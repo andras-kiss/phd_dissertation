@@ -1,0 +1,57 @@
+set size ratio 1.5 
+set pm3d map
+set dgrid3d 41, 41, 10 gauss 20, 20
+set pm3d interpolate 2,2
+#set contour
+#set cntrparam levels auto 10
+set term postscript enhanced color
+
+set xlabel "X / {/Symbol m}m"
+set ylabel "Y / {/Symbol m}m"
+#set palette rgbformulae -22, -13, 31 # reversed quickgrid
+set palette rgbformulae -33, -13, -10 # rainbow
+#set palette rgbformulae -30, -31, -32 # complete heatmap
+# matlab palette colors
+#set palette defined ( 0 "#000090",\
+ #                     1 "#000fff",\
+  #                    2 "#0090ff",\
+   #                   3 "#0fffee",\
+    #                  4 "#90ff70",\
+     #                 5 "#ffee00",\
+      #                6 "#ff7000",\
+       #               7 "#ee0000",\
+        #              8 "#7f0000")
+set xtics font "Helvetica, 25"
+set ytics font "Helvetica, 25"
+set xlabel font ",25"
+set ylabel font ",25"
+set cblabel font ",25"
+set cbtics font ",25"
+set cblabel offset 4,0
+set ylabel offset -2,0
+set xlabel offset 0,-1
+
+#pipette
+#set contour
+set size ratio 1
+set pm3d map
+set dgrid3d 41, 41, 10 gauss 40, 40
+set pm3d interpolate 2,2
+set xtics 0, 500, 1000
+set ytics 0, 500, 1000
+set yrange [0:1000]
+set xrange [0:1000]
+
+set cblabel "pMg^{2+}"
+set label "A" at 100, 900 tc rgb "white" font ",40" front
+set cbrange [4:2.5]
+set out "liquid_Mg.eps"
+splot "liquid_Mg.txt" u ($1):($2):(-($3*1000-80)/29.12) notitle
+unset label
+
+set cblabel "pMg^{2+}"
+set label "B" at 100, 900 tc rgb "white" font ",40" front
+set cbrange [4:2.5]
+set out "solid_Mg.eps"
+splot "solid_Mg.txt" u ($1):($2):(-($3*1000)/33.44) notitle
+unset label

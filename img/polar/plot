@@ -25,57 +25,11 @@ set cblabel font ",25"
 set cbtics font ",25"
 set cblabel offset 4,0
 set ylabel offset -3,0
-set xlabel offset 0,-2
+set xlabel offset 0,-1
 set xtics -1000, 500, 1000
 set ytics -1000, 500, 1000
 set yrange [-1000:1000]
 set xrange [-1000:1000]
-
-### PATTERNS
-set style line 1 linewidth 30
-
-set yrange [-1100:1100]
-set xrange [-1100:1100]
-set style fill solid 1.0
-set object 1 circle at -1000,-1000 size 40 front fc rgb "blue"
-set object 2 circle at 1000,1000 size 40 front fc rgb "green"
-set label "A" at -900, 800 tc rgb "black" font ",40" front
-set out "meander_pattern.eps"
-plot "meander.txt" u (($1-10)*100):(($2-10)*100) w lp pointtype 12 pointsize 1 linewidth 2 notitle
-unset label
-
-set label "B" at -900, 800 tc rgb "black" font ",40" front
-#set dgrid3d 21, 21, 1
-set out "fastcomb_pattern.eps"
-plot "fastcomb.txt" u (($1-10)*100):(($2-10)*100) w lp pointtype 12 pointsize 1 linewidth 2 notitle
-unset label
-
-set label "C" at -900, 800 tc rgb "black" font ",40" front
-set out "comb_pattern.eps"
-plot "comb_pattern.txt" u ($1-1000):($2-1000) w lp pointtype 12 pointsize 1 linewidth 2 notitle
-unset label
-unset object 1
-unset object 2
-
-
-set yrange [-1100:1100]
-set xrange [-1100:1100]
-set style fill solid 1.0
-set object 1 circle at 0,0 size 40 front fc rgb "blue"
-set object 2 circle at 809,-588 size 40 front fc rgb "green"
-set label "D" at -900, 800 tc rgb "black" font ",40" front
-set out "web_pattern.eps"
-plot "web_sim.txt" w lp pointtype 12 pointsize 1 linewidth 2 notitle
-unset label
-unset object 2
-
-set object 2 circle at 994,-101 size 40 front fc rgb "green"
-set label "E" at -900, 800 tc rgb "black" font ",40" front
-set out "arc_pattern.eps"
-plot "arc_sim.txt" w lp pointtype 12 pointsize 1 linewidth 2 notitle
-unset label
-unset object 1
-unset object 2
 
 
 ### SCANS

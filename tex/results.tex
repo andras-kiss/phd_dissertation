@@ -200,7 +200,7 @@ Potential starts dropping, while it approaches the new equilibrium potential.
 \begin{figure}
 \centering
 % trim = top left bottom right
-\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/liquid_Mg.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/solid_Mg.eps}
+\includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/liquid_Mg.eps} \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/solid_Mg.eps}
 \caption[SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.]{SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.
 (A) liquid-contact, and (B) solid-contact.
 Scan rate: 12.5 $\upmu$m/s.}
@@ -415,15 +415,15 @@ This has an importance when accurate quantitative information is required about 
 \begin{figure}[H]
 \centering
 % trim = top left bottom right
-\includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/meander_sim.eps} \includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/meander_delta.eps}
+\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/meander_sim.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/meander_delta.eps}
 
-\includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/fastcomb_sim.eps} \includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/fastcomb_delta.eps}
+\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/fastcomb_sim.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/fastcomb_delta.eps}
 
-\includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/comb_sim.eps} \includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/comb_delta.eps}
+\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/comb_sim.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/comb_delta.eps}
 
-\includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/web_sim.eps} \includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/web_delta.eps}
+\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/web_sim.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/web_delta.eps}
 
-\includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/arc_sim.eps} \includegraphics[trim = 20mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/arc_delta.eps}
+\includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/arc_sim.eps} \includegraphics[trim = 10mm 30mm 0mm 20mm, clip, width=0.25\textwidth, angle=-90]{img/sim/arc_delta.eps}
 
 \caption[Simulated SECM scans 100 $\upmu$m above the disc source and deviation from the original images.]{(A-E) Simulated SECM scans 100 $\upmu$m above the disc source with the meander, fast comb, comb, web, and the arc scanning algorithms, respectively.
 All images were normalized to the maximum concentration of the expected image (c$_{max}$).
@@ -700,6 +700,7 @@ After deconvolution however, all of the linescans became similar to the equilibr
 \addplot [color=green] table {data/pH_linescans/500ms.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms.txt};
 \addplot [color=red] table {data/pH_linescans/5000ms.txt};
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {A};
 \end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
@@ -714,6 +715,7 @@ After deconvolution however, all of the linescans became similar to the equilibr
 \addplot [color=green] table {data/pH_linescans/500ms_deconvoluted.txt};
 \addplot [color=blue] table {data/pH_linescans/1000ms_deconvoluted.txt};
 \addplot [color=red] table {data/pH_linescans/5000ms_deconvoluted.txt};
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {B};
 \end{axis}
 \end{tikzpicture}
 \caption[Raw and deconvoluted SECM linescans with the antimony microelectrode.]{(A) Raw, and, (B) deconvoluted SECM linescans above the center of the target, at h = 100 mm height, using three different equilibration periods: 0.5 s, (green), 1 s, (blue), and 5 s, (red).}
@@ -811,6 +813,7 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 \addplot [color=red] table {data/Mg_linescans/400ms.txt};
 \addplot [color=green] table {data/Mg_linescans/1900ms.txt};
 \addplot [color=blue] table {data/Mg_linescans/4900ms.txt};
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {A};
 \end{axis}
 \end{tikzpicture}
 \begin{tikzpicture}
@@ -826,6 +829,7 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 \addplot [color=red] table {data/Mg_linescans/400ms_deconvoluted.txt};
 \addplot [color=green] table {data/Mg_linescans/1900ms_deconvoluted.txt};
 \addplot [color=blue] table {data/Mg_linescans/4900ms_deconvoluted.txt};
+\node[anchor=north west] at (rel axis cs:0.02,0.98) {B};
 \end{axis}
 \end{tikzpicture}
 

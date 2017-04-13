@@ -1,4 +1,4 @@
 #!/bin/sh
-gfortran polar.F90
-./a.out
+#gfortran polar.F90
+#./a.out
 gnuplot plot
