@@ -1,7 +1,7 @@
 \chapter{Results and Discussion}
 I've tried three approaches to alleviate the compromise between low distortion and short scanning time in the potentiometric SECM.
-The problem stems from the high \emph{RC} time-constant.
-For a sufficiently small microelectrode, the resistance \emph{R} can be so high, that the time-constant is measured in seconds.
+The problem stems from the large time-constant.
+For a sufficiently small microelectrode, the resistance \emph{R} can be so high, that the RC time-constant is measured in seconds.
 To arrive at the equilibrium potential of the measuring electrode, about 4$\times$\emph{RC} time must be allowed for the cell.
 Such high equilibration period is not practical, since a high number of sampling points must be included in the image raster to achieve the desired high resolution, and the 4$\times$\emph{RC} equilibration period must be waited at every sampling point.
 This means, for an image to be recorded with a step size of \emph{s} ($\upmu$m), image side length of \emph{L} ($\upmu$m), probe translation speed of \emph{v} ($\upmu$m/s), and an equilibration period of $t_e$ ($s$), it takes $t$ ($s$) time to complete the image, calculated with the following equation:
@@ -189,7 +189,6 @@ Both 2D ISME maps were recorded at a scan rate of 12.5 $\upmu$m/s.
 The same pipette holding the 0.1 M MgCl$_2$ agar solution was used in the measurements plotted in Figs. \ref{fig:solid_liquid_pipette}A and \ref{fig:solid_liquid_pipette}B.
 Visual inspection of the two images clearly shows significant image distortion in the X-direction with the liquid-contact ISME due its slower response as expected based on its higher resistance.
 It can also be observed in the image scanned with the solid-contact electrode, although to a much less extent.
-The overlayed isoconcentric countour lines are more circular, and not as elongated in the X-direction as in the case of the image prepared with the convential electrode.
 Another important feature to note in the images is the difference in the highest magnesium ion concentration observed with the two electrodes.
 With the solid-contact microelectrode it's about $10^{-2.5}$ M.
 On the other hand, with the conventional liquid-contact electrode, highest observed magnesium ion concentration is only about $10^{-3.4}$ M.
@@ -261,9 +260,9 @@ Based on the method of Scott and White \cite{scott1993iontophoretic}, using the 
         \Omega = 4 D C_s a
 \end{equation}
 
-where $\Omega$ is the amount of Mg$^{2+}$ released from the disc shaped Mg/Al surface, $D$ is the diffusion coefficient of Mg$^{2+}$, $C_s$ is the surface concentration of Mg$^{2+}$ (at the height z = 0 $\upmu$m), a is the radius of the Mg/Al sample.
+where $\Omega$ is the amount of Mg$^{2+}$ released from the disc shaped Mg/Al surface, $D$ is the diffusion coefficient of Mg$^{2+}$, $C_s$ is the surface concentration of Mg$^{2+}$ (at the height $z$ = 0 $\upmu$m), $a$ is the radius of the Mg/Al sample.
 As the only unknown variable in the equation above, $\Omega$ could be calculated.
-Substituting the value of D = 7.06$\times$10$^{-8}$ dm$^2 \cdot$s$^{-1}$ \cite{lide2001crc}, $C_s=3.29\times10^{-2}$ M, a = 0.0038 dm, the result is $\Omega$ = $3.53\times10^{-11}$ mol$\cdot$s$^{-1}$.
+Substituting the value of D = 7.06$\times$10$^{-8}$ dm$^2 \cdot$s$^{-1}$ \cite{lide2001crc}, $C_s=3.29\times10^{-2}$ M (surface concentration at $t~$=10$~$min), a = 0.0038 dm, the result is $\Omega$ = $3.53\times10^{-11}$ mol$\cdot$s$^{-1}$.
 
 \begin{figure}
 \centering
@@ -339,7 +338,7 @@ Substituting the value of D = 7.06$\times$10$^{-8}$ dm$^2 \cdot$s$^{-1}$ \cite{l
 \addplot [mark=none, color=cyan] table {data/lateral_scans/40min.txt};
 \addplot [mark=none, color=blue] table {data/lateral_scans/50min.txt};
 \addplot [mark=none, color=purple] table {data/lateral_scans/60min.txt};
-\addlegendentry{5 min}
+\addlegendentry{0 min}
 \addlegendentry{10 min}
 \addlegendentry{20 min}
 \addlegendentry{30 min}
@@ -348,12 +347,13 @@ Substituting the value of D = 7.06$\times$10$^{-8}$ dm$^2 \cdot$s$^{-1}$ \cite{l
 \addlegendentry{60 min}
 \end{axis}
 \end{tikzpicture}
-\caption[Retracting and lateral SECM linescans above the AZ63 sample initiated at different instances in time.]{Retracting and lateral SECM linescans above the AZ63 magnesium-aluminium-zinc alloy sample initiated at different instances in time.
+\caption[Retracting and lateral SECM linescans above the AZ63 sample initiated at different instances in time.]{(A, B) Retracting and (C) lateral SECM linescans above the AZ63 magnesium-aluminium-zinc alloy sample initiated at different instances in time.
+The AZ63 sample first was corroding spontaneously (A), then galvanically coupled to the iron sample (B). Lateral scans in (C) were recorded above the uncoupled AZ63 sample.
 Scan rate: 10 $\upmu$m/s.}
 \label{fig:retracting}
 \end{figure}
 
-Corrosion current between the Mg/Al sample and four Fe samples with different diameters was also measured directly.
+Corrosion current at $\sim$10 minutes\footnote{The experiment involved interchanging resistors manually. It was carried out in less than 2 minutes, centered around 10 minutes after the galvanic coupling was established.} between the Mg/Al sample and four Fe samples with different diameters was also measured directly.
 As expected, current gets higher with increasing diameter.
 Corrosion current was $8.87~\upmu$A, $15.83~\upmu$A, $16.72~\upmu$A, $24.4~\upmu$A with Fe sample diameters of $0.59~$mm, $0.76~$mm, $1.2~$mm, $2.3~$mm, respectively (Fig. \ref{fig:corrosion_current_measurements}).
 Using Faraday's law of electrolysis, this means, that $8.20\cdot10^{-11}~$mol Mg$^{2+}$ is being dissolved in every second from the Mg/Al sample ($\Omega_{0.76~\textrm{mm}} = 8.20\cdot10^{-11}~$mol/s).
@@ -561,7 +561,7 @@ Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the p
 %\addlegendentry{absolute}
 \end{axis}
 \end{tikzpicture}
-\caption[]{Transient response of the antimony microelectrode to analyte activity step (red), and decovolutions performed with different assumed $RC$ time-constants (orange-purple).
+\caption[]{Transient response of the antimony microelectrode to analyte activity step (red), and deconvolutions performed with different assumed time-constants (orange-purple).
 The measured time-constant was $\tau = 3.76$ s (cyan).
 The measuring and reference electrodes were dipped into buffer solutions with pH = 4 and pH = 6 respectively.}
 \label{fig:deconvoluted_transient}
@@ -569,7 +569,7 @@ The measuring and reference electrodes were dipped into buffer solutions with pH
 
 The deconvolution of the very same recording was performed with several different time-constants, including that obtained from the response curve.
 Fig. \ref{fig:deconvoluted_transient} shows the results of those deconvolutions.
-As expected, the recording becomes most similar to the step function when the measured $RC$ time-constant is used.
+As expected, the recording becomes most similar to the step function when the measured time-constant is used.
 When a higher value was substituted into Eq. \ref{eq:rc2}, the recorded potential was underestimated, and the deconvolution recovered more than necessary.
 If a lower value was used, the cell was assumed to be faster than it actually was, and the deconvoluted potential values did not reach the equilibrium values.
 To see the effect of using a time constant other than the one that was obtained from the fit, statistics was performed on the deconvoluted data.
@@ -617,10 +617,10 @@ There are two interesting properties of the fit in Fig. \ref{fig:transient}. to 
 First, the fitted curve is slightly different than the recorded response.
 The initial part of the measurement seems to be changing faster than it is expected from an RC circuit with a time-constant of 3.76 s, while the second part (from around 7 s) has a lower rate of change compared to the model.
 This means, that the transfer function is more complicated than Eq. \ref{eq:rc2}, and the process cannot be properly described by simple potentiometric step response function.
-The effect of this behaviour can be observed in the first few data points of the deconvoluted measurement: there is a small overshoot compared to the equilibrium potential, even in the one that was deconvoluted with the measured $RC$.
+The effect of this behaviour can be observed in the first few data points of the deconvoluted measurement: there is a small overshoot compared to the equilibrium potential, even in the one that was deconvoluted with the measured time-constant.
 It was observed in all of the measurements, and the error was certainly carried through to all of the deconvoluted images, when the original measurement was performed with the antimony microelectrode. 
 
-The second discrepancy is that the $RC$ determined in the previous section implies a very high resistance (G$\ohm$ range).
+The second discrepancy is that the time-constant determined in the previous section implies a very high resistance (G$\ohm$ range) if $\tau~=$RC.
 It is possible to estimate the resistance of the antimony microelectrode from the specific resistance and the geometry of the antimony wire.
 Diameter, as mentioned in the chapter \emph{,,Materials and Methods''}, was 30 $\upmu$m, length of the antimony wire was around 5 cm.
 Specific resistance of antimony is 417 n$\ohm$m (at 20 $\celsius$) \cite{lide2001crc}.
@@ -752,7 +752,7 @@ Not only the circular shape of the target in the images is restored, but the pea
 Maximum value in the raw scans was around $-300$ mV, whereas in the deconvoluted image, it was about $-260$ mV, with a significant difference between the two. 
 
 			\subsubsection{2D scans with the tungsten microelectrodes}
-Additionally, 2D SECM scans were also performed with two different tungsten microelectrodes: one prepared from commercial tungsten microwire, and another from the filament of a 100 W Tungsram incandescent lighbulb.
+Additionally, 2D SECM scans were also performed with two different tungsten microelectrodes: one prepared from commercial tungsten microwire, and another from the filament of a 100 W Tungsram incandescent lightbulb.
 $RC$ were determined with the same method, and were 4.62 s and 4.40 s, respectively.
 The studied target in this case was the zinc-copper galvanic pair.
 The scans were performed 100 $\upmu$m above the copper target, while it was galvanically coupled to the zinc wire.
@@ -795,7 +795,7 @@ Next, line scans above the center of the target were performed using three diffe
 As expected, the shorter the time available for the cell for equilibration was, the more distorted the resulting scan became (Fig. \ref{fig:lines}A).
 Directional line blur distortion is visible along the raw scan lines recorded with shorter equilibration intervals (1.9 s, and 0.4 s).
 By setting $t_e$ to $4.9~$s, distortion became less visible.
-Based on the determined $RC$ time constant, in 4.9 seconds, 89.22\% of the total change occurs (1 - e$^{-4.9 s / 2.2 s}$ = 0.8922), and therefore the recorded signal is almost in equilibrium, and can be regarded as a reference for comparison with the concentration profiles obtained using smaller $t_e$ parameters.
+Based on the determined $RC$ time constant, in 4.9 seconds, 89.22\% of the total change occurs (1 $-$ e$^{-4.9 s / 2.2 s}$ = 0.8922), and therefore the recorded signal is almost in equilibrium, and can be regarded as a reference for comparison with the concentration profiles obtained using smaller $t_e$ parameters.
 With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs respectively, causing a significant amount of distortion.
 
 \begin{figure}%[h]
@@ -992,7 +992,7 @@ A more advanced method would be a statistical approach, where one would try to d
 
 
 \newpage
-\section{The effect of electric field on potentiometric SECM images}
+\section{The effect of electric field on potentiometric SECM imaging}
 
 During galvanic corrosion, ions are being released from the anode.
 The measured potential of an ion selective microelectrode is thought to depend only on the activity of the primary ion.
@@ -1025,20 +1025,20 @@ For this purpose, I use the Fe-AZ63 galvanic pair studied in the previous sectio
 The SECM probe was a solid contact magnesium ion selective microelectrode.
 
 
-First, a series of consecutive Z-approach curves were recorded above the corroding AZ63 sample (as shown in fig. \ref{fig:approach}A).
+First, a series of consecutive Z-approach curves were recorded above the corroding AZ63 sample (as shown in Fig. \ref{fig:approach}A).
 The first 6 measurements were conducted while the AZ63 sample was electrically isolated from the iron sample (red lines, a-b).
 As expected, Mg$^{2+}$ activity slowly increased with time as a result of spontaneous corrosion.
 The overall change was about 10 mV in 5 minutes.
 Next, the two metals were connected at the rear of the mould.
-As result of establishing the galvanic connection, there was an immediate rise of about 40 mV in the measured potential of the microelectrode (transition from b to c, depicted by $\Delta E_1$ in fig. \ref{fig:approach}A).
+As result of establishing the galvanic connection, there was an immediate rise of about 40 mV in the measured potential of the microelectrode (transition from b to c, depicted by $\Delta E_1$ in Fig. \ref{fig:approach}A).
 Since the galvanic coupling was established while the scanning tip was located 1000 $\upmu$m from the AZ63 sample, the reported change cannot possibly be attributed solely to an abrupt increase in Mg$^{2+}$ activity.
 Indeed, such a 40 mV change would correspond to an increase of $\sim$ 1.5 orders of magnitude in Mg$^{2+}$ activity occuring in less than one second.
 Immediately after, six additional Z-approach curves were recorded during the galvanic coupling.
-The resulting accelerated dissolution of Mg$^{2+}$ can be distinguished from the blue curves (c-d) in fig. \ref{fig:approach}A.
+The resulting accelerated dissolution of Mg$^{2+}$ can be distinguished from the blue curves (c-d) in Fig. \ref{fig:approach}A.
 Intense gas evolution could be observed on the surface of the AZ63 sample, which explains the noticeably more noisy curves recorded in this case.
 During this period of galvanic coupling, the potential sensed at the ISME, when situated at h = 1000 $\upmu$m, increased by $\sim$ 40 mV.
 This rise ($\Delta E_2$) can be totally attributed to the increase in activity of the dissolving metal, i.e.: $\Delta E = 29.5~\textrm{mV} \cdot \Delta \lg[$Mg$^{2+}]$.
-Finally, when the galvanic connection was stopped, 2 additional Z-approach curves were measured (green curves in fig. \ref{fig:approach}A).
+Finally, when the galvanic connection was stopped, 2 additional Z-approach curves were measured (green curves in Fig. \ref{fig:approach}A).
 A sudden jump in potential ($\Delta E_3$, transition from d to e) can be observed, of the same magnitude as before, though in the opposite direction, as a result of electric field vanishing.
 The shape of the latest Z-approach curves is very similar to the initial approaching curves recorded before galvanic connection was established, though they are shifted by about 40 mV in the positive direction.
 This is the result of the enhanced corrosion during the second phase of the experiment; Mg$^{2+}$ activity changed by about the same factor along the length of the scan-line.
@@ -1049,7 +1049,7 @@ The shape of the function 1/$z^2$ is recognizable from these plots.
 
 An attempt was made to distinguish the effect of the electric field from that of the Nernstian response of the ISME by substracting curve \emph{b} from the subsequent curve \emph{c}. \emph{B} is the result of the Nernstian response, while \emph{c} features the contribution from the electric field as well.
 Since \emph{c} was recorded just after \emph{b} in a short period of time, it can be assumed that there was no significant increase of Mg$^{2+}$ concentration during these two scans, therefore \emph{c} is just \emph{b}+$\Delta \phi$.
-The result of the substraction is curve \emph{f} in fig. \ref{fig:approach}A, which can be regarded as the effect of the electric field formed between the galvanic pair.
+The result of the substraction is curve \emph{f} in Fig. \ref{fig:approach}A, which can be regarded as the effect of the electric field formed between the galvanic pair.
 
 \begin{figure}
 \centering
@@ -1114,21 +1114,21 @@ The result of the substraction is curve \emph{f} in fig. \ref{fig:approach}A, wh
 \label{fig:approach}
 \end{figure}
 
-In another series of experiments, the ISME was maintained at a constant height from the metal surface, and its potential was recorded as a function of time, while the galvanic connection was established between the two metals (fig. \ref{fig:approach}B).
-Thus, the tip was first positioned 100 $\upmu$m above the center of the AZ63 wire (red curve in fig. \ref{fig:approach}B), and for about 300 s the spontaneous corrosion of the alloy sample was recorded.
+In another series of experiments, the ISME was maintained at a constant height from the metal surface, and its potential was recorded as a function of time, while the galvanic connection was established between the two metals (Fig. \ref{fig:approach}B).
+Thus, the tip was first positioned 100 $\upmu$m above the center of the AZ63 wire (red curve in Fig. \ref{fig:approach}B), and for about 300 s the spontaneous corrosion of the alloy sample was recorded.
 Then, the galvanic connection was established, and a sharp increase in potential of about 70 mV could be observed.
 This change would correspond to a two orders of magnitude increase of Mg$^{2+}$ activity in a very short period of time.
 When the galvanic connection was removed, a potential change of the same magnitude, though opposite direction could be observed.
-In order to discard the possibility that this rise could be still explained by an abrupt release of Mg$^{2+}$ from the surface, the experiment was repeated while the tip was positioned 1000 $\upmu$m above the target (blue curve in fig. \ref{fig:approach}B).
+In order to discard the possibility that this rise could be still explained by an abrupt release of Mg$^{2+}$ from the surface, the experiment was repeated while the tip was positioned 1000 $\upmu$m above the target (blue curve in Fig. \ref{fig:approach}B).
 A very similar sequence of potential changes could be observed, despite the big separation between the probe and the corroding sample.
 The only plausible explanation is that the abrupt change in the recorded potential is due to the electric field developed between the two metals. 
 
 
 Finally, in order to demonstrate the influence of the electric field on SECM imaging, measurements were made after 30 minutes of galvanic coupling by using a constant 100 $\upmu$m tip-sample distance.
 Then the galvanic connection was ceased, and immediately another 2D scan was recorded above the Mg disk.
-The sequence of the two images can be seen in fig. \ref{fig:2d}.
+The sequence of the two images can be seen in Fig. \ref{fig:2d}.
 Apparently, in the case of galvanic coupling, a 0.1 M Mg$^{2+}$ activity is monitored even in the bulk of the solution, whereas above the center of the disk the activity reaches the implausible 10$^{4}$ M value by using the calibration curve for calculation.
-In fig. \ref{fig:2d}B the measured values are in the linear range of the ISME, and the overall potential change is several orders of magnitude smaller than in fig. \ref{fig:2d}A.
+In Fig. \ref{fig:2d}B the measured values are in the linear range of the ISME, and the overall potential change is several orders of magnitude smaller than in Fig. \ref{fig:2d}A.
 
 \def\s{0.35}
 \begin{figure}
