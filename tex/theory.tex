@@ -323,6 +323,8 @@ The model has recently been adopted for the theoretical description of ion selec
 The description therein is an improvement of the NPP model.
 Besides the transport of ion $i^+$ between the three phases:
 
+\label{ligand}
+
 \begin{equation}
   i^+_{sample} \ce{<=>} i^+_{membrane} \ce{<=>} i^+_{inner  solution}
 \end{equation}
@@ -447,19 +449,35 @@ On the other hand, they have a low output impedance, and can drive the measuring
 The input impedance of a typical opamp used for this purpose is around 1$-$10 T$\ohm$, so $R_{in}/(R_{in}+R_0)$ is unity, and the measured $V$ is almost identical to the source $E$, because $V/E$ is also 1.
 
 		\subsection{Response characteristics}
-In this section the response delay associated with the $RC$ time constant is considered.
-There are other factors delaying the response, which has been previously introduced in \ref{ionophore_based}.
+\subsubsection{Possible contributors determining the potentiometric response}
+There are several steps constituting the potentiometric response that can be responsible for a delay:
 
+\begin{enumerate}
+\item Transport of the measured ion to the sensitive surface.
+\item Flux of the measured ion through the phase boundary.
+\item Complexation reaction between the measured ion and its ligand.
+\item RC delay.
+\end{enumerate}
+
+Usually only one of these can be observed in the response of a particular type of electrode. That is because that one process -- called the rate determinig step -- is much slower. Figure \ref{fig:rds}. illustrates steps 1--3.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{img/rds.eps}
+\caption[The possible contributors to the delayed response of the potentiometric cell.]{The possible contributors to the delayed response of the potentiometric cell. 1) Transport of the measured ion to the sensitive surface. 2) Flux of the measured ion through the phase boundary. 3) Complexation reaction between the measured ion and its ligand.}
+\label{fig:rds}
+\end{figure}
+During the first step, the measured ion has to be transported to the phase boundary. Depending on whether there is stirring or not, this can either be realized by convection and diffusion, or diffusion alone. In cases where this step is the rate determining, stirring should decrease the response time of the cell.
+
+In the second step, the ion has to cross the phase boundary between the sample solution and the ion-selective membrane. The lower the activity of the measured ion in the sample, the lower this flux will be. In the case of an ion-selective micropipette employing a neutral ionophore, the next step is the complexation reaction between the ion and the ligand. This step has already been mentioned previously in section \ref{ligand}, more specifically by Eq. \ref{eq:ligand_reaction}. If the concentration in the membrane is constant, the this reaction can be regarded a first order reaction, and as such its behaviour can be described by the function $e^{-kt}$, $k$ being the rate constant.
+
+And finally, there is an RC delay associated with the potentiometric cell, described in the next section.
+
+\subsubsection{RC delay}
+In this section the response delay associated with the $RC$ time constant is considered.
 Because the $RC$ time-constant plays a central role in my thesis, I give a detailed derivation of it here.
 The potentiometric cell can be modeled as a series $RC$ circuit (Fig. \ref{fig:rc}).
 Kirchhoff's second law states that the directed sum of the electrical potential differences (voltages) around any closed network is zero \cite{hill2015art}:
 
-\begin{figure}
-\centering
-\includegraphics[width=0.4\textwidth]{img/theory/rc.eps}
-\caption{The series $RC$ circuit.}
-\label{fig:rc}
-\end{figure}
 
 \begin{equation}
 \label{eq:kirchoff}
@@ -482,6 +500,14 @@ Since $i$ is nothing but the change of charge in time, $i = \mathrm{d}q / \mathr
 \label{eq:loop2}
         V_{in} - \frac{\mathrm{d}q}{\mathrm{d}t}R - \frac{q}{C} = 0
 \end{equation}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{img/theory/rc.eps}
+\caption{The series $RC$ circuit.}
+\label{fig:rc}
+\end{figure}
+
 
 This can be rearranged to
 
