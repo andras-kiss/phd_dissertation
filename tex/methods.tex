@@ -803,8 +803,8 @@ where $h$ is the distance between the adjacent points in space, $c_{i,j,k}$ is t
 This can be solved numerically for a given time instance by iterating Equation \ref{eq:3d} on every point of a 3D matrix, which represents the diffusion system.
 
 The simulation model consisted of a cubic diffusion field with an edge length of 20 mm, and a resolution of 10 $\upmu$m on all three axes.
-The top and side faces had Dirichlet boundary condition with $c$ = 0, representing the bulk solution.
-The bottom face had a disc shaped source with a diameter of $d$ = 350 $\upmu$m, with Neumann boundary condition, to model the graphite anode, where H$_3$O$^{+}$ was being generated.
+The top and side faces had Dirichlet boundary condition\footnote{Constant value on the boundary.} with $c$ = 0, representing the bulk solution.
+The bottom face had a disc shaped source with a diameter of $d$ = 350 $\upmu$m, with Neumann boundary condition\footnote{Constant flux through the boundary, which is realized by setting the derivative of the solution as a constant.}, to model the graphite anode, where H$_3$O$^{+}$ was being generated.
 The rest of the bottom surface had Neumann boundary condition with a constant $j$ = 0 flux, modeling epoxy resin which embedded the graphite electrolysis electrode.
 A FORTRAN program was written to calculate the potential profile for $t$ = 600 s.
 A 2D section of the solved 3D diffusion matrix was taken at $h$ = 100 $\upmu$m, and it was normalized to $c_{max}$.
@@ -832,16 +832,6 @@ The scanning system (Applicable Electronics Inc, New Haven, CT, USA) used a 3D m
 
 The other two SECM were custom built at the University of Pécs.
 While using these microscopes, potential was measured against an Ag/AgCl/3M KCl reference electrode with a high input impedance eDAQ pH/ISE isoPod USB (eDAQ Pty Ltd, Australia).
-
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth]{img/sensolytics.jpg}\includegraphics[width=0.3\textwidth]{img/diy_secm.jpg}
-
-\includegraphics[width=0.3\textwidth]{img/agricom.jpg}\includegraphics[width=0.3\textwidth]{img/newport.eps}
-\caption[The Scanning Electrochemical Microscopes I used in my work.]{The Scanning Electrochemical Microscopes I used in my work.
-(A) Sensolytics SECM, (B) home-made SECM using Newport slide units, (C) home-made SECM using Domiline slide units driven with Nema 17 stepper motors, and (D) low cost, home-made 1D SECM using a slide unit from a DVD burner, driven by a stepper motor taken from a 5.25" floppy drive.}
-\label{fig:secms}
-\end{figure}
 
 \subsection{$Z$ axis referencing}
 $Z$ axis referencing is a notoriously hard problem in potentiometric SECM, because the measured signal is not a function of the distance from the surface per se, but the concentration of the measured ion(s). $Z=0$ was used as a reference point in the SECM measurements. This position was established by gently approaching the ISME towards the surface of the epoxy resin while observing the distance by eye. The surface of the target and the SECM $X-Y$ plane were leveled with a bubble leveler, therefore the resin was at the same height as the AZ63 sample, compared to the tip. Once the distance could not be judged anymore by the naked eye, the ISME was approached to the surface in $1~\upmu$m increments. A video camera assisted during this stage. After every increment, the ISME was moved $100~\upmu$m laterally and the tip movement was observed. Movement along such a distance can be easily detected even by the naked eye, yet it does not break the tip if it is already touching the surface, owing to its flexibility. This was repeated until the tip of the ISME didn’t move during the translation, i.e. it touched the surface ($Z=0$). Then, the ISME was moved to the opposite direction laterally, where it originally touched the surface, and lifted $100~\upmu$m upwards on the $Z$ axes. Since the positioning repeatability of the SECMs used in this thesis is much better than $1~\upmu$m, no collision with the target was possible. Indeed, this was confirmed by the optical inspections of the target after each measurement. No evidence of mechanical interaction with the sample surface was found throughout the work.
