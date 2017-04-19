@@ -24,7 +24,7 @@ set cblabel font ",25"
 set cbtics font ",25"
 set cblabel offset 4,0
 set ylabel offset -3,0
-set xlabel offset 0,-2
+set xlabel offset 0,-1
 set xtics -1000, 500, 1000
 set ytics -1000, 500, 1000
 set yrange [-1000:1000]

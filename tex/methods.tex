@@ -188,7 +188,7 @@ Top left inset indicates the order of the consecutive cycles.}
 Microelectrodes have high resistance, therefore, to avoid loading error, some sort of impedance matching is necessary.
 This is also crucial to minimize noise caused by stray capacitance.
 Where the measuring apparatus lacked the high input impedance, a TL082 operational amplifier (Texas Instruments, Texas, USA) based unity gain voltage follower was used between the microelectrode and the measuring apparatus.
-To record the potential difference between the measuring microelectrode and the reference electrode, either one of these instruments were used:
+To record the potential difference between the indicator microelectrode and the reference electrode, either one of these instruments were used:
 
 \begin{itemize}
 \item MeTeX Instruments M-3640D 3 1/2 Digit digital multimeter with the TL082 voltage follower,
@@ -207,13 +207,13 @@ The TL082 operational amplifier was powered by two 9$~$V batteries, providing $\
 \centering
 \includegraphics[width=0.5\textwidth]{img/circuit.eps}
 \caption[The potentiometric cell with the TL082 voltage follower.]{The potentiometric cell with the TL082 voltage follower.
-M: measuring electrode, R: reference electrode, V: voltage meter, $vcc+$ and $vcc-$: positive and negative rail of the power supply for the operational amplifier.} 
+M: indicator\footnote{\textbf{M} for measuring electrode. According to the IUPAC recommendation it is indicator electrode.} electrode, R: reference electrode, V: voltage meter, $vcc+$ and $vcc-$: positive and negative rail of the power supply for the operational amplifier.} 
 \label{fig:tl082}
 \end{figure}
 
 \subsubsection{Home-made, Arduino based DAQ}
 
-The instrument is based on an DIP30 Arduino Nano, with an ATmega328 microcontroller (5V, 16MHz, Arduino AG, 2016, www.arduino.cc). A Texas Instruments ADS1115 16 bit analog-digital converter was connected to the microcontroller board through I$^2$C interface. A virtual ground between 0 and 5 V was established by a voltage divider circuit. The virtual ground was driven by an OPA342 low voltage, rail-to-rail, high input impedance operational amplifier, provided by Texas Instruments as a generous gift. The virtual ground was connected to the reference electrode, and one of the differential inputs of the AD1115. The measuring electrode was connected to the other differential input through a TI TL082 high input impedance operational amplifier. The recommended supply voltage for this amplifier is $\pm 18~$V, but it worked surprisingly well with the $\pm 2.5~$V provided by the split 5 V of the USB port. The circuit diagram of the instrument can be seen in Fig. \ref{fig:daq_circuit}. The microcontroller ran the following program, a modified version of \cite{ads}: 
+The instrument is based on an DIP30 Arduino Nano, with an ATmega328 microcontroller (5V, 16MHz, Arduino AG, 2016, www.arduino.cc). A Texas Instruments ADS1115 16 bit analog-digital converter was connected to the microcontroller board through I$^2$C interface. A virtual ground between 0 and 5 V was established by a voltage divider circuit. The virtual ground was driven by an OPA342 low voltage, rail-to-rail, high input impedance operational amplifier, provided by Texas Instruments as a generous gift. The virtual ground was connected to the reference electrode, and one of the differential inputs of the AD1115. The indicator electrode was connected to the other differential input through a TI TL082 high input impedance operational amplifier. The recommended supply voltage for this amplifier is $\pm 18~$V, but it worked surprisingly well with the $\pm 2.5~$V provided by the split 5 V of the USB port. The circuit diagram of the instrument can be seen in Fig. \ref{fig:daq_circuit}. The microcontroller ran the following program, a modified version of \cite{ads}: 
 
 \begin{figure}
 \centering
@@ -230,7 +230,7 @@ The instrument is based on an DIP30 Arduino Nano, with an ATmega328 microcontrol
 %;\end{circuitikz}
 %
 \includegraphics[width=1\textwidth]{img/arduino.eps}
-\caption[Circuit diagram of the home-made Arduino-based DAQ.]{Circuit diagram of the home-made Arduino-based DAQ. [R] = reference electrode, [M] = measuring electrode. $R_1 = R_2 = 10~$k$\ohm$.}
+\caption[Circuit diagram of the home-made Arduino-based DAQ.]{Circuit diagram of the home-made Arduino-based DAQ. [R] = reference electrode, [M] = indicator electrode. $R_1 = R_2 = 10~$k$\ohm$.}
 \label{fig:daq_circuit}
 \end{figure}
 
@@ -309,17 +309,17 @@ The GNU tools $sed$, and $tail$ was used to plot the last 1000000 data points on
  		\subsection{Characterization of the microelectrodes}
 			\subsubsection{Calibration}
 For the micropipette ion-selective electrodes, calibration was performed in MgCl$_2$ and KCl dilution series, ranging from 10$^{-6}$ M to 10$^{-1}$ M.
-The measuring and reference electrodes were submersed sequentially in each solution from lowest to highest concentration.
+The indicator and reference electrodes were submersed sequentially in each solution from lowest to highest concentration.
 Potential was continuously measured against an Ag/AgCl/3M KCl reference electrode with a high input impedance eDAQ pH/ISE isoPod USB (eDAQ Pty Ltd, Australia).
 
-Metal/metal-oxide microelectrodes were calibrated by measuring their potential in nine buffer solutions.
+Metal/metal-oxide microelectrodes were calibrated by measuring their potential in seven buffer solutions (Hanna Instruments, 584 Park East Drive Woonsocket, RI 02895, USA), from pH = 4 to pH = 10, with a 1 pH step interval.
 The typical calibration procedure was performed by introducing the microelectrode in a sequence of buffer solutions initiated with the most alkaline solution.
 In this way, the tip was exposed to solutions of increasing acidity.
  
 			\subsubsection{Internal resistance}
 The voltage divider method was used to measure the resistance of the microelectrodes using $1~$mM MgCl$_2$ $+$ $1~$mM NaCl solution.
-The electrochemical cell consisted of an Ag/AgCl/3M KCl reference electrode and an ion selective microelectrode as measuring electrode.
-The measuring electrode was connected to the voltage follower as shown in Fig. \ref{fig:divider}.
+The electrochemical cell consisted of an Ag/AgCl/3M KCl reference electrode and an ion selective microelectrode as indicator electrode.
+The indicator electrode was connected to the voltage follower as shown in Fig. \ref{fig:divider}.
 After a steady reading was achieved, the input terminals of the voltage follower and the reference were connected through a precision resistor $R$.
 The experiment was performed with two different precision resistors with values of 0.5 and 1.0 G$\ohm$.
 
@@ -327,7 +327,7 @@ The experiment was performed with two different precision resistors with values 
 \centering
 \includegraphics[width=0.7\textwidth]{img/divider_switch.jpg}
 \caption[Voltage divider circuit to measure electrode resistance]{Voltage divider circuit to measure electrode resistance.
-The connection between the measuring and the reference electrodes through $R_2$ could be turned on and off with a switch.} 
+The connection between the indicator and the reference electrodes through $R_2$ could be turned on and off with a switch.} 
 \label{fig:divider}
 \end{figure}
 
@@ -335,13 +335,13 @@ The resistance of the antimony microelectrodes were also measured directly by at
 
 			\subsubsection{Response time}
 The response time of the microelectrodes was measured by recording the response to a sudden change in ion activity. The method is based on a modified version of the dual drop cell method \cite{lamaka2009novel}, called the \emph{,,hanging drop method''}.
-The tip of the measuring electrode was positioned in the close vicinity of the ceramic frit of the reference electrode. Both electrodes were in contact with the same drop of solution, that was hanging from the reference electrode. This arrangement is depicted in Fig. \ref{fig:hanging}.
+The tip of the indicator electrode was positioned in the close vicinity of the ceramic frit of the reference electrode. Both electrodes were in contact with the same drop of solution, that was hanging from the reference electrode. This arrangement is depicted in Fig. \ref{fig:hanging}.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{img/hanging.jpg}
 \caption[The hanging drop method]{The hanging drop method to measure response time.
-The tip of the measuring electrode is touching the ceramic frit of the reference electrode. They are both in contact with a small drop of solution that is hanging from the reference electrode. In this way, the potentiometric cell is intact even while the solution is being exchanged, but at the same time, a sudden activity step can also be realized.} 
+The tip of the indicator electrode is touching the ceramic frit of the reference electrode. They are both in contact with a small drop of solution that is hanging from the reference electrode. In this way, the potentiometric cell is intact even while the solution is being exchanged, but at the same time, a sudden activity step can also be realized.} 
 \label{fig:hanging}
 \end{figure}
 
@@ -349,7 +349,7 @@ When the equilibrium potential was reached, the first solution was removed.
 Then, the surface of the second solution -- contained in a beaker -- was slowly approached to the remaining drop of the first solution that was hanging from the reference electrode, with the help of a laboratory stand with an adjustable height.
 When the surface of the second solution reached the drop of the previous solution, a sudden jump in ion activity was realized, corresponding to the difference between the ion activities of the first, and the second solution. This method was employed in the response characterization of the antimony microelectrodes.
 
-The response of the antimony/silver combined macroelectrodes were conducted in a similar manner. But in this case, the antimony measuring electrode and the silver quasi reference electrode were embedded in the same epoxy body, therefore the drop that was hanging from the endplate was always in contact with both electrodes.
+The response of the antimony/silver combined macroelectrodes were conducted in a similar manner. But in this case, the antimony indicator electrode and the silver quasi reference electrode were embedded in the same epoxy body, therefore the drop that was hanging from the endplate was always in contact with both electrodes.
 
 To measure the response time of the Mg$^{2+}$ ion selective electrodes, they were immersed in a solution of $0.1~$M MgCl$_2$ $+$ 1$~$mM NaCl and then moved to the second solution of 0.01$~$M MgCl$_2$ $+$ 1$~$mM NaCl after a stable potential was reached in about 3 minutes.
 The time needed to reach 95\% of the total potential change caused by the change in Mg$^{2+}$ ion concentration was regarded as response time $\uptau_{95}$ (Fig. \ref{fig:response_time_explained}).
@@ -400,8 +400,8 @@ In the fitted function, $\tau$ is the only variable parameter, and can be direct
 
 For the micropipette electrodes, a different method was used.
 Resistance and capacitance of the potenciometric circuit was measured individually.
-Resistance of the measuring electrode was determined with the voltage divider method described in the previous section.
-In this case however, an $R = 50~$M$\ohm$ 1\% precision resistor was inserted between the measuring and reference electrodes, then the cell potential difference was continuously measured in 10$^{-2}~$M MgCl$_2$ solution.
+Resistance of the indicator electrode was determined with the voltage divider method described in the previous section.
+In this case however, an $R = 50~$M$\ohm$ 1\% precision resistor was inserted between the indicator and reference electrodes, then the cell potential difference was continuously measured in 10$^{-2}~$M MgCl$_2$ solution.
 After arriving at equilibrium potential difference, the resistor was removed, and the measurement was continued until a new equilibrium signal was reached.
 Electrode resistance can be calculated with the formula:
 
@@ -475,7 +475,7 @@ A regular size Ag/AgCl/3M KCl reference electrode could be easily introduced int
 \end{flushleft}
 
 \includegraphics[width=0.6\textwidth]{img/model_photo.jpg}
-\caption[Sketch of the moulded model targets and the SECM scan setup used for these targets.]{(A) Sketch of the moulded model targets and the SECM scan setup used for these targets. (B) Close-up photograph of the Mg$^{2+}$ ion selective microelectrode above the AZ63 sample. For better visibility, the picture was taken without the electrolyte in the cell.}
+\caption[Sketch of the moulded model targets and the SECM scan setup used for these targets.]{(A) Sketch of the moulded model targets and the SECM scan setup used for these targets. (B) Close-up photograph of the Mg$^{2+}$ ion selective microelectrode above the AZ63 sample. For better visibility, the picture was taken without the electrolyte in the cell. The salt bridge was 4 \% agar-agar with 0.1 M KCl.}
 \label{fig:model}
 \end{figure}
 
@@ -518,7 +518,7 @@ Step size in $X$ and $Y$ direction was 25 and 50 $\upmu$m.
 Scanned area was 1000 $\upmu$m $\times$ 1500 $\upmu$m ($X\times Y$).
 To compare the performance of the solid contact and the liquid contact electrodes employing the same membrane, Mg$^{2+}$ ion-selective micropipettes were used.
 A Sensolytics SECM system was used, potential was recorded with an Autolab Electrochemical workstation.
-The TL082 voltage based follower was inserted between the measuring microelectrode and the Autolab to provide impedance matching. The voltage follower was powered by two 9$~$V batteries in series. Reference node was between the connected opposite terminals of the two batteries.
+The TL082 voltage based follower was inserted between the indicator microelectrode and the Autolab to provide impedance matching. The voltage follower was powered by two 9$~$V batteries in series. Reference node was between the connected opposite terminals of the two batteries.
 Reference electrode was an Ag/AgCl/3 M KCl electrode.
 		\subsection{Optimization of scanning patterns and algorithms}
 			\subsubsection{Cartesian coordinate-system based patterns and algorithms}
@@ -685,7 +685,7 @@ Both algorithms used horizontal scanning.
 Initial scan direction for the meander algorithm, and scan direction for the fast comb algorithm was left to right.
 Step size was 100 $\upmu$m, scanned area was 2000 $\upmu$m $\times$ 2000 $\upmu$m, resulting in overall scanning times of 2205 s, 882 s, 441 s, and 220.5 s.
 
-In the experiments with the micropipette sources, the $X = 0$ $\upmu$m, $Y = 0$ $\upmu$m reference position was established by positioning the measuring tip 100 $\upmu$m above the orifice center of the diffusion source, with the aid of a camera.
+In the experiments with the micropipette sources, the $X = 0$ $\upmu$m, $Y = 0$ $\upmu$m reference position was established by positioning the indicator tip 100 $\upmu$m above the orifice center of the diffusion source, with the aid of a camera.
 Then, the tip was positioned at the starting coordinates, and the electrolyte was introduced to the cell.
 10 minutes later, the scan was started. 
 
@@ -714,9 +714,9 @@ The difference between the second and the third photo is the backlash, which was
 The potentiometric signal-time response function to change in analyte activity can be characterized with the time constant.
 It is the time required for the cell potential difference to change from its initial value by the fraction $1-e^{-1} = 0.63$ of the final value \cite{mcnaught1997compendium}.
 The cell can be modeled as a simple $RC$ low-pass filter arranged serially between the signal input and the output \cite{halliwell1987using}.
-In this case, time constant is $\tau$ = $RC$, where $R$ is the resistance of the cell with the largest contribution from the measuring electrode, and $C$ is the capacitance of the cell with the largest contribution from the input amplifier and the cable between the amplifier and the electrodes.
+In this case, time constant is $\tau$ = $RC$, where $R$ is the resistance of the cell with the largest contribution from the indicator electrode, and $C$ is the capacitance of the cell with the largest contribution from the input amplifier and the cable between the amplifier and the electrodes.
 
-Eq. \ref{eq:rc} describes the transient cell response when the measuring electrode is brought to contact with a solution of different analyte activity.
+Eq. \ref{eq:rc} describes the transient cell response when the indicator electrode is brought to contact with a solution of different analyte activity.
 
 \begin{equation}
 \label{eq:rc}

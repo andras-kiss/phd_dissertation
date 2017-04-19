@@ -2,8 +2,8 @@
 I've tried three approaches to alleviate the compromise between low distortion and short scanning time in the potentiometric SECM.
 The problem stems from the large time-constant.
 For a sufficiently small microelectrode, the resistance \emph{R} can be so high, that the RC time-constant is measured in seconds.
-To arrive at the equilibrium potential of the measuring electrode, about 4$\times$\emph{RC} time must be allowed for the cell.
-Such high equilibration period is not practical, since a high number of sampling points must be included in the image raster to achieve the desired high resolution, and the 4$\times$\emph{RC} equilibration period must be waited at every sampling point.
+To arrive at the equilibrium potential of the indicator electrode, about 4$\tau$ time must be allowed for the cell.
+Such high equilibration period is not practical, since a high number of sampling points must be included in the image raster to achieve the desired high resolution, and the 4$\tau$ equilibration period must be waited at every sampling point.
 This means, for an image to be recorded with a step size of \emph{s} ($\upmu$m), image side length of \emph{L} ($\upmu$m), probe translation speed of \emph{v} ($\upmu$m/s), and an equilibration period of $t_e$ ($s$), it takes $t$ ($s$) time to complete the image, calculated with the following equation:
 
 \begin{equation}
@@ -11,7 +11,7 @@ This means, for an image to be recorded with a step size of \emph{s} ($\upmu$m),
 	t = (L/s+1)^{2}\times(s/v + t_e)
 \end{equation}
 
-For instance, if \emph{R} = 1 G$\ohm$ and \emph{C} = 500 pF, then \emph{RC} = 0.5 s, and $t$ = 882 s, or about 16 min, since about $t_e = 4 \times RC$ is necessary to obtain the equilibrium electrode potential with good approximation.
+For instance\footnote{In case where the rate determining step is the charging of the capacitor in the RC filter model of the potentiometric cell.}, if \emph{R} = 1 G$\ohm$ and \emph{C} = 500 pF, then \emph{RC} = 0.5 s, and $t$ = 882 s, or about 16 min, since about $t_e = 4 \times RC$ is necessary to obtain the equilibrium electrode potential with good approximation.
 To decrease the overall scanning time, there are a number of possibilities.
 If \emph{L} or $t_e$ is decreased or \emph{v} or \emph{s} is increased, then $t$ is decreased.
 But, if the scanned area or resolution cannot be decreased further, then manipulating \emph{L} and \emph{s} is not a viable option.
@@ -57,10 +57,17 @@ Besides this difference, they were prepared identically.
 Basic characterisation was performed for both.
 Fig. \ref{fig:solid_liquid_calibration}A and \ref{fig:solid_liquid_calibration}B shows the calibration plots for the liquid, and solid contact electrode, respectively.
 Sensitivities towards the primary ion (Mg$^{2+}$) were close to nernstian and very similar, 29.12 mV and 33.44 mV for the liquid and solid contact electrode, respectively.
-The solid contact electrode had a slightly wider dynamic range, reaching below $10^{-5}$ M.
+The solid contact electrode had a slightly wider dynamic range.
 Selectivity coefficients, characterization of the potassium ion-selective electrode, and further characterization of the magnesium ion-selective electrode can be found in \cite{calugareanu2013ion}.
 
-\begin{figure}[h]
+Response characteristics were investigated by measuring the electrode resistance $R$, and the $\tau_{95}$ response time.
+The two parameters are related: $1-e^{-3RC/RC} = 1-e^{-3} \approx 0.95$.
+This means, that $3\times RC \approx \tau_{95}$, because in $3\times RC$, equilibrium electrode potential is reached by about 95\%.
+Calculated from the voltage divider measurements (Fig. \ref{fig:solid_liquid_response_time}, Table \ref{table:comp}), electrode resistance was $4.8~$G$\ohm$ and $0.56~$G$\ohm$ for the liquid, and solid contact electrodes, respectively.
+The measured $\tau_{95}$ parameters were 71.1 s, and 27.7 s, respectively (Fig. \ref{fig:solid_liquid_resistance}).
+Based on these values, the solid contact electrode was expected to produce less distorted images with the same scanning parameters.
+
+\begin{figure}%[h]
 \begin{tikzpicture}
 \begin{axis}[xmin=-0.5, xmax=5.5, width=7cm,height=6cm,xlabel=pMg, ylabel={E vs. Ag/AgCl/3 M KCl, mV}, clip marker paths=true, xtick = {0,1,2,3,4,5}, ytick = {-20,0,20,40,60,80}, xminorticks=true, minor x tick num = 1]
 \addplot [only marks, domain=0:5.5, mark=*] table {data/electrodes/liquid_calibration_plot.txt};
@@ -81,16 +88,12 @@ Selectivity coefficients, characterization of the potassium ion-selective electr
 \end{axis}
 \end{tikzpicture}
 \caption[Calibration plots for the Mg$^{2+}$ ISME.]{Calibration plots for the Mg$^{2+}$ ISME in 1 mM NaCl solutions containing varying amounts of MgCl$_2$ (pMg$^{2+} = -\log_{10} [$Mg$^{2+}]$).
-(A) Liquid-contact, and (B) solid-contact.}
+(A) Liquid-contact, and (B) solid-contact.
+}
 \label{fig:solid_liquid_calibration}
 \end{figure}
 
-Response characteristics were investigated by measuring the electrode resistance $R$, and the $\tau_{95}$ response time.
-The two parameters are related: $1-e^{-3RC/RC} = 1-e^{-3} \approx 0.95$.
-This means, that $3\times RC \approx \tau_{95}$, because in $3\times RC$, equilibrium electrode potential is reached by about 95\%.
-Calculated from the voltage divider measurements (Fig. \ref{fig:solid_liquid_response_time}, Table \ref{table:comp}), electrode resistance was $4.8~$G$\ohm$ and $0.56~$G$\ohm$ for the liquid, and solid contact electrodes, respectively.
-The measured $\tau_{95}$ parameters were 71.1 s, and 27.7 s, respectively (Fig. \ref{fig:solid_liquid_resistance}).
-Based on these values, the solid contact electrode was expected to produce less distorted images with the same scanning parameters.
+
 
 \begin{figure}
 \centering
@@ -202,7 +205,8 @@ Potential starts dropping, while it approaches the new equilibrium potential.
 \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/liquid_Mg.eps} \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.35\textwidth, angle=-90]{img/mg_pipette/solid_Mg.eps}
 \caption[SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.]{SECM images displaying the Mg$^{2+}$ ion concentrations 100 $\upmu$m above the tip of a centered pipette source.
 (A) liquid-contact, and (B) solid-contact.
-Scan rate: 12.5 $\upmu$m/s.}
+Scan rate: 12.5 $\upmu$m/s.
+Step size: 25 $\upmu$m and 50 $\upmu$m on the X and Y axes.}
 \label{fig:solid_liquid_pipette}
 \end{figure}
 
@@ -244,7 +248,8 @@ These anodic spots are resolved much better by the solid-contact electrode.
 \caption[SECM scans above the magnesium sample with the solid- and liquid contact magnesium ion-selective micropipettes.]{SECM scans above the magnesium sample (A) uncoupled, and (B) galvanically coupled to the iron sample, while the cell was equipped with the conventional (1) liquid contact, and the new, (2) solid contact micropipette.
 Scans were performed with the Sensolytics SECM, with impedance matching provided by the TL082 based voltage follower.
 Reference electrode was Ag/AgCl/3M KCl.
-Height of scan was 100 $\upmu$m, scanrate was 12.5 $\upmu$m/s.}
+Height of scan was 100 $\upmu$m, scanrate was 12.5 $\upmu$m/s.
+Step size: 25 $\upmu$m and 50 $\upmu$m on the X and Y axes.}
 \label{fig:solid_liquid_corrosion}
 \end{figure}
 
@@ -358,7 +363,7 @@ As expected, current gets higher with increasing diameter.
 Corrosion current was $8.87~\upmu$A, $15.83~\upmu$A, $16.72~\upmu$A, $24.4~\upmu$A with Fe sample diameters of $0.59~$mm, $0.76~$mm, $1.2~$mm, $2.3~$mm, respectively (Fig. \ref{fig:corrosion_current_measurements}).
 Using Faraday's law of electrolysis, this means, that $8.20\cdot10^{-11}~$mol Mg$^{2+}$ is being dissolved in every second from the Mg/Al sample ($\Omega_{0.76~\textrm{mm}} = 8.20\cdot10^{-11}~$mol/s).
 This result is in fairly good agreement with the SECM measurement ($\Omega =$ $3.53\cdot10^{-11}~$ mol/s).
-Ion flow rates from Mg/Al samples coupled with Fe samples of different diameters are proportional with the surface area of the sample; $\Omega_{\textrm{0.59~mm}} = 4.60\cdot10^{-11}~$mol/s, $\Omega_{\textrm{1.2~mm}} = 4.66\cdot10^{-11}~$mol/s, $\Omega_{\textrm{2.3~mm}} = 1.26\cdot10^{-10}~$mol/s.
+Ion flow rates from Mg/Al samples coupled with Fe samples of different diameters are proportional to the surface area of the sample; $\Omega_{\textrm{0.59~mm}} = 4.60\cdot10^{-11}~$mol/s, $\Omega_{\textrm{1.2~mm}} = 4.66\cdot10^{-11}~$mol/s, $\Omega_{\textrm{2.3~mm}} = 1.26\cdot10^{-10}~$mol/s.
 
 \begin{figure}
 \centering
@@ -395,7 +400,7 @@ Diameter of the iron cathodes; black rectangle: d = 0.59 mm, red circle: d = 0.7
 First, SECM scanning simulations were performed and the resulting images were compared (Figure \ref{fig:simulations}).
 It was expected that the new, polar coordinate-based scanning algorithms would yield less distorted images than the traditional, raster-based algorithms.
 Not only the two new algorithms finish faster, but result images with lower distortion (Table \ref{table:comp}).
-Mean squared error is $9.63\cdot 10^{-3}$ and $2.95\cdot 10^{-3}$ for the images scanned with the web and the arc algorithms, respectively.
+Mean squared error is $9.63\cdot 10^{-3}$ and $2.95\cdot 10^{-3}$ for the images scanned with the web and the arc algorithms, respectively\footnote{Mean squared error was calculated by averaging the square of the differences between the input and the output of the SECM simulations.}.
 In comparison, mean squared error for the images scanned with traditional meander, fast-comb, and comb algorithms are $2.75\cdot 10^{-2}$, $2.07\cdot 10^{-2}$, and $2.75\cdot 10^{-2}$, respectively.
 
 		\subsection{Experimental SECM images}
@@ -428,7 +433,10 @@ This has an importance when accurate quantitative information is required about 
 \caption[Simulated SECM scans 100 $\upmu$m above the disc source and deviation from the original images.]{(A-E) Simulated SECM scans 100 $\upmu$m above the disc source with the meander, fast comb, comb, web, and the arc scanning algorithms, respectively.
 All images were normalized to the maximum concentration of the expected image (c$_{max}$).
 (F-J) Deviation from the expected concentration image using the meander, fast comb, comb, web, and the arc scanning algorithms, respectively.
-,,$C$'' is the input (expected concentration profile), ,,$c$'' is the output (observed concentration profile) matrix for the scan simulation.}
+,,$C$'' is the input (expected concentration profile), ,,$c$'' is the output (observed concentration profile) matrix for the scan simulation.
+Step size was 100 $\upmu$m on both axes for the Cartesian coordinate based images.
+Arc length was 100 $\upmu$m for the ,,arc'' algorithm.
+Step size varied for the ,,web'' algorithm.}
 \label{fig:simulations}
 \end{figure}
 
@@ -443,8 +451,12 @@ All images were normalized to the maximum concentration of the expected image (c
 \includegraphics[trim = 10mm 30mm 0mm 10mm, clip, width=0.25\textwidth, angle=-90]{img/polar/arc.eps}
 
 \caption[Experimental SECM scans 100 $\upmu$m above the disc source.]{Experimental SECM scans 100 $\upmu$m above the disc source with the (A) meander, (B) fast comb, (C) comb, (D) web, and (E) the arc scanning algorithms.
-Measuring electrode was a pH-sensitive antimony micro-electrode.
-Potential was measured against an Ag/AgCl/3M KCl reference electrode.}
+Indicator electrode was a pH-sensitive antimony micro-electrode.
+Slope of the cell employing the antimony micro-electrode was 44 mV / pH unit.
+Potential was measured against an Ag/AgCl/3M KCl reference electrode.
+Step size was 100 $\upmu$m on both axes for the Cartesian coordinate based images.
+Arc length was 100 $\upmu$m for the ,,arc'' algorithm.
+Step size varied for the ,,web'' algorithm.}
 \label{fig:measurements}
 \end{figure}
 
@@ -524,8 +536,9 @@ Based on the fit, time constant of the cell is $\tau = 3.76$ s, and $e^{-0.5 \; 
 \end{axis}
 \end{tikzpicture}
 \caption[Transient response of the antimony microelectrode to analyte activity step.]{Transient response of the antimony microelectrode to analyte activity step.
-The measuring and reference electrodes were dipped into buffer solutions with pH = 4 before the measurements started, and pH = 6 at t = 0 s, respectively.
-Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the pH step to the end of the curve when potential reaches equilibrium in the pH = 6 buffer.}
+The indicator and reference electrodes were dipped into buffer solutions with pH = 4 before the measurements started, and pH = 6 at t = 0 s, respectively.
+Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the pH step to the end of the curve when potential reaches equilibrium in the pH = 6 buffer.
+Slope of the cell employing the antimony micro-electrode was 48.5 mV / pH unit.}
 \label{fig:transient}
 \end{figure}
 
@@ -563,7 +576,8 @@ Eq. \ref{eq:rc} was fitted (red line) on the measurement (gray marks) from the p
 \end{tikzpicture}
 \caption[]{Transient response of the antimony microelectrode to analyte activity step (red), and deconvolutions performed with different assumed time-constants (orange-purple).
 The measured time-constant was $\tau = 3.76$ s (cyan).
-The measuring and reference electrodes were dipped into buffer solutions with pH = 4 and pH = 6 respectively.}
+The indicator and reference electrodes were dipped into buffer solutions with pH = 4 and pH = 6 respectively.
+Slope of the cell employing the antimony micro-electrode was 48.5 mV / pH unit.}
 \label{fig:deconvoluted_transient}
 \end{figure}
 
@@ -575,7 +589,7 @@ If a lower value was used, the cell was assumed to be faster than it actually wa
 To see the effect of using a time constant other than the one that was obtained from the fit, statistics was performed on the deconvoluted data.
 Mean squared error was calculated by first taking the difference between the input function and the deconvoluted function at every time instance.
 Then the square of those differences was averaged.
-The input function was defined as 
+The input function for the comparisons was defined as 
 
 \begin{equation}
 E_{cell}(t) =
@@ -640,7 +654,7 @@ Resistance based on this result is 218.86 k$\ohm$, which is the sum of the resis
 This resistance is still not large enough to explain an RC time constant of 3.76 s, since then the capacitance should be $17.2~\upmu$F, but it was in fact 11.15 nF (see section \ref{capacitance}.).
 
 Another way it could be explained is that there is a strongly adhered laminar layer (Prandtl-layer) on the surface of the electrode, and the exchange of this layer in a new solution is the slowest process as it is discussed by Lindner et al. in \cite{lindner1976response}.
-To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. The measuring electrode in this case was a large ($d$ = 1 mm) antimony disc electrode, with a silver/silver-chloride quasi-reference electrode separated by 1 mm of epoxy resin. Because the antimony surface is much larger than in the case of a microelectrode, a more delayed response can be expected in the unstirred case, if there is indeed an adhered layer on the surface. By stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with $R = 218.86~\ohm$. 
+To test this hypothesis, step response measurements were carried out in unstirred and stirred buffers. The indicator electrode in this case was a large ($d$ = 1 mm) antimony disc electrode, with a silver/silver-chloride quasi-reference electrode separated by 1 mm of epoxy resin. Because the antimony surface is much larger than in the case of a microelectrode, a more delayed response can be expected in the unstirred case, if there is indeed an adhered layer on the surface. By stirring the buffers when they are exchanged, the time constant should be the much lower RC time constant, with $R = 218.86~\ohm$. 
 
 \begin{figure}
 \centering
@@ -673,7 +687,7 @@ This means, that whatever the cause of the difference between the calculated and
 			\subsubsection{Linescans with the antimony microelectrode}
 
 Going further, deconvolution of the simplest SECM experiment, the deconvolution of linescans was attemped.
-The potentiometric cell included the same measuring and reference electrodes as in the previous sections.
+The potentiometric cell included the same indicator and reference electrodes as in the previous sections.
 A model system was built to perform the linescan on.
 In the system, a hemispherical pH gradient was created.
 The measured time constant ($\tau = 3.76$ s), implies a significant amount of imaging distortion if the equilibration period is only $t_e = 0.5$ s.
@@ -718,7 +732,8 @@ After deconvolution however, all of the linescans became similar to the equilibr
 \node[anchor=north west] at (rel axis cs:0.02,0.98) {B};
 \end{axis}
 \end{tikzpicture}
-\caption[Raw and deconvoluted SECM linescans with the antimony microelectrode.]{(A) Raw, and, (B) deconvoluted SECM linescans above the center of the target, at h = 100 $\upmu$m height, using three different equilibration periods: 0.5 s, (green), 1 s, (blue), and 5 s, (red).}
+\caption[Raw and deconvoluted SECM linescans with the antimony microelectrode.]{(A) Raw, and, (B) deconvoluted SECM linescans above the center of the target, at h = 100 $\upmu$m height, using three different equilibration periods: 0.5 s, (green), 1 s, (blue), and 5 s, (red).
+Slope of the cell employing the antimony micro-electrode was 44.6 mV / pH unit.}
 \label{fig:lines_pH}
 \end{figure}
 
@@ -740,7 +755,9 @@ Scans conducted with the antimony microelectrode.]{Parallel SECM images before (
 Scans conducted with the antimony microelectrode.
 Note the different potential scales.
 Deconvolution restores not only the shape of the concentration profile, but the magnitude of the peak as well.
-The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.}
+The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.
+Step size was 100 $\upmu$m on both axes.
+Slope of the cell employing the antimony micro-electrode was 44.6 mV / pH unit.}
 \label{fig:deconvolution}
 \end{figure}
 Next, four 2D SECM scans were performed identically (Fig. \ref{fig:deconvolution}A-D), with the meander scanning algorithm.
@@ -770,7 +787,8 @@ Considering the sensitivity of the tungsten/tungsten-oxide electrode, the differ
 
 \caption[SECM images before and after deconvolution.
 Scans conducted with the tungsten microelectrodes.]{SECM images before (A-B) and after (C-D) deconvolution with microelectrodes prepared from commercial d = 30 $\upmu$m tungsten microwire (A) and tungsten filaments with the same diameter, taken from a 100 W Tungsram incandescent lightbulb (B).
-The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.}
+The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:deconvolution_tungsten}
 \end{figure}
 
@@ -837,7 +855,8 @@ With 1.9 s, and 0.4 s, only 57.87\%, and 16.62\% of the total change occurs resp
 (B) Scan lines obtained after deconvolution.
 $t_e$ equilibration intervals were 4.9 s (blue), 1.9 s (green), and 0.4 s (red).
 Probe movement speed was 1000 $\upmu$m/s, and probe movement interval was 0.1 s.
-8 scan lines were recorded in each case, 4 forward, 4 reverse scans.}
+8 scan lines were recorded in each case, 4 forward, 4 reverse scans.
+Step size was 100 $\upmu$m.}
 \label{fig:lines}
 \end{figure}
 
@@ -874,7 +893,8 @@ Scanning started in the bottom left corner, scanlines were recorded horizontally
 The difference between the raw and the deconvoluted images (I-L).
 Green: after deconvolution, pMg$^{2+}$ increased, red: pMg$^{2+}$ decreased in the images.
 That is, based on the original images, [Mg$^{2+}$] concentration would have been over-, and underestimated at those specific coordinates, respectively.
-The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.}
+The raster scan pattern was used with the meander algorithm starting in the bottom left corner of the image.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:deconvoluted_meander}
 \end{figure}
 
@@ -895,7 +915,8 @@ Scanning started in the bottom left corner, scanlines were recorded horizontally
 The difference between the raw and the deconvoluted images (I-L).
 Green: after deconvolution, pMg$^{2+}$ increased, red: pMg$^{2+}$ decreased in the images.
 That is, based on the original images, [Mg$^{2+}$] concentration would have been over-, and underestimated at those specific coordinates, respectively.
-The raster scan pattern was used with the fast comb algorithm starting in the bottom left corner of the image.}
+The raster scan pattern was used with the fast comb algorithm starting in the bottom left corner of the image.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:deconvoluted_fastcomb}
 \end{figure}
 
@@ -919,7 +940,8 @@ After deconvolution, once again, the images resemble the radial geometry of the 
 Scans conducted with solid contact K$^+$ ion-selective micropipette.]
 {SECM images before (A-B) and after (C-D) deconvolution.
 Images recorded with the (A) meander algorithm and (B) fast comb algorithm.
-Scans conducted with solid contact K$^+$ ion-selective micropipette.}
+Scans conducted with solid contact K$^+$ ion-selective micropipette.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:deconvolution_potassium}
 \end{figure}
 
@@ -948,9 +970,11 @@ A different conclusion can be drawn based on the raw, and the deconvoluted image
 \includegraphics[width=0.3\textwidth]{img/carbon_steel/cs_cut.jpg}
 
 \caption[Raw, and deconvoluted SECM image and microphoto of a corroding carbon-steel sample polarized anodically.]{Raw (A), and deconvoluted (B) SECM image and microphoto (C) of a corroding carbon-steel sample polarized anodically with a current density of 10 mA/cm$^2$.
-Measuring electrode was an antimony pH microelectrode.
+Indicator electrode was an antimony pH microelectrode.
 Potential was measured against an Ag/AgCl/3M KCl.
-Recorded $h$ = 100 $\upmu$m above the surface with probe movement speed of 1000 $\upmu$m/s, equilibration interval 0.4 s.}
+Slope of the cell employing the antimony micro-electrode was 45.1 mV / pH unit.
+Recorded $h$ = 100 $\upmu$m above the surface with probe movement speed of 1000 $\upmu$m/s, equilibration interval 0.4 s.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:carbon_steel}
 \end{figure}
 
@@ -971,7 +995,8 @@ To explore this possibility, similarly to the step response deconvolution, I dec
 \caption[Deconvolutions of the image in Fig. \ref{fig:deconvolution_potassium}A with different assumed $RC$ time-constants, including the measured one.]{Deconvolutions of the image in Fig. \ref{fig:deconvolution_potassium}A with different assumed $RC$ time-constants, including the measured one.
 The measurement was done with a potassium ion-selective electrode.
 The measured time constant was $\tau = 2.38$ s.
-Figure shows the raw image (A), and deconvolutions with assumed time-constants $\tau$ = 1.39 s (B), \textbf{$\tau$ = 2.38 s (C)}, $\tau$ = 7.80 s (D).}
+Figure shows the raw image (A), and deconvolutions with assumed time-constants $\tau$ = 1.39 s (B), \textbf{$\tau$ = 2.38 s (C)}, $\tau$ = 7.80 s (D).
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:blind}
 \end{figure}
 
@@ -997,20 +1022,20 @@ A more advanced method would be a statistical approach, where one would try to d
 
 During galvanic corrosion, ions are being released from the anode.
 The measured potential of an ion selective microelectrode is thought to depend only on the activity of the primary ion.
-However, an electric field is also formed as a result of the potential difference between the surfaces of the galvanic pair, which has a direct influence on the potential of the measuring microelectrode, as it is depicted in Fig. \ref{fig:field}. The measured potential is the sum of these two contributions:
+However, an electric field is also formed as a result of the potential difference between the surfaces of the galvanic pair, which has a direct influence on the potential of the indicator microelectrode, as it is depicted in Fig. \ref{fig:field}. The measured potential is the sum of these two contributions:
 
 \begin{equation}
 \Delta E=E_M-E_R + (\phi_M - \phi_R)
 \label{eq:potential}
 \end{equation}
 
-where $\Delta E$ is the measured potential difference, $E_M$ and $E_R$ is the potential of the measuring and the reference electrode, and $\phi_M$ and $\phi_R$ are the local potentials in the electric field at the measuring and reference electrodes, respectively.
+where $\Delta E$ is the measured potential difference, $E_M$ and $E_R$ is the potential of the indicator\footnote{\textbf{M} for measuring electrode, which is \emph{indicator electrode} according to the IUPAC recommendation.} and the reference electrode, and $\phi_M$ and $\phi_R$ are the local potentials in the electric field at the indicator and reference electrodes, respectively.
 
 \begin{figure}[b]
 \centering
 % trim = top left bottom right
 \includegraphics[width=0.6\textwidth]{img/field/field.eps}
-\caption[An electric field is formed between the surfaces of the galvanic couple.]{An electric field is formed between the surfaces of the galvanic couple. The potential difference between the measuring ($\phi_M$) and reference ($\phi_R$) electrodes is added to the Nernstian potential associated with the activity of the primary ion.}
+\caption[An electric field is formed between the surfaces of the galvanic couple.]{An electric field is formed between the surfaces of the galvanic couple. The potential difference between the indicator ($\phi_M$) and reference ($\phi_R$) electrodes is added to the Nernstian potential associated with the activity of the primary ion.}
 \label{fig:field}
 \end{figure}
 
@@ -1136,7 +1161,8 @@ In Fig. \ref{fig:2d}B the measured values are in the linear range of the ISME, a
 \centering
 % trim = top left bottom right
 \includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012501.eps}\includegraphics[trim = 10mm 20mm 0mm 10mm, clip, width=\s\textwidth, angle=-90]{img/field/17012503_deconvoluted.eps}
-\caption[2D Mg$^{2+}$ ion distributions above the AZ63 wire.]{2D Mg$^{2+}$ ion distributions above the AZ63 wire while: (A) galvanically connected to Fe and (B) immediately after ceasing electrical connection between the two metallic materials. Tip-sample distance: 100 $\upmu$m.}
+\caption[2D Mg$^{2+}$ ion distributions above the AZ63 wire.]{2D Mg$^{2+}$ ion distributions above the AZ63 wire while: (A) galvanically connected to Fe and (B) immediately after ceasing electrical connection between the two metallic materials. Tip-sample distance: 100 $\upmu$m.
+Step size was 100 $\upmu$m on both axes.}
 \label{fig:2d}
 \end{figure}
 
